@@ -20,7 +20,33 @@
  * SOFTWARE.
  */
 
-@import (css) "../node_modules/modern-normalize/modern-normalize.css";
+#mixin {
+    .icon(@svg) {
+        background-color: transparent;
+        background-image: data-uri(@svg);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: calc(100% - 4px);
+        border: none;
+        display: inline-block;
+        filter: invert(1) brightness(0.4);
+        font-size: 0;
+        height: 1.5rem;
+        max-height: 1.5rem;
+        max-width: 1.5rem;
+        min-height: 1.5rem;
+        min-width: 1.5rem;
+        outline: none;
+        opacity: 0.8;
+        padding: 0;
+        width: 1.5rem;
 
-@import "less/mixin/icon";
-@import "less/component/icon";
+        .dark & {
+            filter: invert(1);
+        }
+
+        &:hover {
+            opacity: 0.4;
+        }
+    }
+}
