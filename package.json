@@ -1,0 +1,40 @@
+{
+    "name": "@gocom/textpattern-project-template",
+    "version": "0.1.0",
+    "description": "Theme for Stable Diffusion Web UI",
+    "repository": {
+        "url": "https://github.com/gocom/sd-web-ui-bit-theme.git"
+    },
+    "author": {
+        "name": "Jukka Svahn",
+        "url": "https://github.com/gocom"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "css-loader": "^6.7.3",
+        "css-minimizer-webpack-plugin": "^4.2.2",
+        "file-loader": "^6.2.0",
+        "html-webpack-plugin": "^5.5.0",
+        "ignore-emit-webpack-plugin": "^2.0.6",
+        "less": "^4.1.3",
+        "less-loader": "^11.1.0",
+        "lintspaces-cli": "^0.8.0",
+        "mini-css-extract-plugin": "^2.7.2",
+        "modern-normalize": "^1.1.0",
+        "postcss-less": "^6.0.0",
+        "stylelint": "^15.2.0",
+        "stylelint-config-standard": "^30.0.1",
+        "terser-webpack-plugin": "^5.3.6",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1"
+    },
+    "scripts": {
+        "lint": "npm run lint:json && npm run lint:css",
+        "lint:css": "stylelint 'src/**/*.{css,less}'",
+        "lint:json": "lintspaces -e .editorconfig 'src/**/*.json' '.*.json' '*.json'",
+        "test": "npm run lint",
+        "build": "webpack",
+        "watch": "npm run build -- --watch"
+    },
+    "private": true
+}
