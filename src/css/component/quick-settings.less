@@ -26,24 +26,14 @@
 #quicksettings {
     background: linear-gradient(0deg, var(--quick-settings-bg-color) 0%, transparent 100%);;
     border-radius: 0 !important;
-    border-bottom: 1px solid var(--panel-border-color);
+    border-bottom: 1px solid var(--quick-settings-border-color);
     flex-wrap: nowrap;
     gap: var(--margin-m);
     margin: calc(var(--padding-xl) * -1) calc(var(--padding-xl) * -1) 0 calc(var(--padding-xl) * -1);
-    min-height: 121px;
+    min-height: calc(var(--quick-settings-height) + 1px);
+    outline: none;
     padding: calc(var(--padding-m) + var(--padding-xl)) var(--padding-xl) var(--padding-xl) var(--padding-xl);
     width: auto !important;
-
-    select {
-        background-color: var(--input-bg-color);
-        border: none !important;
-        cursor: pointer;
-        text-overflow: ellipsis;
-
-        &:hover {
-            background-color: var(--input-bg-color) !important;
-        }
-    }
 
     > div,
     > fieldset {
@@ -53,9 +43,9 @@
         flex-shrink: 1;
     }
 
-    .gr-button-tool:hover {
+    /*.gr-button-tool:hover {
         background-color: transparent !important;
-    }
+    }*/
 
     label > span.block {
         background: transparent;
@@ -77,7 +67,8 @@
 /**
  * Model loading bar.
  */
-#setting_sd_model_checkpoint {
+#setting_sd_model_checkpoint,
+#setting_sd_vae {
     .wrap.svelte-5usjvi,
     .meta-text-center,
     .meta-text {
@@ -86,11 +77,11 @@
         display: flex;
         height: 2px;
         justify-content: center;
-        left: 0;
+        left: var(--border-radius-xs);
         position: absolute;
-        right: 0;
+        right: var(--border-radius-xs);
         top: auto;
-        width: 100%;
+        width: auto;
 
         > * {
             background: var(--primary-color-active);

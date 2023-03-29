@@ -21,16 +21,19 @@
  */
 
 /**
- * Logo.
+ * Inputs.
  */
-#tabs > div:first-child::before {
-    background: var(--logo), radial-gradient(142% 91% at -6% 74%, var(--logo-bg-color) 1%, transparent 100%);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: auto 40px, auto auto;
-    content: "";
-    display: block;
-    height: var(--quick-settings-height);
-    margin: calc(-1 * var(--padding-xl)) 0 0 0;
-    width: 100%;
+.dark .gr-input,
+.gr-input {
+    #mixin.input();
+}
+
+select,
+select.gr-input,
+.dark select.gr-input {
+    #mixin.select();
+}
+
+::placeholder {
+    color: var(--input-placeholder-text-color);
 }

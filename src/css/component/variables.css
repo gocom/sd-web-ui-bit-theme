@@ -60,6 +60,7 @@
     --input-border-color: #2f2f2f;
     --input-border-color-focus: #444444;
     --input-border-color-hover: #444444;
+    --input-placeholder-text-color: #9b9a9a;
     --secondary-text-color: #cbcbcb;
     --sidenote-text-color: #a4a4a4;
     --panel-bg-color: #1f1f1f;
@@ -71,6 +72,7 @@
     --secondary-panel-bg-color: #363636;
     --elevated-panel-bg-color: #424242;
     --quick-settings-bg-color: #000;
+    --quick-settings-border-color: #2f2f2f;
     /*ENDCOLORPICKERS*/
     --base-font-size: 14;
     --base-border-radius: 3;
@@ -139,6 +141,7 @@
     --gallery-bg: repeating-conic-gradient(rgba(164, 189, 247, 0.14) 0% 25%, transparent 0% 50%) 50% / 20px 20px;
 
     --column-main-width: 840px;
+    --quick-settings-height: 120px;
 }
 
 .dark,

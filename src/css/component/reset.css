@@ -28,6 +28,7 @@
 .dark .gr-button,
 .dark .gr-button-lg,
 .dark .gr-box,
+.dark .gr-form,
 .dark .gr-panel,
 .dark .gr-button-tool,
 .dark .dark\:bg-gray-700,
@@ -40,4 +41,17 @@
 #quicksettings,
 #tabs .tabitem .gr-compact {
     background-color: transparent;
+}
+
+/**
+ * Reset box.
+ */
+.gr-box {
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    position: relative;
 }
