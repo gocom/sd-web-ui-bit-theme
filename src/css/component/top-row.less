@@ -21,37 +21,32 @@
  */
 
 /**
- * Variables.
+ * Top row.
  */
-@import (css) "css/component/variables.css";
+#txt2img_toprow,
+#img2img_toprow {
+    border-radius: 0 !important;
+    padding: 0 !important;
 
-/**
- * Libraries.
- */
-@import (css) "../node_modules/modern-normalize/modern-normalize.css";
+    .gr-block.gr-box,
+    .gr-block.gr-box {
+        padding: 0 !important;
+    }
+}
 
-/**
- * Mixins.
- */
-@import "css/mixin/icon";
+#txt2img_prompt_container,
+#img2img_prompt_container {
+    gap: var(--margin-s);
+    justify-content: space-between;
+    margin: 0;
+}
 
-/**
- * Reset.
- */
-@import (css) "css/component/reset.css";
+#txt2img_actions_column,
+#img2img_actions_column {
+    margin: 0 !important;
+}
 
-/**
- * Components.
- */
-@import "css/component/gradio/container";
-@import "css/component/civitai";
-@import "css/component/container";
-@import "css/component/context-menu";
-@import "css/component/favicon";
-@import "css/component/icon";
-@import "css/component/logo";
-@import "css/component/prompt";
-@import "css/component/quick-settings";
-@import "css/component/sidebar";
-@import "css/component/tabs";
-@import "css/component/top-row";
+#interrogate_col {
+    margin: 0 !important;
+    min-width: 112px !important;
+}

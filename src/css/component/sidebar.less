@@ -21,37 +21,44 @@
  */
 
 /**
- * Variables.
+ * Sidebar.
  */
-@import (css) "css/component/variables.css";
+#tabs > div:first-child {
+    background: var(--panel-bg-color);
+    border: 0;
+    bottom: 0;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    left: 0;
+    margin: 0;
+    overflow: auto;
+    padding: var(--padding-xl) 0;
+    position: fixed;
+    right: auto;
+    top: 0;
+    width: 200px;
+    z-index: 1000;
 
-/**
- * Libraries.
- */
-@import (css) "../node_modules/modern-normalize/modern-normalize.css";
+    > button {
+        border: 0 !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        overflow: hidden;
+        padding: var(--padding-m) var(--padding-xl);
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
-/**
- * Mixins.
- */
-@import "css/mixin/icon";
+        &:hover {
+            background: var(--primary-color) !important;
+            border: 0 !important;
+            color: var(--primary-text-color) !important;
+        }
 
-/**
- * Reset.
- */
-@import (css) "css/component/reset.css";
-
-/**
- * Components.
- */
-@import "css/component/gradio/container";
-@import "css/component/civitai";
-@import "css/component/container";
-@import "css/component/context-menu";
-@import "css/component/favicon";
-@import "css/component/icon";
-@import "css/component/logo";
-@import "css/component/prompt";
-@import "css/component/quick-settings";
-@import "css/component/sidebar";
-@import "css/component/tabs";
-@import "css/component/top-row";
+        &.bg-white,
+        &.bg-white:hover {
+            background: var(--panel-item-bg-color-active) !important;
+            border: 0 !important;
+        }
+    }
+}

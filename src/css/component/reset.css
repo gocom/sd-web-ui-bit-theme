@@ -21,37 +21,23 @@
  */
 
 /**
- * Variables.
+ * Reset background colors.
  */
-@import (css) "css/component/variables.css";
-
-/**
- * Libraries.
- */
-@import (css) "../node_modules/modern-normalize/modern-normalize.css";
-
-/**
- * Mixins.
- */
-@import "css/mixin/icon";
-
-/**
- * Reset.
- */
-@import (css) "css/component/reset.css";
-
-/**
- * Components.
- */
-@import "css/component/gradio/container";
-@import "css/component/civitai";
-@import "css/component/container";
-@import "css/component/context-menu";
-@import "css/component/favicon";
-@import "css/component/icon";
-@import "css/component/logo";
-@import "css/component/prompt";
-@import "css/component/quick-settings";
-@import "css/component/sidebar";
-@import "css/component/tabs";
-@import "css/component/top-row";
+.dark,
+.dark .bg-white,
+.dark .gr-button,
+.dark .gr-button-lg,
+.dark .gr-box,
+.dark .gr-panel,
+.dark .gr-button-tool,
+.dark .dark\:bg-gray-700,
+.dark .dark\:bg-gray-950,
+.dark .bg-gray-700,
+.dark .bg-gray-950,
+.dark fieldset span.text-gray-500,
+.dark .gr-block.gr-box span.text-gray-500,
+.dark label.block span,
+#quicksettings,
+#tabs .tabitem .gr-compact {
+    background-color: transparent;
+}

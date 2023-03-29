@@ -1,0 +1,147 @@
+/*
+ * Copyright (C) 2023 Jukka Svahn
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+/*THEME VARIABLES*/
+:root, *, quickcss_target {
+    --body-bg-color: #141414;
+    --body-text-color: #ececec;
+    --link-color: #436e81;
+    --link-color-active: #436e81;
+    --link-color-focus: #7b9dab;
+    --link-color-hover: #6396ad;
+    --primary-color: #4e366e;
+    --primary-color-active: #5e4381;
+    --primary-color-hover: #5d4d73;
+    --primary-border-color: #412e5a;
+    --primary-border-color-focus: #554669;
+    --primary-border-color-hover: #554669;
+    --primary-text-color: #ececec;
+    --error-bg-color: #592d2d;
+    --error-bg-color-focus: #592d2d;
+    --error-bg-color-hover: #592d2d;
+    --error-border-color: #522b2b;
+    --error-border-color-focus: #522b2b;
+    --error-border-color-hover: #522b2b;
+    --error-text-color: #966969;
+    --error-text-color-hover: #b68585;
+    --prompt-text-color: #beda8e;
+    --prompt-text-color-hover: #beda8e;
+    --prompt-border-color: #beda8e;
+    --prompt-border-color-hover: #beda8e;
+    --prompt-negative-text-color: #e8cdcf;
+    --prompt-negative-text-color-hover: #e8cdcf;
+    --prompt-negative-border-color: #e8cdcf;
+    --prompt-negative-border-color-hover: #e8cdcf;
+    --input-text-color: #ececec;
+    --input-text-color-focus: #ececec;
+    --input-text-color-hover: #ececec;
+    --input-bg-color: #1a1a1a;
+    --input-bg-color-focus: #1a1a1a;
+    --input-bg-color-hover: #1a1a1a;
+    --input-border-color: #2f2f2f;
+    --input-border-color-focus: #444444;
+    --input-border-color-hover: #444444;
+    --secondary-text-color: #cbcbcb;
+    --sidenote-text-color: #a4a4a4;
+    --panel-bg-color: #1f1f1f;
+    --panel-border-color: #9b9a9a;
+    --panel-item-bg-color: #2f2f2f;
+    --panel-item-bg-color-active: #3b3a3a;
+    --panel-item-bg-color-focus: #3b3a3a;
+    --panel-item-bg-color-hover: #3b3a3a;
+    --secondary-panel-bg-color: #363636;
+    --elevated-panel-bg-color: #424242;
+    --quick-settings-bg-color: #000;
+    /*ENDCOLORPICKERS*/
+    --base-font-size: 14;
+    --base-border-radius: 3;
+    --base-margin: 4;
+    --base-padding: 4;
+    /*BREAKFILEREADER*/
+
+    /**
+     * Masks.
+     */
+    --mask-bg-color: rgba(0, 0, 0, 0.45);
+
+    /**
+     * Context menus.
+     */
+    --context-menu-bg-color: #000;
+    --context-menu-border-color: rgba(255, 255, 255, 0.35);
+    --context-menu-item-separator-color: rgba(255, 255, 255, 0.15);
+    --context-menu-shadow-color: rgba(0, 0, 0, 0.35);
+    --context-menu-item-text-color: #ececec;
+    --context-menu-item-text-color-hover: #fff;
+    --context-menu-item-bg-color-hover: #5d4d73;
+
+    --primary-box-shadow:
+        0 6px 16px 0 rgba(0, 0, 0, 0.08),
+        0 3px 6px -4px rgba(0, 0, 0, 0.12),
+        0 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+    --secondary-box-shadow:
+        0 6px 16px 0 rgba(0, 0, 0, 0.08),
+        0 3px 6px -4px rgba(0, 0, 0, 0.12),
+        0 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+    --body-font: 16px/1.35 Roboto, Helvetica, sans-serif;
+    --font-size-s: calc(1px * var(--base-font-size) - 2px);
+    --font-size-m: calc(1px * var(--base-font-size));
+    --font-size-l: calc(1px * var(--base-font-size) + 2px);
+    --font-size-xl: calc(1px * var(--base-font-size) + 4px);
+
+    --border-radius-xs: calc(1px * var(--base-border-radius));
+    --border-radius-s: calc(2px * var(--base-border-radius));
+    --border-radius-m: calc(3px * var(--base-border-radius));
+    --border-radius-l: calc(4px * var(--base-border-radius));
+
+    --margin-xxs: calc(1px * var(--base-margin));
+    --margin-xs: calc(2px * var(--base-margin));
+    --margin-s: calc(3px * var(--base-margin));
+    --margin-m: calc(4px * var(--base-margin));
+    --margin-l: calc(5px * var(--base-margin));
+    --margin-xl: calc(6px * var(--base-margin));
+    --margin-xxl: calc(8px * var(--base-margin));
+
+    --padding-xxxs: calc(1px * var(--base-padding) - 2px);
+    --padding-xxs: calc(1px * var(--base-padding));
+    --padding-xs: calc(2px * var(--base-padding));
+    --padding-s: calc(3px * var(--base-padding));
+    --padding-m: calc(4px * var(--base-padding));
+    --padding-l: calc(5px * var(--base-padding));
+    --padding-xl: calc(6px * var(--base-padding));
+    --padding-xxl: calc(8px * var(--base-padding));
+
+    --logo: none;
+    --favicon: none;
+
+    --logo-bg-color: #ff004936;
+    --gallery-bg: repeating-conic-gradient(rgba(164, 189, 247, 0.14) 0% 25%, transparent 0% 50%) 50% / 20px 20px;
+
+    --column-main-width: 840px;
+}
+
+.dark,
+.dark * {
+    /** @TODO implement separate dark and light styles */
+}

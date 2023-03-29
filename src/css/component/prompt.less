@@ -21,37 +21,45 @@
  */
 
 /**
- * Variables.
+ * Prompt fields.
  */
-@import (css) "css/component/variables.css";
+#txt2img_prompt,
+#img2img_prompt,
+#txt2img_neg_prompt,
+#img2img_neg_prompt {
+    textarea {
+        background: var(--input-bg-color);
+        border: 1px solid var(--input-border-color);
+        border-radius: var(--border-radius-xs);
+        height: 100px !important;
+        margin: 0;
+        overflow-x: hidden !important;
+        overflow-y: scroll !important;
+    }
+}
 
-/**
- * Libraries.
- */
-@import (css) "../node_modules/modern-normalize/modern-normalize.css";
+#txt2img_prompt,
+#img2img_prompt {
+    textarea {
+        color: var(--prompt-text-color);
 
-/**
- * Mixins.
- */
-@import "css/mixin/icon";
+        &:hover,
+        &:focus {
+            border-color: var(--prompt-border-color-hover);
+            color: var(--prompt-text-color-hover);
+        }
+    }
+}
 
-/**
- * Reset.
- */
-@import (css) "css/component/reset.css";
+#txt2img_neg_prompt,
+#img2img_neg_prompt {
+    textarea {
+        color: var(--prompt-negative-text-color);
 
-/**
- * Components.
- */
-@import "css/component/gradio/container";
-@import "css/component/civitai";
-@import "css/component/container";
-@import "css/component/context-menu";
-@import "css/component/favicon";
-@import "css/component/icon";
-@import "css/component/logo";
-@import "css/component/prompt";
-@import "css/component/quick-settings";
-@import "css/component/sidebar";
-@import "css/component/tabs";
-@import "css/component/top-row";
+        &:hover,
+        &:focus {
+            border-color: var(--prompt-negative-border-color-hover);
+            color: var(--prompt-negative-text-color-hover);
+        }
+    }
+}

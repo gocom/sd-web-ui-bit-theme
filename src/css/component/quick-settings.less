@@ -1,0 +1,108 @@
+/*
+ * Copyright (C) 2023 Jukka Svahn
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+/**
+ * Quick settings header.
+ */
+#quicksettings {
+    background: linear-gradient(0deg, var(--quick-settings-bg-color) 0%, transparent 100%);;
+    border-radius: 0 !important;
+    border-bottom: 1px solid var(--panel-border-color);
+    flex-wrap: nowrap;
+    gap: var(--margin-m);
+    margin: calc(var(--padding-xl) * -1) calc(var(--padding-xl) * -1) 0 calc(var(--padding-xl) * -1);
+    min-height: 121px;
+    padding: calc(var(--padding-m) + var(--padding-xl)) var(--padding-xl) var(--padding-xl) var(--padding-xl);
+    width: auto !important;
+
+    select {
+        background-color: var(--input-bg-color);
+        border: none !important;
+        cursor: pointer;
+        text-overflow: ellipsis;
+
+        &:hover {
+            background-color: var(--input-bg-color) !important;
+        }
+    }
+
+    > div,
+    > fieldset {
+        height: min-content;
+        margin: auto 0 !important;
+        min-width: 0 !important;
+        flex-shrink: 1;
+    }
+
+    .gr-button-tool:hover {
+        background-color: transparent !important;
+    }
+
+    label > span.block {
+        background: transparent;
+        border: 0;
+        border-radius: 0 !important;
+        bottom: 100%;
+        color: var(--body-text-color);
+        font: inherit;
+        left: auto;
+        margin: 0;
+        padding: 0 0 var(--padding-xxxs) 0;
+        position: absolute;
+        right: auto;
+        top: auto;
+        width: 100%;
+    }
+}
+
+/**
+ * Model loading bar.
+ */
+#setting_sd_model_checkpoint {
+    .wrap.svelte-5usjvi,
+    .meta-text-center,
+    .meta-text {
+        bottom: 0;
+        color: inherit;
+        display: flex;
+        height: 2px;
+        justify-content: center;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: auto;
+        width: 100%;
+
+        > * {
+            background: var(--primary-color-active);
+        }
+    }
+}
+
+/**
+ * Refresh icon.
+ */
+button#refresh_sd_vae,
+button#refresh_sd_model_checkpoint {
+    #mixin.icon("../../asset/icon/fontawesome/arrows-rotate.svg");
+    margin: auto 0 !important;
+}
