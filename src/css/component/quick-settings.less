@@ -66,25 +66,59 @@
 
 /**
  * Model loading bar.
+ *
+ * [1] Default styles use important
  */
 #setting_sd_model_checkpoint,
 #setting_sd_vae {
-    .wrap.svelte-5usjvi,
-    .meta-text-center,
-    .meta-text {
+    > .wrap {
+        align-items: center;
+        background: transparent;
+        border-radius: var(--border-radius-s);
         bottom: 0;
         color: inherit;
         display: flex;
-        height: 2px;
-        justify-content: center;
-        left: var(--border-radius-xs);
+        flex-direction: row;
+        gap: var(--padding-m);
+        height: auto;
+        justify-content: space-between;
+        left: 0;
+        overflow: hidden;
+        padding: 0 var(--padding-xs);
+        pointer-events: none;
         position: absolute;
-        right: var(--border-radius-xs);
-        top: auto;
+        right: 0;
+        top: 0;
         width: auto;
+        z-index: 50;
 
-        > * {
-            background: var(--primary-color-active);
+        .z-20,
+        .m-12 {
+            display: none;
+        }
+
+        .meta-text {
+            background: var(--input-border-color);
+            border-radius: var(--border-radius-s);
+            color: inherit;
+            display: block !important; // [1]
+            font: inherit;
+            font-size: var(--font-size-s);
+            line-height: inherit;
+            margin: 0 0 0 auto;
+            padding: var(--padding-xxxs) var(--padding-xs);
+            position: static;
+            z-index: 20;
+        }
+
+        > .eta-bar {
+            background: var(--primary-color-active) !important;
+            inset: 0;
+            opacity: 0.5;
+            position: absolute;
+            transition: width 0.15s ease;
+            transform-origin: left;
+            z-index: 10;
         }
     }
 }

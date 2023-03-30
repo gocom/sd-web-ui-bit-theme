@@ -20,11 +20,16 @@
  * SOFTWARE.
  */
 
+/**
+ * Form mixins.
+ *
+ * [1] Uses important in the default styles.
+ */
 #mixin {
     .input() {
         background-color: var(--input-bg-color);
         border: 1px solid var(--input-border-color);
-        border-radius: var(--border-radius-xs);
+        border-radius: var(--border-radius-s) !important; // [1]
         color: var(--input-text-color);
         cursor: pointer;
         padding: var(--padding-xxs) var(--padding-xs);
