@@ -21,40 +21,43 @@
  */
 
 /**
- * Variables.
+ * Buttons.
  */
-@import (css) "css/component/variables.css";
+.gr-button-lg,
+.gr-button,
+.dark .gr-button,
+.dark .gr-button,
+.dark .gr-button-gray-100,
+.dark .gr-button-gray-200,
+.dark .gr-button-gray-300 {
+    align-items: center;
+    background: var(--button-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: var(--border-radius-m);
+    box-shadow: var(--primary-box-shadow);
+    display: inline-flex;
+    font: inherit;
+    justify-content: center;
+    line-height: inherit;
+    padding: var(--padding-s) var(--padding-m);
+    text-align: center;
+}
 
-/**
- * Libraries.
- */
-@import (css) "../node_modules/modern-normalize/modern-normalize.css";
+.gr-button-primary,
+.dark .gr-button-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-border-color);
+    color: var(--primary-text-color);
 
-/**
- * Mixins.
- */
-@import "css/mixin/form";
-@import "css/mixin/icon";
+    &:hover {
+        background: var(--primary-color-hover);
+        border-color: var(--primary-border-color-hover);
+        color: var(--primary-text-color-hover);
+    }
 
-/**
- * Reset.
- */
-@import (css) "css/component/reset.css";
-
-/**
- * Components.
- */
-@import "css/component/gradio/button";
-@import "css/component/gradio/container";
-@import "css/component/gradio/input";
-@import "css/component/civitai";
-@import "css/component/container";
-@import "css/component/context-menu";
-@import "css/component/favicon";
-@import "css/component/icon";
-@import "css/component/logo";
-@import "css/component/prompt";
-@import "css/component/quick-settings";
-@import "css/component/sidebar";
-@import "css/component/tabs";
-@import "css/component/top-row";
+    &:focus {
+        background: var(--primary-color-focus);
+        border-color: var(--primary-border-color-focus);
+        color: var(--primary-text-color-focus);
+    }
+}
