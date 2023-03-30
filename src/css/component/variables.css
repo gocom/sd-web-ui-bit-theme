@@ -31,7 +31,7 @@
     --primary-color: #4e366e;
     --primary-color-active: #5e4381;
     --primary-color-hover: #5d4d73;
-    --primary-border-color: #412e5a;
+    --primary-border-color: #573d78;
     --primary-border-color-focus: #554669;
     --primary-border-color-hover: #554669;
     --primary-text-color: #ececec;
@@ -61,12 +61,19 @@
     --input-border-color-focus: #444444;
     --input-border-color-hover: #444444;
     --input-placeholder-text-color: #9b9a9a;
+    --button-text-color: #ececec;
+    --button-text-color-focus: #ececec;
+    --button-text-color-hover: #ececec;
     --button-bg-color: #5a4d67;
     --button-bg-color-focus: #7a6a8a;
     --button-bg-color-hover: #7a6a8a;
     --button-border-color: #6b5c7a;
     --button-border-color-focus: #887898;
     --button-border-color-hover: #887898;
+    --scrollbar-track-bg-color: #1a1a1a;
+    --scrollbar-track-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+    --scrollbar-thumb-bg-color: #444444;
+    --scrollbar-width: 1em;
     --secondary-text-color: #cbcbcb;
     --sidenote-text-color: #a4a4a4;
     --panel-bg-color: #1f1f1f;
@@ -79,6 +86,8 @@
     --elevated-panel-bg-color: #424242;
     --quick-settings-bg-color: #000;
     --quick-settings-border-color: #2f2f2f;
+    --selection-bg-color: #000;
+    --selection-text-color: #fff;
     /*ENDCOLORPICKERS*/
     --base-font-size: 14;
     --base-border-radius: 3;
