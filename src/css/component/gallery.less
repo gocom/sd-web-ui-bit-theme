@@ -1,0 +1,237 @@
+/*
+ * Copyright (C) 2023 Jukka Svahn
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+/**
+ * Image results.
+ *
+ * [1] Default styles use important
+ * [2] Inline styles
+ */
+#img2img_gallery_container,
+#txt2img_gallery_container {
+    background: var(--gallery-bg);
+    border-radius: var(--border-radius-m) !important; // [1]
+    border: 1px solid var(--input-border-color);
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    user-select: none;
+
+    .livePreview {
+        backdrop-filter: var(--mask-backdrop-filter);
+        background: var(--gallery-bg);
+        bottom: 0;
+        height: auto !important; // [2]
+        left: 0;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: auto !important; // [2]
+
+        img {
+            object-fit: contain;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    #img2img_gallery,
+    #txt2img_gallery {
+        background: transparent;
+        border-radius: 0 !important; // [1]
+        border: none;
+        height: auto;
+        overflow: visible;
+        overflow-y: auto;
+        padding: 0;
+        position: static;
+
+        svg {
+            display: none;
+        }
+
+        img {
+            object-fit: scale-down;
+        }
+
+        .p-2 {
+            padding: 0;
+        }
+
+        > .overflow-y-auto {
+            padding: var(--padding-m);
+        }
+
+        .gallery-item {
+            aspect-ratio: 1 / 1;
+            background-color: transparent;
+            border-radius: var(--border-radius-m);
+            box-shadow: 0 0 0 1px var(--input-border-color) !important;
+            margin: 0 !important;
+            object-fit: fill;
+            outline: none;
+            overflow: hidden;
+            position: static;
+
+            &:hover {
+                box-shadow: 0 0 0 1px var(--primary-border-color-hover) !important;
+            }
+
+            &:focus {
+                box-shadow: 0 0 0 1px var(--primary-border-color-focus) !important;
+            }
+
+            &\!ring-orange-500 {
+                box-shadow: 0 0 0 3px var(--primary-border-color) !important; // [1]
+
+                &:hover {
+                    box-shadow: 0 0 0 1px var(--primary-border-color-hover) !important;
+                }
+
+                &:focus {
+                    box-shadow: 0 0 0 1px var(--primary-border-color-focus) !important;
+                }
+            }
+        }
+
+        > div > .grid {
+            gap: var(--margin-m);
+
+            > .gallery-item {
+                background: var(--mask-bg-color);
+                height: 100%;
+                width: 100%;
+
+                &:focus
+                &:hover {
+                    box-shadow: 0 0 0 1px var(--primary-border-color-hover) !important;
+                }
+            }
+        }
+
+        .backdrop-blur {
+            backdrop-filter: var(--mask-backdrop-filter);
+            background: var(--mask-bg-color);
+            bottom: 0;
+            gap: var(--margin-m) !important; // [1]
+            justify-content: space-between;
+            height: 100%;
+            left: 0;
+            max-height: 100%;
+            min-height: 0;
+            min-width: 0;
+            overflow-y: auto;
+            padding: var(--padding-m);
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+
+            div:first-child {
+                bottom: auto;
+                gap: 0;
+                left: auto;
+                position: absolute;
+                right: var(--margin-xs);
+                top: var(--margin-xs);
+
+                button {
+                    #mixin.icon("../../asset/icon/fontawesome/circle-xmark.svg");
+                }
+            }
+
+            > img {
+                flex-shrink: 1;
+                cursor: pointer;
+                height: 100% !important;
+                margin: auto;
+                max-height: 100%;
+                min-height: 96px;
+                object-fit: contain;
+                user-select: none;
+                width: auto;
+            }
+
+            div:last-child {
+                align-content: flex-start;
+                align-items: center;
+                display: flex;
+                flex-grow: 1;
+                flex-wrap: wrap;
+                font-size: inherit;
+                gap: var(--padding-s);
+                height: auto !important;
+                justify-content: flex-start;
+                margin: 0;
+                padding: 0;
+                max-height: none;
+                min-height: fit-content;
+                overflow: visible;
+                position: static;
+
+                .gallery-item {
+                    height: 36px;
+                    width: 36px;
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Progress bar.
+ */
+.progressDiv,
+.dark .progressDiv {
+    background: var(--input-bg-color) !important;
+    border-radius: var(--border-radius-m) !important;
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    min-height: var(--margin-xl);
+    width: auto !important;
+
+    .progress {
+        align-items: center;
+        background: var(--primary-color);
+        border-radius: 0;
+        box-sizing: border-box;
+        color: var(--primary-text-color);
+        display: flex;
+        font: inherit;
+        font-size: var(--font-size-m);
+        height: auto;
+        justify-content: flex-start;
+        line-height: 1;
+        margin: 0;
+        max-height: 100%;
+        min-height: var(--margin-xl);
+        padding: 0 var(--padding-xs);
+        position: static;
+        overflow: visible;
+        text-align: right;
+        white-space: nowrap;
+    }
+}
