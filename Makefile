@@ -1,20 +1,21 @@
-.PHONY: help build clean lint shell test
+.PHONY: help build clean lint shell test watch
 
 NODE_ENV ?= development
 HOST_UID != id -u
 HOST_GID != id -g
 COMPOSE = NODE_ENV=$(NODE_ENV) HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) docker-compose
 NODE = $(COMPOSE) run --rm node
+NPM = $(NODE) npm
 
 all: help
 
 install: build
 
 node_modules:
-	$(NODE) npm install
+	$(NPM) install
 
 build: node_modules
-	$(NODE) npm run build
+	$(NPM) run build
 
 clean:
 	$(NODE) rm -rf build dist
@@ -23,10 +24,13 @@ shell:
 	$(NODE) bash
 
 test:
-	$(NODE) npm run test
+	$(NPM) run test
 
 lint:
-	$(NODE) npm run lint
+	$(NPM) run lint
+
+watch:
+	$(NPM) run watch
 
 help:
 	@echo "Manage project"
@@ -53,4 +57,7 @@ help:
 	@echo ""
 	@echo "  $$ make test"
 	@echo "  Run tests"
+	@echo ""
+	@echo "  $$ make watch"
+	@echo "  Watch for file changes, trigger build"
 	@echo ""

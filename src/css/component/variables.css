@@ -122,6 +122,7 @@
         0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
     --body-font: 16px/1.35 Roboto, Helvetica, sans-serif;
+    --font-size-xs: calc(1px * var(--base-font-size) - 3px);
     --font-size-s: calc(1px * var(--base-font-size) - 2px);
     --font-size-m: calc(1px * var(--base-font-size));
     --font-size-l: calc(1px * var(--base-font-size) + 2px);

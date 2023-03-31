@@ -21,47 +21,44 @@
  */
 
 /**
- * Prompt fields.
+ * Token counter.
+ *
+ * [1] Default styles use important
+ * [2] Hide flashing "Loading..." text
  */
-#txt2img_prompt,
-#img2img_prompt,
-#txt2img_neg_prompt,
-#img2img_neg_prompt {
-    textarea {
-        background: var(--input-bg-color);
-        border: 1px solid var(--input-border-color);
-        border-radius: var(--border-radius-xs);
-        font: inherit;
-        height: 100px !important;
-        margin: 0;
-        overflow-x: hidden !important;
-        overflow-y: scroll !important;
-        padding: var(--padding-m);
+.container .token-counter {
+    align-items: center;
+    bottom: calc(100% - 1em + 1px);
+    border: none !important; // [1]
+    border-radius: 0 !important; // [1]
+    display: flex;
+    flex-direction: row;
+    font-size: var(--font-size-s);
+    justify-content: center;
+    min-width: 0;
+    padding: 0;
+    position: absolute;
+    right: var(--margin-m);
+    top: auto;
+    width: auto;
+    z-index: 100;
+
+    > .wrap {
+        display: none; // [2]
     }
-}
 
-#txt2img_prompt,
-#img2img_prompt {
-    textarea {
-        color: var(--prompt-text-color);
-
-        &:hover,
-        &:focus {
-            border-color: var(--prompt-border-color-hover);
-            color: var(--prompt-text-color-hover);
-        }
+    div {
+        align-items: center;
+        display: flex;
+        justify-content: center;
     }
-}
 
-#txt2img_neg_prompt,
-#img2img_neg_prompt {
-    textarea {
-        color: var(--prompt-negative-text-color);
-
-        &:hover,
-        &:focus {
-            border-color: var(--prompt-negative-border-color-hover);
-            color: var(--prompt-negative-text-color-hover);
-        }
+    .gr-box {
+        background: var(--input-border-color);
+        border: none !important; // [1]
+        border-radius: var(--border-radius-s) !important; // [1]
+        color: inherit;
+        font-size: inherit;
+        padding: var(--padding-xxxs) var(--padding-xs);
     }
 }
