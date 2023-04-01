@@ -91,18 +91,24 @@
 .container #txt2img_styles_row,
 .container #img2img_styles_row {
     gap: var(--margin-m);
-    margin: 0;
+    margin: var(--margin-xl) 0 0 0;
 }
 
 .container #txt2img_styles,
 .container #img2img_styles {
-    max-width: min-content;
+    max-width: 100%;
 
     svg {
         display: none;
     }
 
     > label {
+        > span {
+            bottom: calc(100% + var(--margin-xxs));
+            position: absolute;
+            top: auto;
+        }
+
         > div {
             background: transparent;
             border: 0;
@@ -123,6 +129,7 @@
                 border-radius: var(--border-radius-m);
                 display: flex;
                 flex-direction: column;
+                flex-grow: 1;
                 flex-wrap: nowrap;
                 gap: var(--padding-xxxs);
                 justify-content: flex-start;
@@ -134,43 +141,62 @@
                     display: flex;
                     flex-wrap: nowrap;
                     justify-content: space-between;
+                    width: 100%;
 
                     > input {
-                        margin: 0;
-                        min-width: 20ch;
+                        font: inherit;
+                        line-height: inherit;
+                        margin: calc(-1 * var(--padding-xs));
+                        min-width: 0;
+                        padding: var(--padding-xs) calc(1.5rem + var(--padding-xs)) var(--padding-xs) var(--padding-xs);
                         width: 100%;
                     }
                 }
             }
 
             ul {
-                background: var(--context-menu-bg-color) !important;
-                border: 1px solid var(--context-menu-border-color) !important;
-                border-radius: var(--border-radius-s) !important;
+                background: transparent;
+                border: none;
+                border-radius: var(--border-radius-s);
                 bottom: auto;
-                box-shadow: 0 0 0 1px var(--context-menu-shadow-color),
-                0 1px 0.25rem var(--context-menu-shadow-color) !important;
-                color: var(--context-menu-item-text-color) !important;
-                font: var(--body-font) !important;
+                box-shadow: none;
+                color: var(--context-menu-item-text-color);
+                font: inherit;
                 left: 0;
                 list-style: none;
-                overflow: hidden !important;
+                max-height: 10rem;
+                overflow: hidden;
+                overflow-y: auto;
                 position: absolute;
                 right: 0;
-                top: 100%;
-                width: 100% !important;
+                top: calc(100% + var(--padding-xxs));
+                width: 100%;
 
                 li {
+                    background: var(--context-menu-bg-color);
+                    border-left: 1px solid var(--context-menu-border-color);
+                    border-radius: 0;
+                    border-right: 1px solid var(--context-menu-border-color);
                     border-top: 1px solid var(--context-menu-item-separator-color);
+                    color: inherit;
                     cursor: pointer;
                     display: block;
+                    font: inherit;
                     overflow: hidden;
                     padding: var(--padding-xs) var(--padding-m);
                     text-overflow: ellipsis;
                     white-space: nowrap;
 
                     &:first-child {
-                        border-top: 0;
+                        border-top: 1px solid var(--context-menu-border-color);
+                        border-top-left-radius: var(--border-radius-s);
+                        border-top-right-radius: var(--border-radius-s);
+                    }
+
+                    &:last-child {
+                        border-bottom: 1px solid var(--context-menu-border-color);
+                        border-bottom-left-radius: var(--border-radius-s);
+                        border-bottom-right-radius: var(--border-radius-s);
                     }
 
                     &:hover {
@@ -179,7 +205,7 @@
                         color: var(--context-menu-item-text-color-hover);
 
                         + a {
-                            border-color: transparent;
+                            border-top-color: transparent;
                         }
                     }
                 }
@@ -205,7 +231,6 @@
 
         .token-remove {
             #mixin.icon("../../asset/icon/fontawesome/delete-left.svg");
-
             order: 2;
         }
 
@@ -218,7 +243,11 @@
 
     .remove-all {
         #mixin.icon("../../asset/icon/fontawesome/delete-left.svg");
-
         cursor: pointer;
+        margin: 0 0 0 -1.5rem;
+
+        &.hidden {
+            display: none;
+        }
     }
 }

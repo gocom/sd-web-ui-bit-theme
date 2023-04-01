@@ -28,7 +28,6 @@
 .dark .gr-button,
 .dark .gr-button-lg,
 .dark .gr-box,
-.container .dark .gr-form,
 .dark .gr-panel,
 .dark .gr-button-tool,
 .dark .dark\:bg-gray-700,
@@ -55,4 +54,8 @@
     font-size: inherit;
     line-height: inherit;
     position: relative;
+}
+
+.dark .gr-form {
+    background-color: transparent !important;
 }

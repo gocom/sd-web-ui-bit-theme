@@ -1,0 +1,106 @@
+/*
+ * Copyright (C) 2023 Jukka Svahn
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+/**
+ * Img2img and txt2img tabs.
+ *
+ * [1] Default styles uses important
+ */
+.container #txt2img_checkboxes,
+.container #img2img_checkboxes {
+    gap: var(--margin-m);
+    margin: 0;
+
+    > div {
+        background: transparent;
+        border: 0;
+        flex: 0;
+        min-width: auto;
+        padding: 0;
+        white-space: nowrap;
+
+        > label {
+            font: inherit;
+            gap: var(--margin-xs);
+            line-height: inherit;
+
+            > span {
+                color: inherit;
+                font: inherit;
+                line-height: inherit;
+                margin: 0;
+            }
+        }
+    }
+}
+
+#txt2img_settings,
+#img2img_settings {
+    gap: var(--margin-s);
+    padding: 0;
+
+    .gr-padded {
+        padding: 0;
+    }
+}
+
+#txt2img_script_container {
+    display: grid;
+    gap: var(--margin-s);
+
+    > div:not(#script_list) {
+        > div {
+            background: var(--panel-bg-color);
+            border: 1px solid var(--panel-border-color);
+            border-radius: var(--border-radius-m) !important; // [1]
+            color: inherit;
+            padding: var(--padding-s);
+
+            > div:last-child {
+                width: 100%;
+            }
+        }
+    }
+}
+
+#txt2img_results,
+#img2img_results {
+    padding: 0;
+}
+
+.container [id$=_seed_row],
+.container [id$=_subseed_row] {
+    align-items: center;
+    gap: var(--margin-m);
+    margin: var(--margin-xl) 0 0 0;
+    padding: 0;
+
+    #txt2img_seed {
+        label {
+            span {
+                bottom: calc(100% + var(--margin-xxs));
+                position: absolute;
+                top: auto;
+            }
+        }
+    }
+}
