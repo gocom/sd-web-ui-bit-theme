@@ -43,6 +43,7 @@
     background-color: transparent;
 }
 
+.text-gray-400,
 .text-gray-700 {
     color: inherit;
 }
@@ -71,4 +72,53 @@
     border-radius: 0;
     background-color: transparent;
     padding: 0;
+}
+
+.text-sm {
+    font: inherit;
+    line-height: inherit;
+}
+
+.border,
+.border-gray-100,
+.border-gray-200,
+.border-gray-300,
+.border-gray-200,
+\:border-gray-700,
+.\!border,
+.\!border-gray-300,
+.dark .border,
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300,
+.dark .\!border,
+.dark .\!border-gray-300,
+.dark\:border-gray-700,
+.dark .dark\:border-gray-700,
+.dark .hover\:border-gray-300:hover,
+.dark .dark\:hover\:border-gray-600:hover {
+    border-color: transparent;
+}
+
+.gr-padded,
+.pb-2,
+.pt-1\.5,
+.px-4,
+.p-1,
+.p-2,
+.p-3,
+.p-4 {
+    padding: 0;
+}
+
+.-mb-\[2px\],
+.m-1,
+.m-2,
+.m-3,
+.m-4 {
+    margin: 0;
+}
+
+.space-x-2>:not([hidden])~:not([hidden]) {
+    margin: 0;
 }

@@ -22,6 +22,9 @@
 
 /**
  * Inputs.
+ *
+ * [1] Default styles use important
+ * [2] Inline styles
  */
 .dark .gr-input,
 .gr-input {
@@ -89,4 +92,27 @@ select.gr-input,
     &:focus {
         border: 1px solid var(--primary-border-color-focus);
     }
+}
+
+/**
+ * Disable number input arrows.
+ */
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.content .gr-compact .gr-box {
+    border-radius: var(--border-radius-m) !important; // [1]
+    border-width: 1px !important; // [1]
+}
+
+/**
+ * Textareas take their height from rows rather than the hard-coded inline styles.
+ */
+textarea[rows] {
+    height: auto !important; // [2]
 }

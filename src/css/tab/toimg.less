@@ -91,10 +91,36 @@
             border: 1px solid var(--panel-border-color);
             border-radius: var(--border-radius-m) !important; // [1]
             color: inherit;
-            padding: var(--padding-s);
+            gap: 0;
+            padding: 0;
+
+            > div:first-child {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: var(--margin-m);
+                padding: var(--margin-s) var(--margin-m);
+                user-select: none;
+            }
 
             > div:last-child {
+                border-top: 1px solid var(--panel-border-color);
+                gap: var(--margin-s);
+                padding: var(--margin-m);
                 width: 100%;
+
+                > div {
+                    display: flex;
+                    flex-grow: 1;
+                    flex-wrap: wrap;
+                    gap: var(--margin-s);
+
+                    > div {
+                        display: flex;
+                        flex-grow: 1;
+                        flex-wrap: wrap;
+                        gap: var(--margin-s);
+                    }
+                }
             }
         }
     }
@@ -138,5 +164,13 @@
                 top: auto;
             }
         }
+    }
+}
+
+#img2img_generate_box,
+#txt2img_generate_box {
+    button {
+        font-size: var(--font-size-xl);
+        font-weight: bold;
     }
 }
