@@ -21,53 +21,42 @@
  */
 
 /**
- * Variables.
+ * Footer.
  */
-@import "css/variable/theme";
+.container #tabs ~ #footer {
+    color: var(--sidenote-text-color) !important;
+    margin: var(--padding-m) 0 0 0 !important;
+    text-align: center;
 
-/**
- * Libraries.
- */
-@import (css) "../node_modules/modern-normalize/modern-normalize.css";
+    a {
+        font-weight: bold;
 
-/**
- * Mixins.
- */
-@import "css/mixin/form";
-@import "css/mixin/icon";
+        &:focus,
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 
-/**
- * Reset.
- */
-@import (css) "css/base/reset.css";
+    .versions {
+        font: inherit;
+        opacity: 1;
+    }
 
-/**
- * Components.
- */
-@import "css/component/gradio/button";
-@import "css/component/gradio/container";
-@import "css/component/gradio/input";
-@import "css/component/gradio/prose";
-@import "css/component/civitai";
-@import "css/component/container";
-@import "css/component/context-menu";
-@import "css/component/favicon";
-@import "css/component/footer";
-@import "css/component/gallery";
-@import "css/component/icon";
-@import "css/component/logo";
-@import "css/component/prompt";
-@import "css/component/quick-settings";
-@import "css/component/scrollbar";
-@import "css/component/selection";
-@import "css/component/sidebar";
-@import "css/component/tabs";
-@import "css/component/token-counter";
-@import "css/component/top-row";
+    ~ div {
+        .gr-prose {
+            color: var(--sidenote-text-color);
+            font-size: var(--font-size-s);
+            text-align: center;
 
-/**
- * Tab specific styles.
- */
-@import "css/tab/extensions";
-@import "css/tab/settings";
-@import "css/tab/toimg";
+            a {
+                font-weight: bold;
+                text-decoration: none;
+
+                &:focus,
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

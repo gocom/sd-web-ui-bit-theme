@@ -24,6 +24,7 @@
  * Img2img and txt2img tabs.
  *
  * [1] Default styles uses important
+ * [2] Duplicate ID
  */
 .container #txt2img_checkboxes,
 .container #img2img_checkboxes {
@@ -49,6 +50,23 @@
                 line-height: inherit;
                 margin: 0;
             }
+        }
+    }
+
+    > #txtimg_hr_finalres {
+        color: var(--sidenote-text-color);
+        min-height: 0 !important;
+        padding: 0;
+        margin: 0 0 0 auto !important; // [2]
+
+        .resolution {
+            font-weight: bold;
+        }
+
+        #txtimg_hr_finalres {
+            min-height: 0 !important;
+            padding: 0;
+            margin: 0;
         }
     }
 }
@@ -85,6 +103,24 @@
 #txt2img_results,
 #img2img_results {
     padding: 0;
+}
+
+#txt2img_hires_fix {
+    background: var(--panel-bg-color);
+    border-radius: var(--border-radius-m) !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--margin-s);
+    padding: var(--margin-m);
+
+    &.hidden {
+        display: none;
+    }
+
+    > div {
+        display: flex;
+        gap: var(--margin-s);
+    }
 }
 
 .container [id$=_seed_row],
