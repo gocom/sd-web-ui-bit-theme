@@ -388,13 +388,7 @@
 #img2maskimg,
 #img2img_sketch,
 #img2img_image {
-    background: var(--gallery-bg);
-    border-radius: var(--border-radius-m) !important; // [1]
-    border: 1px solid var(--input-border-color);
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    user-select: none;
+    #mixin.image-area() !important; // [2]
 }
 
 #img2img_settings {
@@ -405,37 +399,11 @@
     }
 }
 
-#mode_img2img {
-    > div:first-child {
-        align-items: flex-start;
-        background: var(--panel-bg-color);
-        border-radius: var(--border-radius-m);
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: var(--margin-s);
-        justify-items: center;
-        justify-content: flex-start;
-        padding: var(--padding-m);
-
-        button {
-            background: var(--panel-border-color);
-            border: 0;
-            border-radius: var(--border-radius-m);
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            flex-grow: 0;
-            max-width: 100%;
-            min-width: fit-content;
-            padding: var(--padding-m);
-
-            &.bg-white {
-                background: var(--primary-color) !important;
-            }
-        }
-    }
-}
-
+.container #mode_img2img #img2img_batch_tab,
+.container #mode_img2img #img2img_inpaint_upload_tab,
+.container #mode_img2img #img2img_inpaint_sketch_tab,
+.container #mode_img2img #img2img_inpaint_tab,
+.container #mode_img2img #img2img_img2img_sketch_tab,
 .container #mode_img2img #img2img_img2img_tab {
     > div {
         display: flex;
@@ -444,6 +412,9 @@
     }
 }
 
+.container #tabs #img2img_copy_to_inpaint_sketch,
+.container #tabs #img2img_copy_to_inpaint,
+.container #tabs #img2img_copy_to_sketch,
 .container #tabs #img2img_copy_to_img2img {
     align-items: flex-start;
     background: var(--panel-bg-color);
@@ -465,6 +436,7 @@
     button {
         border-radius: var(--border-radius-m) !important;
         flex-grow: 0;
+        min-width: fit-content;
     }
 }
 

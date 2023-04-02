@@ -26,16 +26,11 @@
  * [1] Default styles use important
  * [2] Inline styles
  */
+#ti_gallery_container,
 #extras_gallery_container,
 #img2img_gallery_container,
 #txt2img_gallery_container {
-    background: var(--gallery-bg);
-    border-radius: var(--border-radius-m) !important; // [1]
-    border: 1px solid var(--input-border-color);
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    user-select: none;
+    #mixin.image-area() !important; // [1]
 
     .livePreview {
         backdrop-filter: var(--mask-backdrop-filter);
@@ -57,6 +52,7 @@
         }
     }
 
+    #ti_gallery,
     #extras_gallery,
     #img2img_gallery,
     #txt2img_gallery {

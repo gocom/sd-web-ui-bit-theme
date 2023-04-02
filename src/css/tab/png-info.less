@@ -21,42 +21,8 @@
  */
 
 /**
- * Tabs.
+ * PNG info tab.
  */
-#tabs .tabs {
-    display: flex;
-    flex-direction: column;
-    gap: var(--margin-m);
-
-    /**
-     * Tab row.
-     */
-    > div:first-child {
-        align-items: flex-start;
-        background: var(--panel-bg-color);
-        border-radius: var(--border-radius-m);
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: var(--margin-s);
-        justify-items: center;
-        justify-content: flex-start;
-        padding: var(--padding-m);
-
-        button {
-            background: var(--panel-border-color);
-            border: 0;
-            border-radius: var(--border-radius-m);
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            flex-grow: 0;
-            max-width: 100%;
-            min-width: fit-content;
-            padding: var(--padding-m);
-
-            &.bg-white {
-                background: var(--primary-color) !important;
-            }
-        }
-    }
+#pnginfo_image {
+    #mixin.image-area();
 }
