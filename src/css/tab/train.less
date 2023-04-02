@@ -22,12 +22,44 @@
 
 /**
  * Train tab.
+ *
+ * [1] Inline styles
  */
 #tab_ti {
     > div {
+        display: flex;
+        flex-direction: column;
+        gap: var(--margin-m);
+
+        /**
+         * Description.
+         */
+        > div:first-child {
+            background: var(--panel-bg-color);
+            border-radius: var(--border-radius-m);
+            color: var(--sidenote-text-color);
+            padding: var(--padding-m);
+
+            p {
+                margin: 0 !important; // [1]
+            }
+        }
+
         > div {
             display: flex;
             gap: var(--margin-m);
+        }
+    }
+}
+
+#train_tabs {
+    > div {
+        > div {
+            > .gr-form {
+                display: flex;
+                flex-direction: column;
+                gap: var(--margin-m);
+            }
         }
     }
 }
