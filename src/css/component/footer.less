@@ -22,10 +22,13 @@
 
 /**
  * Footer.
+ *
+ * [1] Duplicate ID
  */
 .container #tabs ~ #footer {
-    color: var(--sidenote-text-color) !important;
-    margin: var(--padding-m) 0 0 0 !important;
+    color: var(--sidenote-text-color) !important; // [1]
+    margin: auto 0 0 0 !important; // [1]
+    padding: var(--padding-m) 0 0 0 !important; // [1]
     text-align: center;
 
     a {
