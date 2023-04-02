@@ -43,6 +43,8 @@
     background-color: transparent;
 }
 
+.gr-box,
+.dark .gr-box,
 .text-gray-400,
 .text-gray-700 {
     color: inherit;
@@ -116,9 +118,5 @@
 .m-2,
 .m-3,
 .m-4 {
-    margin: 0;
-}
-
-.space-x-2>:not([hidden])~:not([hidden]) {
     margin: 0;
 }

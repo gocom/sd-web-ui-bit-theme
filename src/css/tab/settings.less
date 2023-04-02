@@ -143,8 +143,18 @@
 
                     label {
                         gap: var(--margin-s);
+
+                        span {
+                            margin: 0;
+                        }
                     }
                 }
+            }
+
+            &[style*="block"] ~ .tabitem[style*="block"] {
+                border-top: 1px solid var(--primary-border-color);
+                margin: var(--margin-s) 0 0 0;
+                padding: var(--padding-xl) 0 0 0;
             }
         }
 

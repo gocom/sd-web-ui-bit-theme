@@ -21,53 +21,14 @@
  */
 
 /**
- * Variables.
+ * Extras tab.
  */
-@import "css/variable/theme";
-
-/**
- * Libraries.
- */
-@import (css) "../node_modules/modern-normalize/modern-normalize.css";
-
-/**
- * Mixins.
- */
-@import "css/mixin/form";
-@import "css/mixin/icon";
-
-/**
- * Reset.
- */
-@import (css) "css/base/reset.css";
-
-/**
- * Components.
- */
-@import "css/component/gradio/button";
-@import "css/component/gradio/container";
-@import "css/component/gradio/input";
-@import "css/component/gradio/prose";
-@import "css/component/civitai";
-@import "css/component/container";
-@import "css/component/context-menu";
-@import "css/component/footer";
-@import "css/component/gallery";
-@import "css/component/icon";
-@import "css/component/prompt";
-@import "css/component/quick-settings";
-@import "css/component/scrollbar";
-@import "css/component/selection";
-@import "css/component/sidebar";
-@import "css/component/tabs";
-@import "css/component/token-counter";
-@import "css/component/top-row";
-
-/**
- * Tab specific styles.
- */
-@import "css/tab/extensions";
-@import "css/tab/extras";
-@import "css/tab/model-merger";
-@import "css/tab/settings";
-@import "css/tab/toimg";
+#extras_image {
+    background: var(--gallery-bg);
+    border-radius: var(--border-radius-m);
+    border: 1px solid var(--input-border-color);
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    user-select: none;
+}
