@@ -20,6 +20,11 @@
  * SOFTWARE.
  */
 
+/**
+ * Icon mixin.
+ *
+ * [1] Default styles use important.
+ */
 #mixin {
     .icon(@svg) {
         background-color: transparent;
@@ -36,7 +41,7 @@
         max-height: 1.5rem;
         max-width: 1.5rem;
         min-height: 1.5rem;
-        min-width: 1.5rem;
+        min-width: 1.5rem !important; // [1]
         outline: none;
         opacity: 0.8;
         padding: 0;
