@@ -1,0 +1,147 @@
+/*
+ * Copyright (C) 2023 Jukka Svahn
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+/**
+ * Image browser tab.
+ *
+ * [1] Inline style.
+ */
+#tab_image_browser {
+    button[title="Open images output directory"] {
+        #mixin.icon("../../asset/icon/fontawesome/folder-open.svg");
+        margin: auto 0;
+    }
+
+    #image_browser_tab_txt2img_image_browser {
+        .gr-padded,
+        .gap-px {
+            gap: var(--margin-m);
+        }
+
+        > div {
+            > div {
+                > div:first-child {
+                    gap: var(--margin-m);
+
+                    /**
+                     * Delete panel.
+                     */
+                    > div:nth-child(4) {
+                        align-items: center;
+                        background: var(--panel-bg-color);
+                        border: 1px solid var(--error-border-color);
+                        border-radius: var(--border-radius-m);
+                        display: flex;
+                        flex-direction: row;
+                        padding: var(--padding-m);
+
+                        .gr-form {
+                            align-items: center;
+                            flex-direction: row !important; // [1]
+                        }
+
+                        .w-full {
+                            width: auto;
+                        }
+
+                        > div:last-child {
+                            align-items: center;
+                            display: flex;
+                            flex-grow: 1 !important; // [1]
+                        }
+                    }
+
+                    /**
+                     * Additional information.
+                     */
+                    > div:nth-child(5) {
+                        > div {
+                            background: var(--panel-bg-color);
+                            border-radius: var(--border-radius-m);
+                            padding: var(--padding-m);
+
+                            .output-html p {
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #image_browser_tab_txt2img_image_browser_ranking {
+        align-items: center;
+        display: flex;
+        background: var(--panel-bg-color);
+        border-radius: var(--border-radius-m);
+        padding: var(--padding-m);
+    }
+
+    #image_browser_tab_txt2img_image_browser_del_num {
+        > label {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            gap: var(--margin-m);
+
+            > span {
+                min-width: fit-content;
+            }
+        }
+
+        + div {
+            align-items: center;
+            display: flex;
+        }
+    }
+
+    #image_browser_tab_txt2img_image_browser_del_img_btn {
+        background-color: var(--error-bg-color);
+        border-color: var(--error-border-color);
+        color: var(--error-text-color);
+        margin: 0 0 0 auto;
+        width: fit-content;
+
+        &:hover {
+            background-color: var(--error-bg-color-hover);
+            border-color: var(--error-border-color-hover);
+            color: var(--error-text-color-hover);
+        }
+
+        &:focus {
+            background-color: var(--error-bg-color-focus);
+            border-color: var(--error-border-color-focus);
+            color: var(--error-text-color-focus);
+        }
+    }
+
+    #image_browser_tab_txt2img_image_browser_gallery {
+        #mixin.gallery();
+        position: relative;
+
+        > .overflow-y-auto {
+            background: var(--panel-bg-color);
+            padding: var(--padding-m);
+        }
+    }
+}
