@@ -358,6 +358,25 @@
 #html_log_txt2img {
     color: var(--sidenote-text-color);
     margin: var(--margin-m) 0 0 0;
+
+    p {
+        margin: 0 !important; // [2]
+    }
+}
+
+/**
+ * Performance data.
+ */
+.container .performance {
+    display: flex;
+    flex-direction: row;
+    font-size: inherit;
+    color: var(--sidenote-text-color);
+    gap: var(--margin-m);
+
+    p {
+        margin: 0;
+    }
 }
 
 /**
