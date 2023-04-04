@@ -156,6 +156,63 @@
                         }
                     }
                 }
+
+                /**
+                 * Right column.
+                 */
+                > div:last-child {
+                    padding: var(--margin-m) 0 0 0;
+
+                    /**
+                     * Search and sorting panel.
+                     */
+                    > div:nth-child(1),
+                    > div:nth-child(2),
+                    > div:nth-child(3),
+                    > div:nth-child(4),
+                    > div:nth-child(5) {
+                        background: var(--panel-bg-color);
+                        border: 0;
+                        margin: calc(-1 * var(--margin-m)) 0 0 0;
+                        padding: var(--padding-m) var(--padding-m) 0 var(--padding-m);
+
+                        .gr-input-label {
+                            padding: 0;
+                        }
+                    }
+
+                    > div:nth-child(1) {
+                        border-top-left-radius: var(--border-radius-m);
+                        border-top-right-radius: var(--border-radius-m);
+                        padding: var(--padding-m);
+                    }
+
+                    /**
+                     * Filename search.
+                     */
+                    > div:nth-child(2) {
+                        border-top: 1px solid var(--panel-border-color);
+                        padding: var(--padding-m);
+                    }
+
+                    /**
+                     * Prompt keyword search.
+                     */
+                    > div:nth-child(3) {
+                        background: var(--panel-item-bg-color);
+                        display: flex;
+                        gap: var(--margin-m);
+                        flex-direction: column;
+                        padding: var(--padding-m);
+                    }
+
+                    > div:nth-child(5) {
+                        border-bottom-left-radius: var(--border-radius-m);
+                        border-bottom-right-radius: var(--border-radius-m);
+                        margin-bottom: var(--margin-xl);
+                        padding-bottom: var(--padding-m);
+                    }
+                }
             }
         }
     }
@@ -214,6 +271,45 @@
         > .overflow-y-auto {
             background: var(--panel-bg-color);
             padding: var(--padding-m);
+        }
+    }
+
+    #image_browser_tab_txt2img_image_browser_button_panel {
+        background: var(--panel-bg-color);
+        border-radius: var(--border-radius-m);
+        padding: var(--padding-m);
+
+        button {
+            min-width: min-content;
+        }
+    }
+
+    #image_browser_tab_txt2img_image_browser_to_dir_panel {
+        background: var(--panel-bg-color);
+        border: 1px solid var(--panel-border-color);
+        border-radius: var(--border-radius-m);
+        padding: var(--padding-m);
+
+        > div {
+            border: 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--margin-m);
+
+            > div:last-child {
+                align-items: center;
+                border-top: 1px solid var(--panel-border-color);
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                margin: 0 calc(-1 * var(--padding-m));
+                padding: var(--padding-m) var(--padding-m) 0 var(--padding-m);
+                width: calc(100% + var(--padding-m) + var(--padding-m));
+            }
+
+            #image_browser_tab_txt2img_image_browser_to_dir_btn {
+                max-width: max-content;
+            }
         }
     }
 }

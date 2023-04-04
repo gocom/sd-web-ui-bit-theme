@@ -120,3 +120,7 @@
 .m-4 {
     margin: 0;
 }
+
+.shadow-sm {
+    box-shadow: none;
+}
