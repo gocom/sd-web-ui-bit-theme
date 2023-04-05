@@ -79,7 +79,17 @@
         }
     }
 
+    #refresh_checkpoint_A,
+    #refresh_checkpoint_B,
+    #refresh_checkpoint_C {
+        #mixin.icon(
+            var(--icon-arrows-rotate),
+            var(--icon-arrows-rotate-active)
+        );
+        margin: auto 0;
+    }
+
     #modelmerger_refresh_bake_in_vae {
-        margin-top: 1.75rem !important;
+        margin-top: 1.75rem;
     }
 }
