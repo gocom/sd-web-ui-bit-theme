@@ -21,49 +21,38 @@
  */
 
 /**
- * Extensions tab.
+ * Links.
  */
-#tab_extensions {
-    table {
-        border: 0;
-        border-collapse: collapse;
-        width: 100% !important;
+a[href] {
+    background-image: var(--icon-arrow-up-right-from-square);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 1em 1em;
+    color: inherit;
+    padding: 0 calc(1em + var(--margin-xs)) 0 0;
+    text-decoration: none;
 
-        td,
-        th {
-            border: none !important;
-            border-radius: 0 !important;
-            padding: var(--padding-s) var(--padding-m) !important;
-            text-align: inherit;
-        }
-
-        th {
-            font-weight: bold;
-        }
-
-        tr:nth-child(odd) td {
-            background: var(--panel-bg-color);
-        }
+    &:hover {
+        background-image: var(--icon-arrow-up-right-from-square-active);
+        color: var(--link-color-hover);
+        text-decoration: underline;
     }
 
-    .gr-form {
-        gap: var(--margin-m);
+    &:focus {
+        background-image: var(--icon-arrow-up-right-from-square-active);
+        color: var(--link-color-focus);
+        text-decoration: underline;
+    }
+}
+
+a[href=""] {
+    background: transparent;
+
+    &:hover {
+        background: transparent;
     }
 
-    .extension-tag {
-        color: var(--sidenote-text-color);
-        font: inherit;
-    }
-
-    #available_extensions {
-        .info {
-            margin: 0;
-        }
-
-        .date_added {
-            color: var(--sidenote-text-color);
-            opacity: 1;
-            font: inherit;
-        }
+    &:focus {
+        background: transparent;
     }
 }
