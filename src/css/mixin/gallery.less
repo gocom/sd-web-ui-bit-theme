@@ -124,7 +124,10 @@
                 top: var(--margin-xs);
 
                 button {
-                    #mixin.icon("../../asset/icon/fontawesome/circle-xmark.svg");
+                    #mixin.icon(
+                        var(--icon-circle-xmark),
+                        var(--icon-circle-active)
+                    );
                 }
             }
 

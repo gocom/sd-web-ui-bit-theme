@@ -27,7 +27,10 @@
  */
 #tab_image_browser {
     button[title="Open images output directory"] {
-        #mixin.icon("../../asset/icon/fontawesome/folder-open.svg");
+        #mixin.icon(
+            var(--icon-folder-open),
+            var(--icon-folder-open-active)
+        );
         margin: auto 0;
     }
 
@@ -91,7 +94,10 @@
                          * Refresh button.
                          */
                         > .gr-button-tool {
-                            #mixin.icon("../../asset/icon/fontawesome/arrows-rotate.svg");
+                            #mixin.icon(
+                                var(--icon-arrows-rotate),
+                                var(--icon-arrows-rotate-active)
+                            );
                             margin: auto 0;
                         }
 

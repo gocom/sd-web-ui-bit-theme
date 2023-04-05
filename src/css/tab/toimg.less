@@ -280,7 +280,10 @@
 
 
         .token-remove {
-            #mixin.icon("../../asset/icon/fontawesome/delete-left.svg");
+            #mixin.icon(
+                var(--icons-delete-left),
+                var(--icons-delete-left-active)
+            );
             order: 2;
         }
 
@@ -292,7 +295,10 @@
     }
 
     .remove-all {
-        #mixin.icon("../../asset/icon/fontawesome/delete-left.svg");
+        #mixin.icon(
+            var(--icons-delete-left),
+            var(--icons-delete-left-active)
+        );
         cursor: pointer;
         margin: 0 0 0 -1.5rem;
 
@@ -541,7 +547,10 @@
     #open_folder_extras,
     #open_folder_txt2img,
     #open_folder_img2img {
-        #mixin.icon("../../asset/icon/fontawesome/folder-open.svg");
+        #mixin.icon(
+            var(--icons-folder-open),
+            var(--icons-folder-open-active)
+        );
         margin: auto 0;
     }
 
@@ -551,13 +560,19 @@
 
     #save_txt2img,
     #save_img2img {
-        #mixin.icon("../../asset/icon/fontawesome/floppy-disk.svg");
+        #mixin.icon(
+            var(--icons-floppy-disk),
+            var(--icons-floppy-disk-active)
+        );
         margin: auto 0;
     }
 
     #save_zip_txt2img,
     #save_zip_img2img {
-        #mixin.icon("../../asset/icon/fontawesome/file-zipper.svg");
+        #mixin.icon(
+            var(--icons-file-zipper),
+            var(--icons-file-zipper-active)
+        );
         margin: auto auto auto 0;
     }
 }

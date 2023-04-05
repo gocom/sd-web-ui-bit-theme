@@ -21,27 +21,42 @@
  */
 
 button#paste {
-    #mixin.icon("../../asset/icon/fontawesome/paste.svg");
+    #mixin.icon(
+        var(--icon-paste),
+        var(--icon-paste-active)
+    );
 }
 
 button#img2img_clear_prompt,
 button#txt2img_clear_prompt {
-    #mixin.icon("../../asset/icon/fontawesome/trash-can.svg");
+    #mixin.icon(
+        var(--icon-trash-can),
+        var(--icon-trash-can-active)
+    );
 }
 
 button#img2img_extra_networks,
 button#txt2img_extra_networks {
-    #mixin.icon("../../asset/icon/fontawesome/swatchbook.svg");
+    #mixin.icon(
+        var(--icon-swatchbook),
+        var(--icon-swatchbook-active)
+    );
 }
 
 button#img2img_style_apply,
 button#txt2img_style_apply {
-    #mixin.icon("../../asset/icon/fontawesome/file-arrow-up.svg");
+    #mixin.icon(
+        var(--icon-file-arrow-up),
+        var(--icon-file-arrow-up-active)
+    );
 }
 
 button#img2img_style_create,
 button#txt2img_style_create {
-    #mixin.icon("../../asset/icon/fontawesome/file-arrow-down.svg");
+    #mixin.icon(
+        var(--icon-file-arrow-down),
+        var(--icon-file-arrow-down-active)
+    );
 }
 
 button#refresh_checkpoint_A,
@@ -50,7 +65,10 @@ button#refresh_checkpoint_C,
 button#modelmerger_refresh_bake_in_vae,
 button#refresh_img2img_styles,
 button#refresh_txt2img_styles {
-    #mixin.icon("../../asset/icon/fontawesome/arrows-rotate.svg");
+    #mixin.icon(
+        var(--icon-arrows-rotate),
+        var(--icon-arrows-rotate-active)
+    );
     margin: auto 0 !important;
 }
 
@@ -58,7 +76,10 @@ button#img2img_random_seed,
 button#img2img_random_subseed,
 button#txt2img_random_subseed,
 button#txt2img_random_seed {
-    #mixin.icon("../../asset/icon/fontawesome/shuffle.svg");
+    #mixin.icon(
+        var(--icon-shuffle),
+        var(--icon-shuffle-active)
+    );
     margin: auto 0 !important;
 }
 
@@ -66,12 +87,18 @@ button#img2img_reuse_seed,
 button#img2img_reuse_subseed,
 button#txt2img_reuse_seed,
 button#txt2img_reuse_subseed {
-    #mixin.icon("../../asset/icon/fontawesome/recycle.svg");
+    #mixin.icon(
+        var(--icon-recycle),
+        var(--icon-recycle-active)
+    );
     margin: auto 0 !important;
 }
 
 button#img2img_res_switch_btn,
 button#txt2img_res_switch_btn {
-    #mixin.icon("../../asset/icon/fontawesome/repeat.svg");
+    #mixin.icon(
+        var(--icon-repeat),
+        var(--icon-repeat-active)
+    );
     margin: auto 0 !important;
 }

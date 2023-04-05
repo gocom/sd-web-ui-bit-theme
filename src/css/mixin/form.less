@@ -51,15 +51,11 @@
     .select() {
         .input();
 
-        background-image: data-uri("../../asset/icon/fontawesome/angles-down.svg");
+        background-image: var(--icon-angles-down);
         background-position: calc(100% - var(--padding-xs)) 50%;
         background-repeat: no-repeat;
         background-size: auto calc(1em - var(--padding-xxs));
         padding-right: var(--padding-xxl);
         text-overflow: ellipsis;
-
-        .dark & {
-            background-image: data-uri("../../asset/icon/fontawesome/angles-down-dark.svg");
-        }
     }
 }

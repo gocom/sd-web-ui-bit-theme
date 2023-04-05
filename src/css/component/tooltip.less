@@ -21,37 +21,9 @@
  */
 
 /**
- * Icon mixin.
- *
- * [1] Default styles use important.
+ * Tooltips.
  */
-#mixin {
-    .icon(@normal, @active) {
-        background-color: transparent;
-        background-image: @normal;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: calc(100% - 4px);
-        box-shadow: none;
-        border: none;
-        display: inline-block;
-        font-size: 0;
-        height: 1.5rem;
-        max-height: 1.5rem;
-        max-width: 1.5rem;
-        min-height: 1.5rem;
-        min-width: 1.5rem !important; // [1]
-        outline: none;
-        padding: 0;
-        width: 1.5rem;
-
-        &:focus,
-        &:hover {
-            background-image: @active;
-        }
-
-        > * {
-            display: none;
-        }
-    }
+abbr[title],
+span[title] {
+    cursor: help;
 }

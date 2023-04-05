@@ -75,6 +75,9 @@
  */
 button#refresh_sd_vae,
 button#refresh_sd_model_checkpoint {
-    #mixin.icon("../../asset/icon/fontawesome/arrows-rotate.svg");
+    #mixin.icon(
+        var(--icon-arrows-rotate),
+        var(--icon-arrows-rotate-active)
+    );
     margin: auto 0 !important;
 }
