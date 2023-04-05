@@ -118,9 +118,35 @@
     }
 }
 
+/**
+ * Generate box.
+ */
 .container #img2img_generate_box,
 .container #txt2img_generate_box {
     position: relative;
+
+    button {
+        font-size: var(--font-size-xl);
+        font-weight: bold;
+    }
+
+    #img2img_generate,
+    #txt2img_generate {
+        align-items: center;
+        display: flex;
+        gap: var(--margin-m);
+
+        &::before {
+            background-image: var(--icon-bolt);
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: 1em 1em;
+            content: "";
+            display: inline-block;
+            height: 1em;
+            width: 1em;
+        }
+    }
 
     #txt2img_interrupt,
     #img2img_interrupt,
@@ -639,17 +665,6 @@ button#txt2img_res_switch_btn {
         > div {
             gap: var(--margin-m);
         }
-    }
-}
-
-/**
- * Generate button container.
- */
-#img2img_generate_box,
-#txt2img_generate_box {
-    button {
-        font-size: var(--font-size-xl);
-        font-weight: bold;
     }
 }
 
