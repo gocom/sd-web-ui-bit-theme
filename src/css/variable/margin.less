@@ -20,39 +20,13 @@
  * SOFTWARE.
  */
 
-/**
- * Links.
- */
-a[href] {
-    background-image: var(--icon-arrow-up-right-from-square);
-    background-repeat: no-repeat;
-    background-position: 100% 50%;
-    background-size: 1em 1em;
-    color: var(--link-color);
-    padding: 0 calc(1em + var(--margin-xs)) 0 0;
-    text-decoration: none;
-
-    &:hover {
-        background-image: var(--icon-arrow-up-right-from-square-active);
-        color: var(--link-color-hover);
-        text-decoration: underline;
-    }
-
-    &:focus {
-        background-image: var(--icon-arrow-up-right-from-square-active);
-        color: var(--link-color-focus);
-        text-decoration: underline;
-    }
-}
-
-a[href=""] {
-    background: transparent;
-
-    &:hover {
-        background: transparent;
-    }
-
-    &:focus {
-        background: transparent;
-    }
+:root,
+* {
+    --margin-xxs: calc(1px * var(--base-margin));
+    --margin-xs: calc(2px * var(--base-margin));
+    --margin-s: calc(3px * var(--base-margin));
+    --margin-m: calc(4px * var(--base-margin));
+    --margin-l: calc(5px * var(--base-margin));
+    --margin-xl: calc(6px * var(--base-margin));
+    --margin-xxl: calc(8px * var(--base-margin));
 }
