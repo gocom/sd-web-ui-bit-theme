@@ -40,13 +40,13 @@
     --label-border-color: #7a3f79;
     --label-text-color: #ececec;
     --error-bg-color: #592d2d;
-    --error-bg-color-focus: #592d2d;
-    --error-bg-color-hover: #592d2d;
-    --error-border-color: #522b2b;
-    --error-border-color-focus: #522b2b;
-    --error-border-color-hover: #522b2b;
-    --error-text-color: #966969;
-    --error-text-color-hover: #b68585;
+    --error-bg-color-focus: #7a4545;
+    --error-bg-color-hover: #7a4545;
+    --error-border-color: #7a4545;
+    --error-border-color-focus: #a97171;
+    --error-border-color-hover: #a97171;
+    --error-text-color: #c29898;
+    --error-text-color-hover: #c29898;
     --prompt-text-color: #beda8e;
     --prompt-text-color-hover: #beda8e;
     --prompt-border-color: #beda8e;
@@ -82,10 +82,10 @@
     --sidenote-text-color: #a4a4a4;
     --panel-bg-color: #1f1f1f;
     --panel-border-color: #313131;
-    --panel-item-bg-color: #2f2f2f;
-    --panel-item-bg-color-active: #3b3a3a;
-    --panel-item-bg-color-focus: #3b3a3a;
-    --panel-item-bg-color-hover: #3b3a3a;
+    --panel-item-bg-color: #262626;
+    --panel-item-bg-color-active: #2f2f2f;
+    --panel-item-bg-color-focus: #2f2f2f;
+    --panel-item-bg-color-hover: #2f2f2f;
     --secondary-panel-bg-color: #363636;
     --elevated-panel-bg-color: #424242;
     --quick-settings-bg-color: #1c1822;
@@ -155,7 +155,8 @@
     --padding-xl: calc(6px * var(--base-padding));
     --padding-xxl: calc(8px * var(--base-padding));
 
-    --gallery-bg: repeating-conic-gradient(rgba(164, 189, 247, 0.14) 0% 25%, transparent 0% 50%) 50% / 20px 20px;
+    --gallery-bg-color: rgba(164, 189, 247, 0.14);
+    --gallery-bg: repeating-conic-gradient(var(--gallery-bg-color) 0% 25%, transparent 0% 50%) 50% / 20px 20px;
 
     --column-main-width: 840px;
     --quick-settings-height: 120px;

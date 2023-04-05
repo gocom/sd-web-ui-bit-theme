@@ -27,6 +27,281 @@
  * [2] Duplicate ID
  * [3] Inline style
  */
+#txt2img_toprow,
+#img2img_toprow {
+    gap: var(--padding-m);
+
+    .gr-block.gr-box,
+    .gr-block.gr-box {
+        padding: 0 !important;
+    }
+}
+
+#txt2img_prompt_container,
+#img2img_prompt_container {
+    gap: var(--margin-s);
+    justify-content: flex-start;
+    margin: 0;
+
+    > div {
+        height: 50%;
+        min-height: 100px;
+        max-height: 340px;
+
+        > div {
+            min-width: 0;
+            flex-grow: 1;
+            height: 100%;
+
+            > div {
+                height: 100%;
+            }
+        }
+    }
+
+    label {
+        height: 100%;
+    }
+}
+
+.container #img2img_generate_box,
+.container #txt2img_generate_box {
+    position: relative;
+
+    #txt2img_interrupt,
+    #img2img_interrupt,
+    #txt2img_skip,
+    #img2img_skip {
+        background: var(--button-bg-color);
+        border: 1px solid var(--button-border-color);
+        border-radius: var(--border-radius-m);
+        box-shadow: none;
+        height: 100%;
+        position: absolute;
+        width: 50%;
+    }
+
+    #txt2img_interrupt,
+    #img2img_interrupt {
+        background: var(--error-bg-color);
+        border-color: var(--error-border-color);
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        color: var(--error-text-color);
+
+        &:hover {
+            background: var(--error-bg-color-hover);
+            border-color: var(--error-border-color-hover);
+            color: var(--error-text-color-hover);
+        }
+
+        &:focus {
+            background: var(--error-bg-color-focus);
+            border-color: var(--error-border-color-focus);
+            color: var(--error-text-color-focus);
+        }
+    }
+
+    #txt2img_skip,
+    #img2img_skip {
+        border-left: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+
+        &:hover {
+            background: var(--button-bg-color-hover);
+            border-color: var(--button-border-color-hover);
+            color: var(--button-text-color-hover);
+        }
+
+        &:focus {
+            background: var(--button-bg-color-focus);
+            border-color: var(--button-border-color-focus);
+            color: var(--button-text-color-focus);
+        }
+    }
+}
+
+.container #txt2img_actions_column,
+.container #img2img_actions_column {
+    flex-grow: 1 !important; // [3]
+    gap: var(--margin-m);
+    justify-content: space-between;
+    margin: 0 !important;
+    min-width: fit-content !important; // [3]
+}
+
+.container #img2img_tools,
+.container #txt2img_tools {
+    align-items: center;
+    gap: var(--margin-m);
+    justify-content: center;
+}
+
+.container #txt2img_styles_row,
+.container #img2img_styles_row {
+    gap: var(--margin-m);
+    margin: var(--margin-xl) 0 0 0;
+}
+
+.container #txt2img_styles,
+.container #img2img_styles {
+    max-width: 100%;
+
+    svg {
+        display: none;
+    }
+
+    > label {
+        > span {
+            bottom: calc(100% + var(--margin-xxs));
+            position: absolute;
+            top: auto;
+        }
+
+        > div {
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            font: inherit;
+            justify-content: space-between;
+            min-height: 0;
+            position: relative;
+
+            > div {
+                align-items: flex-start;
+                background: var(--input-bg-color);
+                border: 1px solid var(--input-border-color);
+                border-radius: var(--border-radius-m);
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                flex-wrap: nowrap;
+                gap: var(--padding-xxxs);
+                justify-content: flex-start;
+                overflow: hidden;
+                padding: var(--padding-xs);
+
+                > div:last-child {
+                    align-items: center;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    > input {
+                        font: inherit;
+                        line-height: inherit;
+                        margin: calc(-1 * var(--padding-xs));
+                        min-width: 0;
+                        padding: var(--padding-xs) calc(1.5rem + var(--padding-xs)) var(--padding-xs) var(--padding-xs);
+                        width: 100%;
+                    }
+                }
+            }
+
+            ul {
+                background: transparent;
+                border: none;
+                border-radius: var(--border-radius-s);
+                bottom: auto;
+                box-shadow: none;
+                color: var(--context-menu-item-text-color);
+                font: inherit;
+                left: 0;
+                list-style: none;
+                max-height: 10rem;
+                overflow: hidden;
+                overflow-y: auto;
+                position: absolute;
+                right: 0;
+                top: calc(100% + var(--padding-xxs));
+                width: 100%;
+
+                li {
+                    background: var(--context-menu-bg-color);
+                    border-left: 1px solid var(--context-menu-border-color);
+                    border-radius: 0;
+                    border-right: 1px solid var(--context-menu-border-color);
+                    border-top: 1px solid var(--context-menu-item-separator-color);
+                    color: inherit;
+                    cursor: pointer;
+                    display: block;
+                    font: inherit;
+                    overflow: hidden;
+                    padding: var(--padding-xs) var(--padding-m);
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
+                    &:first-child {
+                        border-top: 1px solid var(--context-menu-border-color);
+                        border-top-left-radius: var(--border-radius-s);
+                        border-top-right-radius: var(--border-radius-s);
+                    }
+
+                    &:last-child {
+                        border-bottom: 1px solid var(--context-menu-border-color);
+                        border-bottom-left-radius: var(--border-radius-s);
+                        border-bottom-right-radius: var(--border-radius-s);
+                    }
+
+                    &:hover {
+                        border-color: transparent;
+                        background: var(--context-menu-item-bg-color-hover);
+                        color: var(--context-menu-item-text-color-hover);
+
+                        + a {
+                            border-top-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .token {
+        align-items: center;
+        background: var(--input-border-color);
+        border: none;
+        border-radius: var(--border-radius-s);
+        color: inherit;
+        display: flex;
+        flex-wrap: nowrap;
+        font: inherit;
+        gap: var(--margin-xs);
+        line-height: inherit;
+        margin: 0;
+        max-width: 100%;
+        padding: var(--padding-xxxs) var(--padding-xs);
+
+
+        .token-remove {
+            #mixin.icon("../../asset/icon/fontawesome/delete-left.svg");
+            order: 2;
+        }
+
+        span {
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .remove-all {
+        #mixin.icon("../../asset/icon/fontawesome/delete-left.svg");
+        cursor: pointer;
+        margin: 0 0 0 -1.5rem;
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
+
 #txt2img_settings,
 #img2img_settings {
     gap: var(--margin-s);
@@ -340,6 +615,7 @@
 /**
  * Previous prompt information.
  */
+#html_info_img2img.gr-block,
 #html_info_txt2img.gr-block {
     br {
         content: "";
@@ -355,12 +631,17 @@
 /**
  * Previous file name.
  */
+#html_log_img2img,
 #html_log_txt2img {
     color: var(--sidenote-text-color);
     margin: var(--margin-m) 0 0 0;
 
     p {
         margin: 0 !important; // [2]
+    }
+
+    br {
+        display: none !important; // [2]
     }
 }
 
