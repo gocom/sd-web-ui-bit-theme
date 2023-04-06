@@ -1057,6 +1057,8 @@ button#txt2img_res_switch_btn {
                 bottom: 100%;
                 display: flex;
                 flex-direction: row-reverse;
+                gap: var(--margin-s);
+                justify-content: flex-start;
                 left: 0;
                 order: 3;
                 opacity: 0;
@@ -1077,10 +1079,17 @@ button#txt2img_res_switch_btn {
                     a {
                         cursor: pointer;
 
-                        &:first-child {
+                        &[onclick*="saveCardPreview"] {
                             #mixin.icon(
                                 var(--icon-camera),
                                 var(--icon-camera-active)
+                            );
+                        }
+
+                        &.info {
+                            #mixin.icon(
+                                var(--icon-eye),
+                                var(--icon-eye-active)
                             );
                         }
                     }
@@ -1110,6 +1119,7 @@ button#txt2img_res_switch_btn {
 
                 .additional {
                     display: flex;
+                    justify-content: flex-start;
                 }
             }
         }
