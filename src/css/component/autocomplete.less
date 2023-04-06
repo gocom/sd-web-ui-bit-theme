@@ -1,0 +1,124 @@
+/*
+ * Copyright (C) 2023 Jukka Svahn
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+/**
+ * Autocomplete suggestions dropdown.
+ *
+ * [1] Default styles use important
+ * [2] Inline style
+ */
+.container .autocompleteResults {
+    background: var(--autocomplete-bg-color) !important; // [1]
+    border: 1px solid var(--autocomplete-border-color) !important; // [1]
+    border-radius: var(--border-radius-m) !important; // [1]
+    box-shadow: var(--autocomplete-shadow);
+    color: var(--autocomplete-item-text-color);
+    font: var(--body-font);
+    margin: var(--margin-xxs) 0 0 0;
+    max-width: calc(100vw - var(--padding-xl));
+    min-width: 20ch;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    width: auto;
+    word-break: break-word;
+    transition: left 0.25s, top 0.25s;
+    z-index: 999;
+
+    .autocompleteResultsList {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+
+        > li {
+            border-top: 1px solid var(--autocomplete-item-separator-color);
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+            padding: var(--padding-xs) var(--padding-m);
+            transition: color 0.25s, background 0.25s;
+            white-space: nowrap;
+
+            &:nth-child(odd) {
+                background: transparent;
+            }
+
+            &:first-child {
+                border-top: 0;
+            }
+
+            &.selected,
+            &:hover {
+                border-color: transparent;
+                background: var(--autocomplete-item-bg-color-hover);
+                color: var(--autocomplete-item-text-color-hover);
+
+                + li {
+                    border-color: transparent;
+                }
+
+                .resultsFlexContainer {
+                    .acMetaText {
+                        color: inherit;
+                    }
+                }
+            }
+
+            .resultsFlexContainer {
+                align-items: center;
+                color: inherit !important; // [2]
+                display: flex;
+                gap: var(--margin-m);
+                flex-wrap: nowrap;
+                width: 100%;
+
+                .acListItem {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
+                    b {
+                        color: var(--autocomplete-highlight);
+                        font-weight: inherit;
+                        transition: color 0.25s;
+                    }
+                }
+
+                .acMetaText {
+                    color: var(--sidenote-text-color);
+                    flex-grow: 0;
+                    font-size: var(--font-size-s);
+                    margin: 0 0 0 auto;
+                    max-width: 30ch;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    position: relative;
+                    padding: 0;
+                    text-align: inherit;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
