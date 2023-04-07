@@ -40,6 +40,7 @@
     position: absolute;
     right: var(--margin-m);
     top: auto;
+    transition: background-color 0.25s, color 0.25s;
     width: auto;
     z-index: 100;
 
@@ -60,5 +61,11 @@
         color: inherit;
         font-size: inherit;
         padding: var(--padding-xxxs) var(--padding-xs);
+    }
+
+    &.error {
+        .gr-box {
+            box-shadow: 0 0 0 1px var(--error-border-color);
+        }
     }
 }

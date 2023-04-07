@@ -124,3 +124,7 @@
 .shadow-sm {
     box-shadow: none;
 }
+
+a[style*=border] {
+    border: none !important;
+}

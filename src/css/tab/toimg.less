@@ -42,25 +42,29 @@
     gap: var(--margin-s);
     justify-content: flex-start;
     margin: 0;
+    min-height: calc(200px + var(--margin-s));
 
     > div {
-        height: 50%;
-        min-height: 100px;
-        max-height: 340px;
+        flex-grow: 1;
+        height: auto;
+        min-height: var(--prompt-height);
+        max-height: initial;
 
         > div {
-            min-width: 0;
             flex-grow: 1;
-            height: 100%;
+            height: auto;
+            min-height: 100%;
+            min-width: 0;
 
             > div {
-                height: 100%;
+                min-height: 100%;
             }
         }
     }
 
     label {
-        height: 100%;
+        height: auto;
+        min-height: 100%;
     }
 }
 
@@ -76,11 +80,8 @@
         border: 1px solid var(--input-border-color);
         border-radius: var(--border-radius-xs);
         font: inherit;
-        height: 100% !important; // [3]
         margin: 0;
-        min-height: 100px;
-        overflow-x: hidden !important; // [3]
-        overflow-y: scroll !important; // [3]
+        min-height: var(--prompt-height);
         padding: var(--padding-m);
         resize: none;
     }
@@ -206,7 +207,7 @@
 .container #img2img_actions_column {
     flex-grow: 1 !important; // [3]
     gap: var(--margin-m);
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: 0 !important;
     min-width: fit-content !important; // [3]
 }
@@ -216,6 +217,7 @@
     align-items: center;
     gap: var(--margin-m);
     justify-content: center;
+    margin: 0 0 auto 0;
 }
 
 button#paste {
@@ -537,13 +539,32 @@ button#txt2img_res_switch_btn {
     gap: var(--margin-s);
 
     > div:not(#script_list) {
+        //display: flex;
+        //flex-direction: column;
+        //gap: var(--margin-m);
+
         > div {
-            background: var(--panel-bg-color);
+            background: var(--panel-bg-color) !important; // [1]
             border: 1px solid var(--panel-border-color);
             border-radius: var(--border-radius-m) !important; // [1]
             color: inherit;
             gap: 0;
             padding: 0;
+
+            &:first-child + div {
+                margin: var(--margin-m) 0 0 0;
+            }
+
+            ~ div:not(.hidden) {
+                display: flex;
+                flex-direction: column;
+                gap: var(--margin-m);
+                padding: var(--padding-m);
+
+                > div {
+                    // padding: var(--margin-m) !important; // [1]
+                }
+            }
 
             > div:first-child {
                 display: flex;
@@ -553,7 +574,7 @@ button#txt2img_res_switch_btn {
                 user-select: none;
             }
 
-            > div:last-child {
+            > div:not(.gr-form) + div:last-child:not(:first-child) {
                 border-top: 1px solid var(--panel-border-color);
                 gap: var(--margin-s);
                 padding: var(--margin-m);
