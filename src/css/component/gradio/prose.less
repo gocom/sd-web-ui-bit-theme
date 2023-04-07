@@ -30,8 +30,82 @@
     line-height: inherit;
     max-width: 100%;
 
+    > :first-child {
+        margin-top: 0;
+    }
+
     a {
         color: inherit !important;
         font-weight: inherit;
+
+        &:hover {
+            color: var(--link-color-hover) !important;
+        }
+
+        &:focus {
+            color: var(--link-color-focus) !important;
+        }
     }
+
+    h1 {
+        color: inherit;
+        font-weight: bold;
+        font-size: 2.25em;
+        margin: 0 0 0.8888889em 0;
+        line-height: 1.1111111;
+    }
+
+    h2 {
+        color: inherit;
+        font-weight: bold;
+        font-size: 1.5em;
+        margin: 2em 0 1em 0;
+        line-height: 1.3333333;
+
+        h2 + * {
+            margin-top: 0;
+        }
+    }
+
+    ol,
+    ul {
+        margin-top: 1.25em;
+        margin-bottom: 1.25em;
+    }
+
+    ul {
+        > li {
+            position: relative;
+            padding-left: 1.75em;
+
+            &:before {
+                background-color: var(--body-text-color);
+                border-radius: 50%;
+                content: "";
+                height: 0.375em;
+                left: 0.25em;
+                position: absolute;
+                top: 0.6875em;
+                width: 0.375em;
+            }
+
+            > :first-child {
+                margin-top: 1.25em;
+            }
+        }
+    }
+
+    li {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    strong {
+        color: inherit;
+        font-weight: bold;
+    }
+}
+
+.container .dark :is(h1, h2, h3, h4) {
+    color: inherit;
 }

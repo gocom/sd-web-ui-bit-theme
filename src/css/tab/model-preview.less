@@ -1,0 +1,171 @@
+/*
+ * Copyright (C) 2023 Jukka Svahn
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+/**
+ * Model preview tab.
+ */
+.container #tab_modelpreview_xd_interface {
+    > div {
+        > .tabs {
+            /**
+             * Tabs.
+             */
+            > div:first-child {
+                border: 0;
+            }
+
+            > .tabitem {
+                > div {
+                    height: 100%;
+
+                    /**
+                     * Filter toolbar.
+                     */
+                    > div:first-child {
+                        background: var(--panel-bg-color);
+                        border: 1px solid var(--panel-border-color);
+                        border-radius: var(--border-radius-m);
+                        padding: var(--padding-m);
+                    }
+                }
+            }
+        }
+    }
+
+    #cp_modelpreview_xd_flexcolumn_row,
+    #em_modelpreview_xd_flexcolumn_row,
+    #hn_modelpreview_xd_flexcolumn_row,
+    #lo_modelpreview_xd_flexcolumn_row {
+        flex-direction: column;
+        gap: var(--margin-m);
+    }
+
+    #cp_modelpreview_xd_html_row,
+    #em_modelpreview_xd_html_row,
+    #hn_modelpreview_xd_html_row,
+    #lo_modelpreview_xd_html_row {
+        flex: 1;
+        overflow: visible;
+    }
+
+    #cp_modelpreview_xd_html_div,
+    #em_modelpreview_xd_html_div,
+    #hn_modelpreview_xd_html_div,
+    #lo_modelpreview_xd_html_div {
+        .img-container-set {
+            align-content: center;
+            align-items: stretch;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--margin-s);
+            justify-content: flex-start;
+            margin: 0;
+            max-height: none;
+            max-width: 100%;
+            overflow: visible;
+            width: auto;
+
+            .img-container {
+                align-items: flex-end;
+                aspect-ratio: 4 / 6;
+                box-sizing: border-box;
+                margin: 0;
+                background: none;
+                border: 1px solid var(--input-border-color);
+                border-radius: var(--border-radius-m);
+                box-shadow: none;
+                cursor: pointer;
+                display: flex;
+                flex-direction: row-reverse;
+                flex-wrap: wrap;
+                height: auto;
+                overflow: hidden;
+                padding: var(--padding-s);
+                position: relative;
+                width: 12rem;
+
+                &::before {
+                    background: linear-gradient(360deg, var(--mask-bg-color), transparent);
+                    bottom: 0;
+                    content: "";
+                    display: block;
+                    left: 0;
+                    opacity: 0;
+                    pointer-events: none;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    transition: opacity 0.25s;
+                    z-index: 2;
+                }
+
+                img {
+                    cursor: zoom-in;
+                    display: block;
+                    height: 100%;
+                    left: 0;
+                    object-fit: cover;
+                    object-position: center;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    z-index: 1;
+                }
+
+                .img-meta-ico {
+                    #mixin.icon(
+                        var(--icon-clipboard),
+                        var(--icon-clipboard-active)
+                    );
+
+                    margin: 0;
+                    opacity: 0;
+                    transition: opacity 0.25s;
+                    z-index: 3;
+
+                    &::before {
+                        display: none;
+                    }
+                }
+
+                .img-meta {
+                    display: none;
+                }
+
+                &:hover {
+                    &::before,
+                    .img-meta-ico {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    #cp_modelpreview_xd_markdown_div,
+    #em_modelpreview_xd_markdown_div,
+    #hn_modelpreview_xd_markdown_div,
+    #lo_modelpreview_xd_markdown_div {
+        line-height: 1.35;
+        max-width: 80ch;
+    }
+}
