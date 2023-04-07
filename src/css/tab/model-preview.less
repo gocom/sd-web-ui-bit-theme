@@ -55,8 +55,9 @@
     #em_modelpreview_xd_flexcolumn_row,
     #hn_modelpreview_xd_flexcolumn_row,
     #lo_modelpreview_xd_flexcolumn_row {
-        flex-direction: column;
-        gap: var(--margin-m);
+        flex-direction: row-reverse;
+        gap: var(--margin-xl);
+        justify-content: space-between;
     }
 
     #cp_modelpreview_xd_html_row,
@@ -75,6 +76,7 @@
             align-content: center;
             align-items: stretch;
             display: flex;
+            flex-direction: row-reverse;
             flex-wrap: wrap;
             gap: var(--margin-s);
             justify-content: flex-start;
