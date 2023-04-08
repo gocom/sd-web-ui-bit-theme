@@ -106,7 +106,7 @@
             position: relative;
             padding-left: 1.75em;
 
-            &:before {
+            &::before {
                 background-color: var(--body-text-color);
                 border-radius: 50%;
                 content: "";
@@ -118,7 +118,34 @@
             }
 
             > :first-child {
-                margin-top: 1.25em;
+                margin-top: 0;
+            }
+
+            > :last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    ol {
+        > li {
+            position: relative;
+            padding-left: 1.75em;
+
+            &::before {
+                color: inherit;
+                content: counter(list-item, var(--list-counter-style, decimal)) ".";
+                font: inherit;
+                position: absolute;
+                left: 0;
+            }
+
+            > :first-child {
+                margin-top: 0;
+            }
+
+            > :last-child {
+                margin-bottom: 0;
             }
         }
     }
@@ -126,14 +153,6 @@
     li {
         margin-top: 0.5em;
         margin-bottom: 0.5em;
-
-        > :first-child {
-            margin-top: 0 !important; // [1]
-        }
-
-        > :last-child {
-            margin-bottom: 0 !important; // [1]
-        }
     }
 
     strong {
@@ -185,7 +204,8 @@
         color: inherit;
     }
 
-    p {
+    p,
+    li {
         line-height: 1.75;
     }
 
