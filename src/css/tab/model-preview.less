@@ -22,6 +22,8 @@
 
 /**
  * Model preview tab.
+ *
+ * [1] Default styles use important
  */
 .container #tab_modelpreview_xd_interface {
     > div {
@@ -76,7 +78,7 @@
             align-content: center;
             align-items: stretch;
             display: flex;
-            flex-direction: row-reverse;
+            flex-direction: row;
             flex-wrap: wrap;
             gap: var(--margin-s);
             justify-content: flex-start;
@@ -163,11 +165,14 @@
         }
     }
 
-    #cp_modelpreview_xd_markdown_div,
-    #em_modelpreview_xd_markdown_div,
-    #hn_modelpreview_xd_markdown_div,
-    #lo_modelpreview_xd_markdown_div {
+    #cp_modelpreview_xd_markdown_div.gr-block,
+    #em_modelpreview_xd_markdown_div.gr-block,
+    #hn_modelpreview_xd_markdown_div.gr-block,
+    #lo_modelpreview_xd_markdown_div.gr-block {
+        border: 1px solid var(--panel-border-color) !important; // [1]
+        border-radius: var(--border-radius-m);
         line-height: 1.35;
-        max-width: 80ch;
+        padding: var(--padding-xxl) !important; // [1]
+        max-width: calc(80ch + var(--padding-xxl) + var(--padding-xxl) + 2px);
     }
 }
