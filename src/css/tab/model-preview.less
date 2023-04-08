@@ -48,6 +48,10 @@
                         border-radius: var(--border-radius-m);
                         padding: var(--padding-m);
                     }
+
+                    > div + [id^="component-"] {
+                        order: 2;
+                    }
                 }
             }
         }
