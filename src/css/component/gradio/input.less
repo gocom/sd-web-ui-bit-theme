@@ -125,7 +125,7 @@ label {
 /**
  * Range inputs.
  */
-input[type="range"] {
+.container input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     background: transparent;
@@ -134,14 +134,16 @@ input[type="range"] {
     width: 100%;
 
     &::-webkit-slider-runnable-track {
+        border: 1px solid var(--input-border-color);
         background-color: var(--input-bg-color);
-        border-radius: var(--border-radius-m);
+        border-radius: var(--border-radius-s);
         height: 0.5rem;
     }
 
     &::-moz-range-track {
+        border: 1px solid var(--input-border-color);
         background-color: var(--input-bg-color);
-        border-radius: var(--border-radius-m);
+        border-radius: var(--border-radius-s);
         height: 0.5rem;
     }
 
@@ -149,6 +151,7 @@ input[type="range"] {
         -webkit-appearance: none;
         appearance: none;
         background-color: var(--primary-color);
+        box-shadow: var(--secondary-box-shadow);
         border-radius: 50%;
         height: 1rem;
         margin-top: -0.25rem;
@@ -159,6 +162,7 @@ input[type="range"] {
         border: 0;
         background-color: var(--primary-color);
         border-radius: 50%;
+        box-shadow: var(--secondary-box-shadow);
         height: 1rem;
         width: 1rem;
     }

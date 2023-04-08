@@ -23,7 +23,7 @@
 /**
  * Quick settings header.
  */
-#quicksettings {
+.container #quicksettings {
     background: var(--quick-settings-bg-color);
     border-radius: 0 !important;
     border-bottom: 1px solid var(--quick-settings-border-color);
@@ -57,6 +57,18 @@
         right: auto;
         top: auto;
         width: 100%;
+    }
+
+    .gr-box > div > div > input.gr-text-input {
+        bottom: 100%;
+        left: auto;
+        position: absolute;
+        right: 0;
+        top: auto;
+    }
+
+    input[type="range"] {
+        margin: var(--margin-s) 0;
     }
 }
 
