@@ -22,6 +22,8 @@
 
 /**
  * Prose.
+ *
+ * [1] Default styles use the same selector specificity
  */
 .container .gr-prose,
 .container .dark .gr-prose {
@@ -32,6 +34,10 @@
 
     > :first-child {
         margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
     }
 
     a {
@@ -120,6 +126,14 @@
     li {
         margin-top: 0.5em;
         margin-bottom: 0.5em;
+
+        > :first-child {
+            margin-top: 0 !important; // [1]
+        }
+
+        > :last-child {
+            margin-bottom: 0 !important; // [1]
+        }
     }
 
     strong {
