@@ -434,7 +434,7 @@ button#txt2img_random_seed {
             var(--icons-delete-left-active)
         );
         cursor: pointer;
-        margin: 0 0 0 -1.5rem;
+        margin: 0 0 0 calc(-1 * var(--icon-size));
 
         &.hidden {
             display: none;
@@ -951,6 +951,7 @@ button#txt2img_res_switch_btn {
  */
 .container div#img2img_extra_networks,
 .container div#txt2img_extra_networks {
+    #img2img_extra_tabs,
     #txt2img_extra_tabs {
         /**
          * Tab bar.
@@ -959,6 +960,7 @@ button#txt2img_res_switch_btn {
             display: flex;
             flex-direction: row;
 
+            #img2img_extra_refresh,
             #txt2img_extra_refresh {
                 #mixin.icon(
                     var(--icon-arrows-rotate),
@@ -971,7 +973,7 @@ button#txt2img_res_switch_btn {
                 align-self: center;
                 height: auto !important; // [3]
                 display: inline-block;
-                margin: 0 calc(1.5rem + var(--margin-m)) 0 auto;
+                margin: 0 calc(var(--icon-size) + var(--margin-m)) 0 auto;
                 max-width: 30ch;
                 order: 2;
                 width: 100%;
@@ -1075,6 +1077,7 @@ button#txt2img_res_switch_btn {
     }
 }
 
+.container .extra-network-thumbs,
 .container .extra-network-cards {
     align-content: flex-start;
     display: flex;
@@ -1083,7 +1086,6 @@ button#txt2img_res_switch_btn {
     gap: var(--margin-s);
 
     .card {
-        aspect-ratio: 4 / 6;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -1101,7 +1103,6 @@ button#txt2img_res_switch_btn {
         overflow: hidden;
         padding: 0;
         position: relative;
-        width: 12rem;
 
         &::before {
             background: linear-gradient(360deg, var(--mask-bg-color), transparent);
@@ -1149,6 +1150,7 @@ button#txt2img_res_switch_btn {
             flex-direction: column;
             height: auto;
             margin: 0;
+            max-height: calc(100% - var(--icon-size) - var(--padding-s) - var(--padding-s));
             padding: var(--padding-s);
             position: relative;
             text-shadow: none;
@@ -1166,7 +1168,7 @@ button#txt2img_res_switch_btn {
                 left: 0;
                 order: 3;
                 opacity: 0;
-                padding: var(--padding-s) var(--padding-s) var(--padding-s) calc(var(--padding-s) + 1.5rem + var(--padding-s));
+                padding: var(--padding-s) var(--padding-s) var(--padding-s) calc(var(--padding-s) + var(--icon-size) + var(--padding-s));
                 position: absolute;
                 right: 0;
                 top: auto;
@@ -1182,6 +1184,10 @@ button#txt2img_res_switch_btn {
 
                     a {
                         cursor: pointer;
+                        height: auto;
+                        position: static;
+                        width: auto;
+                        text-align: initial;
 
                         &[onclick*="saveCardPreview"] {
                             #mixin.icon(
@@ -1202,11 +1208,15 @@ button#txt2img_res_switch_btn {
 
             .name {
                 background: transparent;
+                color: inherit;
                 font: inherit;
-                line-break: anywhere;
                 margin: 0;
                 order: 1;
+                overflow: hidden;
                 padding: 0;
+                position: static;
+                text-overflow: ellipsis;
+                width: auto;
             }
 
             .description {
@@ -1245,6 +1255,45 @@ button#txt2img_res_switch_btn {
                 .additional {
                     display: flex;
                     opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.container .extra-network-cards {
+    .card {
+        aspect-ratio: 4 / 6;
+        width: var(--card-size);
+
+        .actions {
+            .name {
+                line-break: anywhere;
+                word-break: break-all;
+            }
+        }
+    }
+}
+
+.container .extra-network-thumbs {
+    .card {
+        aspect-ratio: 1 / 1;
+        width: var(--card-thumb-size);
+
+        .actions {
+            .name {
+                line-break: normal;
+                white-space: nowrap;
+                word-break: normal;
+            }
+        }
+
+        &:hover {
+            .actions {
+                .name {
+                    line-break: anywhere;
+                    white-space: normal;
+                    word-break: break-all;
                 }
             }
         }
