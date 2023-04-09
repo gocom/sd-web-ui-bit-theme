@@ -2,10 +2,6 @@ name: CI
 
 on: [push, pull_request]
 
-env:
-    HOST_UID: 0
-    HOST_GID: 0
-
 jobs:
     build:
         name: Build
@@ -16,7 +12,7 @@ jobs:
                 uses: actions/checkout@v3
 
             -   name: Build
-                run: make build
+                run: make build HOST_UID=0 HOST_GID=0
 
             -   name: Package
                 run: make package
