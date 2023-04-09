@@ -176,10 +176,19 @@
     #em_modelpreview_xd_markdown_div.gr-block,
     #hn_modelpreview_xd_markdown_div.gr-block,
     #lo_modelpreview_xd_markdown_div.gr-block {
+        #mixin.spinner();
+
         border: 1px solid var(--panel-border-color) !important; // [1]
         border-radius: var(--border-radius-m);
         line-height: 1.35;
         padding: var(--padding-xxl) !important; // [1]
         max-width: calc(80ch + var(--padding-xxl) + var(--padding-xxl) + 2px);
+    }
+
+    .footer-tags {
+        border: 0;
+        color: var(--sidenote-text-color);
+        font: inherit;
+        opacity: 1;
     }
 }
