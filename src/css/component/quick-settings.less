@@ -70,26 +70,20 @@
     input[type="range"] {
         margin: var(--margin-s) 0;
     }
-}
 
-/**
- * Model loading bar.
- */
-.container #setting_sd_model_checkpoint,
-.container #setting_sd_vae {
-    > .wrap {
-        #mixin.eta-bar();
+    > button {
+        margin: auto 0 !important;
     }
-}
 
-/**
- * Refresh icon.
- */
-button#refresh_sd_vae,
-button#refresh_sd_model_checkpoint {
-    #mixin.icon(
-        var(--icon-arrows-rotate),
-        var(--icon-arrows-rotate-active)
-    );
-    margin: auto 0 !important;
+    /**
+     * Model loading bar.
+     */
+    #setting_sd_lora,
+    #setting_sd_hypernetwork,
+    #setting_sd_model_checkpoint,
+    #setting_sd_vae {
+        > .wrap {
+            #mixin.eta-bar();
+        }
+    }
 }

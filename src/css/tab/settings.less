@@ -167,3 +167,25 @@
         }
     }
 }
+
+button#refresh_tac_extra\.extraFile,
+button#refresh_tac_translation\.translationFile,
+button#refresh_localization,
+button#refresh_sd_vae,
+button#refresh_sd_model_checkpoint,
+button#refresh_sd_lora,
+button#refresh_sd_hypernetwork,
+button#refresh_interrogate_clip_skip_categories {
+    #mixin.icon(
+        var(--icon-arrows-rotate),
+        var(--icon-arrows-rotate-active)
+    );
+
+    .container #settings & {
+        margin: auto 0 var(--padding-xxs) 0;
+    }
+}
+
+#setting_hidden_tabs {
+    #mixin.token-field();
+}
