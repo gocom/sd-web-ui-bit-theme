@@ -2,24 +2,27 @@ name: CI
 
 on: [push, pull_request]
 
+env:
+    HOST_UID: 0
+    HOST_GID: 0
+
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
+    build:
+        name: Build
+        runs-on: ubuntu-latest
 
-    steps:
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v3
 
-      - name: Checkout
-        uses: actions/checkout@v3
+            -   name: Build
+                run: make build
 
-      - name: Build
-        run: make build
+            -   name: Package
+                run: make package
 
-      - name: Package
-        run: make package
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: sd-web-ui-bit-theme.zip
-          path: dist/sd-web-ui-bit-theme.zip
+            -   name: Upload Artifact
+                uses: actions/upload-artifact@v3
+                with:
+                    name: sd-web-ui-bit-theme.zip
+                    path: dist/sd-web-ui-bit-theme.zip
