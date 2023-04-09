@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: make build
+
+      - name: Package
+        run: make package
+
+      - name: Changelog
+        id: changelog
+        run: |
+          echo "contents<<CHANGELOGEOF" >> $GITHUB_OUTPUT
+          sed -e '1,/##/d' -e '/##/,$d' CHANGELOG.md >> $GITHUB_OUTPUT
+          echo "CHANGELOGEOF" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        id: create_release
+        uses: shogo82148/actions-create-release@v1
+        with:
+          body: ${{ steps.changelog.outputs.contents }}
+
+      - name: Upload Package
+        uses: shogo82148/actions-upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ github.workspace }}/dist/sd-web-ui-bit-theme.zip
+          asset_name: sd-web-ui-bit-theme.zip
+          asset_content_type: application/zip

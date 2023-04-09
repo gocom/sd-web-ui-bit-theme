@@ -1,4 +1,4 @@
-.PHONY: help build clean lint shell test watch
+.PHONY: help build clean lint package shell test watch
 
 NODE_ENV ?= development
 HOST_UID != id -u
@@ -16,9 +16,13 @@ node_modules:
 
 build: node_modules
 	$(NPM) run build
+	$(NODE) bash -c "test -e style.css || ln -s build/style.css style.css"
 
 clean:
-	$(NODE) rm -rf build dist
+	$(NODE) rm -rf build dist style.css node_modules package-lock.json
+
+package:
+	$(NPM) run package
 
 shell:
 	$(NODE) bash
@@ -51,6 +55,9 @@ help:
 	@echo ""
 	@echo "  $$ make lint"
 	@echo "  Lint code style"
+	@echo ""
+	@echo "  $$ make package"
+	@echo "  Package build result to a distributable ZIP file"
 	@echo ""
 	@echo "  $$ make shell"
 	@echo "  Login to Node container"

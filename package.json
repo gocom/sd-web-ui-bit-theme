@@ -1,6 +1,6 @@
 {
-    "name": "@gocom/textpattern-project-template",
-    "version": "0.1.0",
+    "name": "@gocom/sd-web-ui-bit-theme",
+    "version": "0.0.0",
     "description": "Theme for Stable Diffusion Web UI",
     "repository": {
         "url": "https://github.com/gocom/sd-web-ui-bit-theme.git"
@@ -11,6 +11,7 @@
     },
     "license": "MIT",
     "devDependencies": {
+        "archiver": "^5.3.1",
         "css-loader": "^6.7.3",
         "css-minimizer-webpack-plugin": "^4.2.2",
         "file-loader": "^6.2.0",
@@ -34,6 +35,7 @@
         "lint:json": "lintspaces -e .editorconfig 'src/**/*.json' '.*.json' '*.json'",
         "test": "npm run lint",
         "build": "webpack",
+        "package": "node bin/package",
         "watch": "npm run build -- --watch"
     },
     "private": true

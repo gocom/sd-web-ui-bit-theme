@@ -17,7 +17,9 @@ const config = {
     devtool: false,
     mode: process.env.NODE_ENV || 'production',
     context: path.join(__dirname, 'src'),
-    entry: './main.less',
+    entry: {
+        style: './style.less'
+    },
     output: {
         path: path.join(__dirname, 'build'),
     },

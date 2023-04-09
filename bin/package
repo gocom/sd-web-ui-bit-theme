@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const archiver = require('archiver');
+const { name } = require('../package.json');
+const basename = path.basename(name);
+
+const root = path.dirname(__dirname);
+const dist = path.join(root, 'dist');
+const zip = path.join(dist, `${basename}.zip`);
+
+try {
+  fs.mkdirSync(dist, {recursive: true});
+} catch (e) {
+  // Directory already exists.
+
+  try {
+    fs.unlinkSync(zip);
+  } catch (e) {
+    // File does not exist.
+  }
+}
+
+const output = fs.createWriteStream(zip);
+
+const archive = archiver('zip', {
+  zlib: {
+    level: 9,
+  },
+});
+
+archive.pipe(output);
+
+archive.directory(
+    path.join(root, 'build'),
+    basename
+);
+
+archive.directory(
+    path.join(root, 'javascript'),
+    path.join(basename, 'javascript')
+);
+
+for (const file of ['LICENSE', 'CHANGELOG.md', 'README.md']) {
+    archive.file(
+        path.join(root, file),
+        {
+            name: path.join(basename, file)
+        }
+    );
+}
+
+archive.finalize();
