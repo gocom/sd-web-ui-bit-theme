@@ -278,6 +278,11 @@ button#txt2img_random_seed {
     margin: var(--margin-xl) 0 0 0;
 }
 
+/**
+ * Token dropdowns.
+ */
+.container #txt2img_override_settings,
+.container #img2img_override_settings,
 .container #txt2img_styles,
 .container #img2img_styles {
     max-width: 100%;
@@ -287,12 +292,6 @@ button#txt2img_random_seed {
     }
 
     > label {
-        > span {
-            bottom: calc(100% + var(--margin-xxs));
-            position: absolute;
-            top: auto;
-        }
-
         > div {
             background: transparent;
             border: 0;
@@ -307,14 +306,11 @@ button#txt2img_random_seed {
             position: relative;
 
             > div {
-                align-items: flex-start;
                 background: var(--input-bg-color);
                 border: 1px solid var(--input-border-color);
                 border-radius: var(--border-radius-m);
                 display: flex;
-                flex-direction: column;
                 flex-grow: 1;
-                flex-wrap: nowrap;
                 gap: var(--padding-xxxs);
                 justify-content: flex-start;
                 overflow: hidden;
@@ -325,6 +321,7 @@ button#txt2img_random_seed {
                     display: flex;
                     flex-wrap: nowrap;
                     justify-content: space-between;
+                    min-height: calc(var(--icon-size) + var(--padding-xxxs) + var(--padding-xxxs));
                     width: 100%;
 
                     > input {
@@ -332,8 +329,8 @@ button#txt2img_random_seed {
                         line-height: inherit;
                         margin: calc(-1 * var(--padding-xs));
                         min-width: 0;
-                        padding: var(--padding-xs) calc(1.5rem + var(--padding-xs)) var(--padding-xs) var(--padding-xs);
-                        width: 100%;
+                        padding: var(--padding-xs) calc(var(--icon-size) + var(--padding-xs)) var(--padding-xs) var(--padding-xs);
+                        width: calc(100% + var(--padding-xs) + var(--padding-xs));
                     }
                 }
             }
@@ -344,7 +341,7 @@ button#txt2img_random_seed {
                 border-radius: var(--border-radius-s);
                 bottom: auto;
                 box-shadow: none;
-                color: var(--context-menu-item-text-color);
+                color: var(--autocomplete-item-text-color);
                 font: inherit;
                 left: 0;
                 list-style: none;
@@ -357,11 +354,11 @@ button#txt2img_random_seed {
                 width: 100%;
 
                 li {
-                    background: var(--context-menu-bg-color);
-                    border-left: 1px solid var(--context-menu-border-color);
+                    background: var(--autocomplete-bg-color);
+                    border-left: 1px solid var(--autocomplete-border-color);
                     border-radius: 0;
-                    border-right: 1px solid var(--context-menu-border-color);
-                    border-top: 1px solid var(--context-menu-item-separator-color);
+                    border-right: 1px solid var(--autocomplete-border-color);
+                    border-top: 1px solid var(--autocomplete-item-separator-color);
                     color: inherit;
                     cursor: pointer;
                     display: block;
@@ -372,23 +369,26 @@ button#txt2img_random_seed {
                     white-space: nowrap;
 
                     &:first-child {
-                        border-top: 1px solid var(--context-menu-border-color);
+                        border-top: 1px solid var(--autocomplete-border-color);
                         border-top-left-radius: var(--border-radius-s);
                         border-top-right-radius: var(--border-radius-s);
                     }
 
                     &:last-child {
-                        border-bottom: 1px solid var(--context-menu-border-color);
-                        border-bottom-left-radius: var(--border-radius-s);
-                        border-bottom-right-radius: var(--border-radius-s);
+                        border-bottom: 1px solid var(--autocomplete-border-color);
+                        border-bottom-left-radius: var(--border-radius-m);
+                        border-bottom-right-radius: var(--border-radius-m);
                     }
 
                     &:hover {
-                        border-color: transparent;
-                        background: var(--context-menu-item-bg-color-hover);
-                        color: var(--context-menu-item-text-color-hover);
+                        background: var(--autocomplete-item-bg-color-hover);
+                        color: var(--autocomplete-item-text-color-hover);
 
-                        + a {
+                        &:not(:last-child) {
+                            border-bottom-color: transparent;
+                        }
+
+                        + li {
                             border-top-color: transparent;
                         }
                     }
@@ -399,7 +399,7 @@ button#txt2img_random_seed {
 
     .token {
         align-items: center;
-        background: var(--input-border-color);
+        background: var(--input-border-color) !important; // [1]
         border: none;
         border-radius: var(--border-radius-s);
         color: inherit;
@@ -412,11 +412,10 @@ button#txt2img_random_seed {
         max-width: 100%;
         padding: var(--padding-xxxs) var(--padding-xs);
 
-
         .token-remove {
             #mixin.icon(
-                var(--icons-delete-left),
-                var(--icons-delete-left-active)
+                var(--icon-delete-left),
+                var(--icon-delete-left-active)
             );
             order: 2;
         }
@@ -430,8 +429,8 @@ button#txt2img_random_seed {
 
     .remove-all {
         #mixin.icon(
-            var(--icons-delete-left),
-            var(--icons-delete-left-active)
+            var(--icon-delete-left),
+            var(--icon-delete-left-active)
         );
         cursor: pointer;
         margin: 0 0 0 calc(-1 * var(--icon-size));
@@ -449,6 +448,38 @@ button#txt2img_random_seed {
         var(--icon-arrows-rotate-active)
     );
     margin: auto 0;
+}
+
+.container #txt2img_styles,
+.container #img2img_styles {
+    > label {
+        > span {
+            bottom: calc(100% + var(--margin-xxs));
+            position: absolute;
+            top: auto;
+        }
+
+        > div {
+            > div {
+                align-items: flex-start;
+                flex-direction: column;
+                flex-wrap: nowrap;
+            }
+        }
+    }
+}
+
+.container #txt2img_override_settings,
+.container #img22img_override_settings {
+    > label {
+        > div {
+            > div {
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    }
 }
 
 #txt2img_settings,
@@ -719,8 +750,8 @@ button#txt2img_res_switch_btn {
     #open_folder_txt2img,
     #open_folder_img2img {
         #mixin.icon(
-            var(--icons-folder-open),
-            var(--icons-folder-open-active)
+            var(--icon-folder-open),
+            var(--icon-folder-open-active)
         );
         margin: auto 0;
     }
@@ -732,8 +763,8 @@ button#txt2img_res_switch_btn {
     #save_txt2img,
     #save_img2img {
         #mixin.icon(
-            var(--icons-floppy-disk),
-            var(--icons-floppy-disk-active)
+            var(--icon-floppy-disk),
+            var(--icon-floppy-disk-active)
         );
         margin: auto 0;
     }
@@ -741,8 +772,8 @@ button#txt2img_res_switch_btn {
     #save_zip_txt2img,
     #save_zip_img2img {
         #mixin.icon(
-            var(--icons-file-zipper),
-            var(--icons-file-zipper-active)
+            var(--icon-file-zipper),
+            var(--icon-file-zipper-active)
         );
         margin: auto auto auto 0;
     }
@@ -847,7 +878,7 @@ button#txt2img_res_switch_btn {
 }
 
 /**
- *interrogate column.
+ * Interrogate column.
  */
 .container #interrogate_col {
     background: var(--panel-bg-color);
