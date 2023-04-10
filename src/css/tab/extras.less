@@ -39,11 +39,89 @@
             }
         }
     }
-}
 
-#extras_image_batch,
-#extras_image {
-    #mixin.image-area();
+    #extras_single_tab {
+        border: 0;
+    }
+
+    #extras_image_batch,
+    #extras_image {
+        #mixin.image-area();
+
+        /**
+         * Label.
+         */
+        > div.absolute {
+            background: var(--primary-color) !important;
+            border: 0;
+            border-radius: 0 0 var(--border-radius-m) 0;
+            bottom: auto;
+            color: var(--primary-text-color);
+            display: flex;
+            font: inherit;
+            left: 0;
+            line-height: 1;
+            padding: var(--padding-xs);
+            pointer-events: none;
+            position: absolute;
+            right: auto;
+            top: 0;
+
+            > span {
+                display: none;
+            }
+        }
+
+        > div:last-child {
+            background: transparent;
+            height: auto;
+            min-height: 200px;
+            position: relative;
+
+            > div {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                height: 100%;
+                max-height: 100%;
+                position: static;
+
+                > .modify-upload {
+                    background: var(--panel-bg-color);
+                    border-bottom: 1px solid var(--panel-border-color);
+                    display: flex;
+                    gap: var(--margin-m);
+                    order: -1;
+                    padding: var(--margin-m);
+                    position: static;
+                    width: 100%;
+
+                    > button:nth-child(1) {
+                        #mixin.icon(
+                            var(--icon-pen-to-square),
+                            var(--icon-pen-to-square-active)
+                        );
+                    }
+
+                    > button:first-child:last-child,
+                    > button:nth-child(2) {
+                        #mixin.icon(
+                            var(--icon-trash-can),
+                            var(--icon-trash-can-active)
+                        );
+                    }
+                }
+
+                > img {
+                    object-fit: contain;
+                    height: auto;
+                    max-height: 100%;
+                    max-width: 100%;
+                    width: auto;
+                }
+            }
+        }
+    }
 }
 
 #mode_extras {
