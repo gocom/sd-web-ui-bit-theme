@@ -22,9 +22,11 @@
 
 /**
  * Spinner style ETA bar.
+ *
+ * [1] Default styles use important
  */
 #mixin {
-    .spinner() {
+    .spinner(@emphasis: false) {
         .wrap.svelte-5usjvi {
             align-items: flex-start;
             background: transparent;
@@ -49,7 +51,12 @@
 
             > .z-20 {
                 margin: 0;
+                position: static;
                 order: 2;
+
+                svg {
+                    display: none !important; // [1]
+                }
 
                 &::before {
                     background: var(--spinner);
@@ -60,6 +67,15 @@
                     display: block;
                     height: var(--icon-size);
                     width: var(--icon-size);
+
+                    & when (@emphasis = true) {
+                        backdrop-filter: var(--mask-backdrop-filter);
+                        background-color: var(--mask-bg-color);
+                        background-size: 50%;
+                        border-radius: 50%;
+                        height: calc(var(--icon-size) * 2);
+                        width: calc(var(--icon-size) * 2);
+                    }
                 }
             }
         }
