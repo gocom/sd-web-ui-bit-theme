@@ -42,6 +42,7 @@
     line-height: inherit;
     padding: var(--padding-s) var(--padding-m);
     text-align: center;
+    transition: background 0.25s ease, opacity 0.5s ease-out;
     user-select: none;
 
     &:hover {
@@ -54,6 +55,11 @@
         background: var(--button-bg-color-focus);
         border-color: var(--button-border-color-focus);
         color: var(--button-text-color-focus);
+    }
+
+    &:active {
+        opacity: 0.5;
+        transition: 0s;
     }
 }
 
