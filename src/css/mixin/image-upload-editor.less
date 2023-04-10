@@ -1,0 +1,178 @@
+/*
+ * Copyright (C) 2023 Jukka Svahn
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+/**
+ * Image upload editor.
+ */
+#mixin {
+    .image-upload-editor() {
+        #mixin.image-area();
+        #mixin.spinner();
+
+        /**
+         * Label.
+         */
+        > div.absolute {
+            background: var(--primary-color) !important;
+            border: 0;
+            border-radius: 0 0 var(--border-radius-m) 0;
+            bottom: auto;
+            clip: initial;
+            color: var(--primary-text-color);
+            display: flex;
+            font: inherit;
+            height: auto;
+            left: 0;
+            line-height: 1;
+            overflow: visible;
+            padding: var(--padding-xs);
+            pointer-events: none;
+            position: absolute;
+            right: auto;
+            top: 0;
+            white-space: normal;
+            width: auto;
+
+            > span {
+                display: none;
+            }
+        }
+
+        /**
+         * Image area.
+         */
+        > div:last-child:not(.file-preview) {
+            align-items: center;
+            background: transparent;
+            display: flex;
+            height: auto;
+            min-height: 450px;
+            position: static;
+
+            > div {
+                align-self: stretch;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                flex-wrap: nowrap;
+                height: auto;
+                max-height: 100%;
+                position: relative;
+
+                > .flex-col {
+                    align-items: center;
+                    background: var(--body-bg-color);
+                    bottom: 0;
+                    color: var(--sidenote-text-color);
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                    gap: var(--margin-xxs);
+                    left: 0;
+                    justify-content: center;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+
+                    > span.text-gray-300 {
+                        --icon-size: 6rem;
+
+                        #mixin.icon(
+                            var(--icon-cloud-arrow-up),
+                            var(--icon-cloud-arrow-up-active)
+                        );
+
+                        margin: 0 auto;
+                    }
+                }
+
+                > img {
+                    object-fit: contain;
+                    height: auto;
+                    max-height: 100%;
+                    max-width: 100%;
+                    min-height: 0;
+                    min-width: 0;
+                    width: auto;
+                }
+            }
+        }
+
+        /**
+          * Toolbar.
+          */
+        .modify-upload {
+            background: var(--panel-bg-color);
+            border-bottom: 1px solid var(--panel-border-color);
+            display: flex;
+            gap: var(--margin-m);
+            order: -1;
+            padding: var(--margin-m);
+            position: static;
+            width: 100%;
+
+            > button:nth-child(1) {
+                #mixin.icon(
+                    var(--icon-pen-to-square),
+                    var(--icon-pen-to-square-active)
+                );
+            }
+
+            > button:first-child:last-child,
+            > button:nth-child(2) {
+                #mixin.icon(
+                    var(--icon-trash-can),
+                    var(--icon-trash-can-active)
+                );
+            }
+        }
+
+        /**
+         * Batch upload file preview.
+         */
+        .file-preview {
+            background: var(--panel-bg-color);
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            gap: var(--margin-m);
+            margin: 0;
+            max-height: 100%;
+            min-height: 0;
+            overflow: visible;
+            padding: 0 0 var(--padding-m) 0;
+
+            > div:not(.modify-upload) {
+                padding: 0 var(--padding-m);
+
+                > div:last-child {
+                    width: fit-content;
+
+                    a {
+                        color: inherit;
+                    }
+                }
+            }
+        }
+    }
+}

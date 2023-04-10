@@ -62,8 +62,25 @@
             }
         }
     }
-}
 
-#pnginfo_image {
-    #mixin.image-area();
+    #pnginfo_image {
+        #mixin.image-upload-editor();
+    }
+
+    .output-html {
+        p {
+            margin: 0;
+
+            > b {
+                display: block;
+                margin: var(--margin-m) 0;
+            }
+
+            br {
+                content: "";
+                display: block;
+                margin-top: var(--margin-m);
+            }
+        }
+    }
 }
