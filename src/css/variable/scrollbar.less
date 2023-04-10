@@ -21,38 +21,29 @@
  */
 
 /**
- * Icon mixin.
+ * Scrollbars.
  *
- * [1] Default styles use important.
+ * Some scrollbars are not rendered within `.dark` modifier in DOM and can not be styled due to it.
+ * Both light and dark styles have the same context menu look.
  */
-#mixin {
-    .icon(@normal, @active) {
-        background-color: transparent;
-        background-image: @normal;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: calc(100% - var(--icon-padding));
-        box-shadow: none;
-        border: none;
-        display: inline-block;
-        font-size: 0;
-        height: var(--icon-size);
-        max-height: var(--icon-size);
-        max-width: var(--icon-size);
-        min-height: var(--icon-size);
-        min-width: var(--icon-size) !important; // [1]
-        outline: none;
-        padding: 0;
-        transition: background 0.25s ease;
-        width: var(--icon-size);
+:root,
+* {
+    /**
+     * Size.
+     */
+    --scrollbar-width: 1em;
 
-        &:focus,
-        &:hover {
-            background-image: @active;
-        }
+    /**
+     * Scrollbars for light backgrounds.
+     */
+    --scrollbar-track-bg-color-light: var(--body-bg-color);
+    --scrollbar-track-shadow-light: inset 0 0 3px rgba(0, 0, 0, 0.35);
+    --scrollbar-thumb-bg-color-light: #392c49;
 
-        > * {
-            display: none;
-        }
-    }
+    /**
+     * Scrollbars for dark backgrounds.
+     */
+    --scrollbar-track-bg-color-dark: #1a1a1a;
+    --scrollbar-track-shadow-dark: inset 0 0 3px rgba(0, 0, 0, 0.5);
+    --scrollbar-thumb-bg-color-dark: #444444;
 }

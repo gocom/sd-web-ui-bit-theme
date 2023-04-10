@@ -151,10 +151,9 @@
     /**
      * Scrollbars.
      */
-    --scrollbar-track-bg-color: #1a1a1a;
-    --scrollbar-track-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
-    --scrollbar-thumb-bg-color: #444444;
-    --scrollbar-width: 1em;
+    --scrollbar-track-bg-color: var(--scrollbar-track-bg-color-dark);
+    --scrollbar-track-shadow: var(--scrollbar-track-shadow-dark);
+    --scrollbar-thumb-bg-color: var(--scrollbar-thumb-bg-color-dark);
 
     /**
      * Masks.
@@ -213,5 +212,5 @@
     /**
      * Spinner.
      */
-    --spinner: data-uri("../../../../asset/image/dark/spinner.svg");
+    --spinner: var(--spinner-dask);
 }
