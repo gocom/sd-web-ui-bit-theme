@@ -21,9 +21,18 @@
  */
 
 /**
- * Highlight selection.
+ * Context menus.
+ *
+ * Context menus are not rendered within `.dark` modifier in DOM and can not be styled due to it.
+ * Both light and dark styles have the same context menu look.
  */
-::selection {
-    background: var(--selection-bg-color);
-    color: var(--selection-text-color);
+:root,
+* {
+    --context-menu-bg-color: #000;
+    --context-menu-border-color: rgba(255, 255, 255, 0.35);
+    --context-menu-item-separator-color: rgba(255, 255, 255, 0.15);
+    --context-menu-shadow-color: rgba(0, 0, 0, 0.35);
+    --context-menu-item-text-color: #ececec;
+    --context-menu-item-text-color-hover: #fff;
+    --context-menu-item-bg-color-hover: #4e366e;
 }

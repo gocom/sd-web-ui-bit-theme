@@ -77,7 +77,6 @@
 #img2img_neg_prompt {
     textarea {
         background: var(--input-bg-color);
-        border: 1px solid var(--input-border-color);
         border-radius: var(--border-radius-xs);
         font: inherit;
         margin: 0;
@@ -98,12 +97,17 @@
     #mixin.spinner();
 
     textarea {
+        border: 1px solid var(--prompt-border-color);
         color: var(--prompt-text-color);
 
-        &:hover,
-        &:focus {
+        &:hover {
             border-color: var(--prompt-border-color-hover);
             color: var(--prompt-text-color-hover);
+        }
+
+        &:focus {
+            border-color: var(--prompt-border-color-focus);
+            color: var(--prompt-text-color-focus);
         }
     }
 }
@@ -111,12 +115,17 @@
 #txt2img_neg_prompt,
 #img2img_neg_prompt {
     textarea {
+        border: 1px solid var(--prompt-negative-border-color);
         color: var(--prompt-negative-text-color);
 
-        &:hover,
-        &:focus {
+        &:hover {
             border-color: var(--prompt-negative-border-color-hover);
             color: var(--prompt-negative-text-color-hover);
+        }
+
+        &:focus {
+            border-color: var(--prompt-negative-border-color-focus);
+            color: var(--prompt-negative-text-color-focus);
         }
     }
 }
@@ -969,13 +978,15 @@ button#txt2img_res_switch_btn {
         flex-direction: column;
         justify-content: flex-end;
         margin: 0;
+        background-color: var(--image-bg-color);
         background-image: none;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        border: 1px solid var(--input-border-color);
+        border: 1px solid var(--image-border-color);
         border-radius: var(--border-radius-m);
         box-shadow: none;
+        color: var(--image-text-color);
         cursor: pointer;
         height: auto;
         overflow: hidden;
@@ -983,7 +994,7 @@ button#txt2img_res_switch_btn {
         position: relative;
 
         &::before {
-            background: linear-gradient(360deg, var(--mask-bg-color), transparent);
+            background: linear-gradient(360deg, var(--image-mask-bg-color), transparent);
             bottom: 0;
             content: "";
             display: block;
@@ -1020,8 +1031,8 @@ button#txt2img_res_switch_btn {
          * Bottom information and actions.
          */
         .actions {
-            background: var(--mask-bg-color);
-            backdrop-filter: var(--mask-backdrop-filter);
+            background: var(--image-mask-bg-color);
+            backdrop-filter: var(--image-mask-backdrop-filter);
             box-shadow: none;
             color: inherit;
             display: flex;

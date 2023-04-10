@@ -25,6 +25,7 @@
  *
  * [1] Default styles use important
  * [2] Inline styles
+ * [3] Same specificity
  */
 .dark .gr-input,
 .gr-input {
@@ -38,7 +39,7 @@ select.gr-input,
 }
 
 ::placeholder {
-    color: var(--input-placeholder-text-color);
+    color: var(--input-placeholder-text-color) !important;
 }
 
 .container fieldset span.text-gray-500,
@@ -51,7 +52,7 @@ select.gr-input,
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    color: var(--label-text-color);
+    color: inherit;
     font: inherit;
     line-height: inherit;
     margin: 0;

@@ -100,10 +100,11 @@
                 aspect-ratio: 4 / 6;
                 box-sizing: border-box;
                 margin: 0;
-                background: none;
-                border: 1px solid var(--input-border-color);
+                background: var(--image-bg-color);
+                border: 1px solid var(--image-border-color);
                 border-radius: var(--border-radius-m);
                 box-shadow: none;
+                color: var(--image-text-color);
                 cursor: pointer;
                 display: flex;
                 flex-direction: row-reverse;
@@ -112,10 +113,10 @@
                 overflow: hidden;
                 padding: var(--padding-s);
                 position: relative;
-                width: 12rem;
+                width: var(--card-size);
 
                 &::before {
-                    background: linear-gradient(360deg, var(--mask-bg-color), transparent);
+                    background: linear-gradient(360deg, var(--image-mask-bg-color), transparent);
                     bottom: 0;
                     content: "";
                     display: block;

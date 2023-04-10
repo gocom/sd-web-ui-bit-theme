@@ -24,9 +24,10 @@
  * Sidebar.
  */
 #tabs > div:first-child {
-    background: var(--panel-bg-color);
+    background: var(--sidebar-bg-color);
     border: 0;
     bottom: 0;
+    color: var(--sidebar-item-text-color);
     flex-wrap: nowrap;
     flex-direction: column;
     left: 0;
@@ -37,11 +38,12 @@
     right: auto;
     top: 0;
     width: var(--sidebar-width);
-    z-index: 1000;
+    z-index: 800;
 
     > button {
         border: 0 !important;
         border-radius: 0 !important;
+        color: inherit;
         margin: 0 !important;
         overflow: hidden;
         padding: var(--padding-m) var(--padding-xl);
@@ -50,15 +52,16 @@
         white-space: nowrap;
 
         &:hover {
-            background: var(--primary-color) !important;
+            background: var(--sidebar-item-bg-color-hover) !important;
             border: 0 !important;
-            color: var(--primary-text-color) !important;
+            color: var(--sidebar-item-text-color-hover) !important;
         }
 
         &.bg-white,
         &.bg-white:hover {
-            background: var(--primary-color-active) !important;
+            background: var(--sidebar-item-bg-color-active) !important;
             border: 0 !important;
+            color: var(--sidebar-item-text-color-active) !important;
         }
     }
 }
