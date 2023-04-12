@@ -52,7 +52,24 @@
             flex-grow: 0;
             max-width: 100%;
             min-width: fit-content;
+            opacity: 1;
             padding: var(--padding-m);
+            transition: background 0.25s ease, opacity 0.5s ease-out;
+
+            &:hover {
+                background: var(--primary-color-hover);
+                color: var(--primary-text-color-hover);
+            }
+
+            &:focus {
+                background: var(--primary-color-focus);
+                color: var(--primary-text-color-focus);
+            }
+
+            &:active {
+                opacity: 0.5;
+                transition: 0s;
+            }
 
             &.bg-white {
                 background: var(--primary-color) !important;
