@@ -192,6 +192,15 @@
                         border-top-left-radius: var(--border-radius-m);
                         border-top-right-radius: var(--border-radius-m);
                         padding: var(--padding-m);
+
+                        button {
+                            #mixin.icon(
+                                var(--icon-arrow-up-wide-short),
+                                var(--icon-arrow-up-wide-short-active)
+                            );
+
+                            margin: auto 0;
+                        }
                     }
 
                     /**
@@ -199,20 +208,20 @@
                      */
                     > div:nth-child(2) {
                         border-top: 1px solid var(--panel-border-color);
-                        padding: var(--padding-m);
                     }
 
                     /**
                      * Prompt keyword search.
                      */
                     > div:nth-child(3) {
-                        background: var(--panel-item-bg-color);
                         display: flex;
                         gap: var(--margin-m);
                         flex-direction: column;
-                        padding: var(--padding-m);
                     }
 
+                    /**
+                     * Aesthetic score.
+                     */
                     > div:nth-child(5) {
                         border-bottom-left-radius: var(--border-radius-m);
                         border-bottom-right-radius: var(--border-radius-m);
