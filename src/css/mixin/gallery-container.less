@@ -21,49 +21,18 @@
  */
 
 /**
- * Train tab.
- *
- * [1] Inline styles
+ * Gallery container.
  */
-#tab_ti {
-    > div {
-        display: flex;
-        flex-direction: column;
-        gap: var(--margin-m);
+#mixin {
+    .gallery-container() {
+        #mixin.image-area() !important;
 
-        /**
-         * Description.
-         */
-        > div:first-child {
-            background: var(--panel-bg-color);
-            border-radius: var(--border-radius-m);
-            color: var(--sidenote-text-color);
-            padding: var(--padding-m);
-
-            p {
-                margin: 0 !important; // [1]
-            }
+        .livePreview {
+            #mixin.live-preview();
         }
 
-        > div {
-            display: flex;
-            gap: var(--margin-m);
+        [id$="_gallery"] {
+            #mixin.gallery();
         }
-    }
-
-    #train_tabs {
-        > div {
-            > div {
-                > .gr-form {
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--margin-m);
-                }
-            }
-        }
-    }
-
-    #ti_gallery_container {
-        #mixin.gallery-container();
     }
 }
