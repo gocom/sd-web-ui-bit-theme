@@ -23,9 +23,9 @@
 /**
  * Progress bar.
  */
-.progressDiv,
-.dark .progressDiv {
-    background: var(--input-bg-color) !important;
+.container .progressDiv,
+.container .dark .progressDiv {
+    background: var(--progress-track-color) !important;
     border-radius: var(--border-radius-m) !important;
     height: auto;
     margin: 0;
@@ -34,12 +34,16 @@
     min-height: var(--margin-xl);
     width: auto !important;
 
+    /**
+    <div class="progressDiv" style="display: block; width: 820px;"><div class="progress" style="width: 9.66667%;">10% ETA: 02:05</div></div>
+     */
+
     .progress {
         align-items: center;
-        background: var(--primary-color);
+        background: var(--progress-bar-color);
         border-radius: 0;
         box-sizing: border-box;
-        color: var(--primary-text-color);
+        color: var(--progress-text-color);
         display: flex;
         font: inherit;
         font-size: var(--font-size-m);

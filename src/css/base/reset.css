@@ -89,6 +89,7 @@
 \:border-gray-700,
 .\!border,
 .\!border-gray-300,
+.hover\:border-gray-300:hover,
 .dark .border,
 .dark .border-gray-100,
 .dark .border-gray-200,

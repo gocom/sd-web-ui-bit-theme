@@ -54,11 +54,20 @@
     #train_tabs {
         > div {
             > div {
-                > .gr-form {
+                .gr-form {
                     display: flex;
                     flex-direction: column;
                     gap: var(--margin-m);
                 }
+            }
+        }
+
+        .output-html {
+            p {
+                background: var(--panel-bg-color);
+                border-radius: var(--border-radius-m);
+                padding: var(--padding-m);
+                margin: 0 !important; // [1]
             }
         }
     }
@@ -67,8 +76,25 @@
         #mixin.gallery-container();
     }
 
+    button#train_train_embedding,
+    button#train_create_hypernetwork,
     button#train_create_embedding {
         margin: 0 0 0 auto;
         max-width: max-content;
+    }
+
+    button#train_train_hypernetwork,
+    button#train_interrupt_training {
+        max-width: max-content;
+    }
+
+    #refresh_train_embedding_name,
+    #refresh_train_hypernetwork_name,
+    #refrsh_train_template_file {
+        #mixin.icon(
+            var(--icon-arrows-rotate),
+            var(--icon-arrows-rotate-active)
+        );
+        margin: auto 0 var(--margin-xxs) 0;
     }
 }
