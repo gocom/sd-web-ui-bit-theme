@@ -45,16 +45,24 @@
         border-radius: 0 !important;
         color: inherit;
         margin: 0 !important;
+        outline: 0;
         overflow: hidden;
         padding: var(--padding-m) var(--padding-xl);
         text-align: left;
         text-overflow: ellipsis;
+        transition: background 0.25s ease, color 0.25s;
         white-space: nowrap;
 
         &:hover {
             background: var(--sidebar-item-bg-color-hover) !important;
             border: 0 !important;
             color: var(--sidebar-item-text-color-hover) !important;
+        }
+
+        &:focus {
+            background: var(--sidebar-item-bg-color-focus) !important;
+            border: 0 !important;
+            color: var(--sidebar-item-text-color-focus) !important;
         }
 
         &.bg-white,
