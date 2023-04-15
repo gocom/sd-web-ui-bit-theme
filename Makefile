@@ -3,8 +3,8 @@
 NODE_ENV ?= development
 HOST_UID != id -u
 HOST_GID != id -g
-COMPOSE = docker-compose
-NODE = NODE_ENV=$(NODE_ENV) $(COMPOSE) run -u "$(HOST_UID):$(HOST_GID)" --rm node
+DOCKER_COMPOSE ?= docker-compose
+NODE = NODE_ENV=$(NODE_ENV) $(DOCKER_COMPOSE) run -u "$(HOST_UID):$(HOST_GID)" --rm node
 NPM = $(NODE) npm
 
 all: help
