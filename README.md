@@ -2,12 +2,15 @@ Bit Theme for Stable Diffusion Web UI
 =====
 
 A theme for [AUTOMATIC1111's Stable Diffusion web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui). Aims
-to be a clean and a minimalistic theme.
+to be a clean and a minimalistic theme, supporting both light and dark color-themes.
 
 **Work in progress.**
 
-[![Dashboard](https://raw.githubusercontent.com/gocom/sd-web-ui-bit-theme/screenshots/images/dashboard.png)](https://raw.githubusercontent.com/gocom/sd-web-ui-bit-theme/screenshots/images/dashboard.png)
-*Screenshot of an empty txt2image editor*
+[![Dark theme screenshot](https://raw.githubusercontent.com/gocom/sd-web-ui-bit-theme/screenshots/images/txt2img-generated-dark.png)](https://raw.githubusercontent.com/gocom/sd-web-ui-bit-theme/screenshots/images/txt2img-generated-dark.png)
+
+[![Light theme screenshot](https://raw.githubusercontent.com/gocom/sd-web-ui-bit-theme/screenshots/images/txt2img-generated-light.png)](https://raw.githubusercontent.com/gocom/sd-web-ui-bit-theme/screenshots/images/txt2img-generated-light.png)
+
+[More screenshots](https://github.com/gocom/sd-web-ui-bit-theme/tree/screenshots)
 
 Requirements
 -----
