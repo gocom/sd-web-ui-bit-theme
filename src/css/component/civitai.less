@@ -21,10 +21,16 @@
  */
 
 /**
- * Hide CivitAI status.
+ * CivitAI status.
  */
-#civitai-status::before,
-#civitai-status,
-.civitai-status {
-    display: none !important;
+#civitai-status.civitai-status {
+    background-size: contain !important;
+    bottom: var(--margin-xl) !important;
+    height: var(--icon-size) !important;
+    left: var(--margin-xl) !important;
+    position: absolute !important;
+    right: auto !important;
+    top: auto !important;
+    width: var(--icon-size) !important;
+    z-index: 800 !important;
 }
