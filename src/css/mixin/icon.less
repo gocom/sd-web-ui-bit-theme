@@ -26,38 +26,38 @@
  * [1] Default styles use important.
  */
 #mixin {
-    .icon(@normal, @active) {
-        background-color: transparent;
-        background-image: @normal;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: calc(100% - var(--icon-padding));
-        box-shadow: none;
-        border: none;
-        display: inline-block;
-        font-size: 0;
-        height: var(--icon-size);
-        max-height: var(--icon-size);
-        max-width: var(--icon-size);
-        min-height: var(--icon-size);
-        min-width: var(--icon-size) !important; // [1]
-        outline: none;
-        padding: 0;
-        transition: background 0.25s ease, opacity 0.5s ease-out;
-        width: var(--icon-size);
+  .icon(@normal, @active) {
+    background-color: transparent;
+    background-image: @normal;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: calc(100% - var(--icon-padding));
+    box-shadow: none;
+    border: none;
+    display: inline-block;
+    font-size: 0;
+    height: var(--icon-size);
+    max-height: var(--icon-size);
+    max-width: var(--icon-size);
+    min-height: var(--icon-size);
+    min-width: var(--icon-size) !important; // [1]
+    outline: none;
+    padding: 0;
+    transition: background 0.25s ease, opacity 0.5s ease-out;
+    width: var(--icon-size);
 
-        &:focus,
-        &:hover {
-            background-image: @active;
-        }
-
-        > * {
-            display: none;
-        }
-
-        &:active {
-            opacity: 0.5;
-            transition: 0s;
-        }
+    &:focus,
+    &:hover {
+      background-image: @active;
     }
+
+    > * {
+      display: none;
+    }
+
+    &:active {
+      opacity: 0.5;
+      transition: 0s;
+    }
+  }
 }

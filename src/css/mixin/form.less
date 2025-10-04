@@ -26,36 +26,36 @@
  * [1] Uses important in the default styles.
  */
 #mixin {
-    .input() {
-        background-color: var(--input-bg-color);
-        border: 1px solid var(--input-border-color);
-        border-radius: var(--border-radius-s) !important; // [1]
-        color: var(--input-text-color);
-        padding: var(--padding-xxs) var(--padding-xs);
-        transition: border 0.25s ease-in;
+  .input() {
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--border-radius-s) !important; // [1]
+    color: var(--input-text-color);
+    padding: var(--padding-xxs) var(--padding-xs);
+    transition: border 0.25s ease-in;
 
-        &:hover {
-            background-color: var(--input-bg-color-hover);
-            border: 1px solid var(--input-border-color-hover);
-            color: var(--input-text-color-hover);
-        }
-
-        &:focus {
-            background-color: var(--input-bg-color-focus);
-            border: 1px solid var(--input-border-color-focus);
-            box-shadow: none;
-            color: var(--input-text-color-focus);
-        }
+    &:hover {
+      background-color: var(--input-bg-color-hover);
+      border: 1px solid var(--input-border-color-hover);
+      color: var(--input-text-color-hover);
     }
 
-    .select() {
-        .input();
-
-        background-image: var(--icon-angles-down);
-        background-position: calc(100% - var(--padding-xs)) 50%;
-        background-repeat: no-repeat;
-        background-size: auto calc(1em - var(--padding-xxs));
-        padding-right: var(--padding-xxl);
-        text-overflow: ellipsis;
+    &:focus {
+      background-color: var(--input-bg-color-focus);
+      border: 1px solid var(--input-border-color-focus);
+      box-shadow: none;
+      color: var(--input-text-color-focus);
     }
+  }
+
+  .select() {
+    .input();
+
+    background-image: var(--icon-angles-down);
+    background-position: calc(100% - var(--padding-xs)) 50%;
+    background-repeat: no-repeat;
+    background-size: auto calc(1em - var(--padding-xxs));
+    padding-right: var(--padding-xxl);
+    text-overflow: ellipsis;
+  }
 }

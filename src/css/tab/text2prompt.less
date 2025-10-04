@@ -26,79 +26,79 @@
  * [1] Resets use important
  */
 #tab_text2prompt_interface {
+  > div {
     > div {
-        > div {
-            display: flex;
-            flex-direction: row;
-            gap: var(--margin-m);
+      display: flex;
+      flex-direction: row;
+      gap: var(--margin-m);
 
-            /**
-             * Left column.
-             */
-            > div:first-child {
-                display: flex;
-                flex-direction: column;
-                gap: var(--margin-m);
+      /**
+       * Left column.
+       */
+      > div:first-child {
+        display: flex;
+        flex-direction: column;
+        gap: var(--margin-m);
 
-                /**
-                 * Generate button.
-                 */
-                > button {
-                    margin: 0 0 0 auto;
-                    max-width: max-content;
-                }
-
-                > div:nth-child(1) {
-                    display: flex;
-                    flex-direction: column;
-                    gap: var(--margin-m);
-                }
-
-                /**
-                 * Output panel.
-                 */
-                > div:nth-child(3) {
-                    background: var(--panel-bg-color) !important; // [1]
-                    border-radius: var(--border-radius-m) var(--border-radius-m) 0 0;
-                    padding: var(--padding-m) var(--padding-m) 0 var(--padding-m);
-                }
-
-                > div:nth-child(4) {
-                    background: var(--panel-bg-color) !important; // [1]
-                    border-bottom-left-radius: var(--border-radius-m);
-                    border-bottom-right-radius: var(--border-radius-m);
-                    margin: calc(-1 * var(--margin-m)) 0 0 0;
-                    padding: var(--padding-m);
-                }
-            }
-
-            /**
-             * Right column.
-             */
-            > div:last-child {
-                background: var(--panel-bg-color);
-                border: 0;
-                border-radius: var(--border-radius-m);
-                display: flex;
-                flex-direction: column;
-                gap: var(--margin-m);
-                padding: var(--padding-m);
-
-                > div:first-child {
-                    border-bottom: 1px solid var(--panel-border-color) !important;
-                    padding: 0 var(--padding-m) var(--padding-m) var(--padding-m) !important;
-                    margin: 0 calc(-1 * var(--padding-m)) !important;
-                    width: calc(100% + var(--padding-m) + var(--padding-m));
-                }
-
-                > div:last-child {
-                    > div:first-child {
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--margin-m);
-                    }
-                }
-            }
+        /**
+         * Generate button.
+         */
+        > button {
+          margin: 0 0 0 auto;
+          max-width: max-content;
         }
+
+        > div:nth-child(1) {
+          display: flex;
+          flex-direction: column;
+          gap: var(--margin-m);
+        }
+
+        /**
+         * Output panel.
+         */
+        > div:nth-child(3) {
+          background: var(--panel-bg-color) !important; // [1]
+          border-radius: var(--border-radius-m) var(--border-radius-m) 0 0;
+          padding: var(--padding-m) var(--padding-m) 0 var(--padding-m);
+        }
+
+        > div:nth-child(4) {
+          background: var(--panel-bg-color) !important; // [1]
+          border-bottom-left-radius: var(--border-radius-m);
+          border-bottom-right-radius: var(--border-radius-m);
+          margin: calc(-1 * var(--margin-m)) 0 0 0;
+          padding: var(--padding-m);
+        }
+      }
+
+      /**
+       * Right column.
+       */
+      > div:last-child {
+        background: var(--panel-bg-color);
+        border: 0;
+        border-radius: var(--border-radius-m);
+        display: flex;
+        flex-direction: column;
+        gap: var(--margin-m);
+        padding: var(--padding-m);
+
+        > div:first-child {
+          border-bottom: 1px solid var(--panel-border-color) !important;
+          padding: 0 var(--padding-m) var(--padding-m) var(--padding-m) !important;
+          margin: 0 calc(-1 * var(--padding-m)) !important;
+          width: calc(100% + var(--padding-m) + var(--padding-m));
+        }
+
+        > div:last-child {
+          > div:first-child {
+            display: flex;
+            flex-direction: column;
+            gap: var(--margin-m);
+          }
+        }
+      }
     }
+  }
 }

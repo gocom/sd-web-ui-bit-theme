@@ -1,24 +1,30 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+      - 'release/*'
 
 jobs:
-    build:
-        name: Build
-        runs-on: ubuntu-latest
+  build:
+    name: Build
+    runs-on: ubuntu-latest
 
-        steps:
-            -   name: Checkout
-                uses: actions/checkout@v3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-            -   name: Build
-                run: make build HOST_UID=0 HOST_GID=0
+      - name: Build
+        run: make build
 
-            -   name: Package
-                run: make package
+      - name: Package
+        run: make package
 
-            -   name: Upload Artifact
-                uses: actions/upload-artifact@v3
-                with:
-                    name: sd-web-ui-bit-theme.zip
-                    path: dist/sd-web-ui-bit-theme.zip
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sd-web-ui-bit-theme.zip
+          path: dist/sd-web-ui-bit-theme.zip

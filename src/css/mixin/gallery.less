@@ -24,147 +24,147 @@
  * Gallery mixing.
  */
 #mixin {
-    .gallery() {
-        background: transparent;
-        border-radius: 0 !important; // [1]
-        border: none;
-        height: auto;
-        overflow: visible;
-        overflow-y: auto;
+  .gallery() {
+    background: transparent;
+    border-radius: 0 !important; // [1]
+    border: none;
+    height: auto;
+    overflow: visible;
+    overflow-y: auto;
+    padding: 0;
+    position: static;
+
+    svg {
+      display: none;
+    }
+
+    img {
+      object-fit: scale-down;
+    }
+
+    .p-2 {
+      padding: 0;
+    }
+
+    > .overflow-y-auto {
+      padding: var(--padding-m);
+    }
+
+    .gallery-item {
+      aspect-ratio: 1 / 1;
+      background-color: transparent;
+      border-radius: var(--border-radius-m);
+      box-shadow: 0 0 0 1px var(--input-border-color) !important;
+      margin: 0 !important;
+      object-fit: fill;
+      outline: none;
+      overflow: hidden;
+      position: static;
+
+      &:hover {
+        box-shadow: 0 0 0 1px var(--primary-border-color-hover) !important;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 1px var(--primary-border-color-focus) !important;
+      }
+
+      &\!ring-orange-500 {
+        box-shadow: 0 0 0 3px var(--primary-border-color) !important; // [1]
+
+        &:hover {
+          box-shadow: 0 0 0 1px var(--primary-border-color-hover) !important;
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 1px var(--primary-border-color-focus) !important;
+        }
+      }
+    }
+
+    > div > .grid {
+      gap: var(--margin-m);
+
+      > .gallery-item {
+        background: var(--mask-bg-color);
+        height: 100%;
+        width: 100%;
+
+        &:focus
+        &:hover {
+          box-shadow: 0 0 0 1px var(--primary-border-color-hover) !important;
+        }
+      }
+    }
+
+    .backdrop-blur {
+      backdrop-filter: var(--mask-backdrop-filter);
+      background: var(--mask-bg-color);
+      bottom: 0;
+      gap: var(--margin-m) !important; // [1]
+      justify-content: space-between;
+      height: 100%;
+      left: 0;
+      max-height: 100%;
+      min-height: 0;
+      min-width: 0;
+      overflow-y: auto;
+      padding: var(--padding-m);
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+
+      div:first-child {
+        bottom: auto;
+        gap: 0;
+        left: auto;
+        position: absolute;
+        right: var(--margin-xs);
+        top: var(--margin-xs);
+
+        button {
+          #mixin.icon(
+            var(--icon-circle-xmark),
+            var(--icon-circle-xmark-active)
+          );
+        }
+      }
+
+      > img {
+        flex-shrink: 1;
+        cursor: pointer;
+        height: 100% !important;
+        margin: auto;
+        max-height: 100%;
+        min-height: 96px;
+        object-fit: contain;
+        user-select: none;
+        width: auto;
+      }
+
+      div:last-child {
+        align-content: flex-start;
+        align-items: center;
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        font-size: inherit;
+        gap: var(--padding-s);
+        height: auto !important;
+        justify-content: flex-start;
+        margin: 0;
         padding: 0;
+        max-height: none;
+        min-height: fit-content;
+        overflow: visible;
         position: static;
 
-        svg {
-            display: none;
-        }
-
-        img {
-            object-fit: scale-down;
-        }
-
-        .p-2 {
-            padding: 0;
-        }
-
-        > .overflow-y-auto {
-            padding: var(--padding-m);
-        }
-
         .gallery-item {
-            aspect-ratio: 1 / 1;
-            background-color: transparent;
-            border-radius: var(--border-radius-m);
-            box-shadow: 0 0 0 1px var(--input-border-color) !important;
-            margin: 0 !important;
-            object-fit: fill;
-            outline: none;
-            overflow: hidden;
-            position: static;
-
-            &:hover {
-                box-shadow: 0 0 0 1px var(--primary-border-color-hover) !important;
-            }
-
-            &:focus {
-                box-shadow: 0 0 0 1px var(--primary-border-color-focus) !important;
-            }
-
-            &\!ring-orange-500 {
-                box-shadow: 0 0 0 3px var(--primary-border-color) !important; // [1]
-
-                &:hover {
-                    box-shadow: 0 0 0 1px var(--primary-border-color-hover) !important;
-                }
-
-                &:focus {
-                    box-shadow: 0 0 0 1px var(--primary-border-color-focus) !important;
-                }
-            }
+          height: 36px;
+          width: 36px;
         }
-
-        > div > .grid {
-            gap: var(--margin-m);
-
-            > .gallery-item {
-                background: var(--mask-bg-color);
-                height: 100%;
-                width: 100%;
-
-                &:focus
-                &:hover {
-                    box-shadow: 0 0 0 1px var(--primary-border-color-hover) !important;
-                }
-            }
-        }
-
-        .backdrop-blur {
-            backdrop-filter: var(--mask-backdrop-filter);
-            background: var(--mask-bg-color);
-            bottom: 0;
-            gap: var(--margin-m) !important; // [1]
-            justify-content: space-between;
-            height: 100%;
-            left: 0;
-            max-height: 100%;
-            min-height: 0;
-            min-width: 0;
-            overflow-y: auto;
-            padding: var(--padding-m);
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 100%;
-
-            div:first-child {
-                bottom: auto;
-                gap: 0;
-                left: auto;
-                position: absolute;
-                right: var(--margin-xs);
-                top: var(--margin-xs);
-
-                button {
-                    #mixin.icon(
-                        var(--icon-circle-xmark),
-                        var(--icon-circle-xmark-active)
-                    );
-                }
-            }
-
-            > img {
-                flex-shrink: 1;
-                cursor: pointer;
-                height: 100% !important;
-                margin: auto;
-                max-height: 100%;
-                min-height: 96px;
-                object-fit: contain;
-                user-select: none;
-                width: auto;
-            }
-
-            div:last-child {
-                align-content: flex-start;
-                align-items: center;
-                display: flex;
-                flex-grow: 1;
-                flex-wrap: wrap;
-                font-size: inherit;
-                gap: var(--padding-s);
-                height: auto !important;
-                justify-content: flex-start;
-                margin: 0;
-                padding: 0;
-                max-height: none;
-                min-height: fit-content;
-                overflow: visible;
-                position: static;
-
-                .gallery-item {
-                    height: 36px;
-                    width: 36px;
-                }
-            }
-        }
+      }
     }
+  }
 }

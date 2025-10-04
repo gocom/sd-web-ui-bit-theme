@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+set -eu
+
+app_name="${0##*/}"
+app_version="0.0.0"
+
+usage () {
+  cat <<EOF
+Print RELEASE-NOTES.md for the given version.
+
+Usage:
+  $ $app_name [options] <version>
+
+Options:
+  -h, --help     Print this message
+  -v, --version  Print version number
+
+Example:
+  $ $app_name 0.1.0
+EOF
+}
+
+main () {
+  local version notes patch prerelease
+
+  version="${1:-}"
+
+  if ! [ "$version" ]; then
+    echo "Version is required." >&2
+    exit 1
+  fi
+
+  patch="$(echo "$version" | sed -e 's#^\([0-9]*\.[0-9]*\.[0-9]*\).*#\1#')"
+  notes="$(sed -e "1,/## $version/d" -e '/##/,$d' CHANGELOG.md)"
+
+  if [[ "$version" = *"-"* ]]; then
+    prerelease=1
+  else
+    prerelease=0
+  fi
+
+  if [ "$prerelease" -eq 1 ]; then
+    cat <<EOF
+⚠️ **This is a prerelease for $patch. This release is not intended for production use.**
+
+EOF
+  fi
+
+  if [ "$notes" ]; then
+    cat <<EOF
+## 🚀 Notes for $version
+$notes
+
+EOF
+  fi
+
+  cat <<EOF
+## ⚡ Install
+
+Download the [sd-web-ui-bit-theme.zip](https://github.com/gocom/sd-web-ui-bit-theme/releases/download/$version/sd-web-ui-bit-theme.zip), extract it into the **extensions** directory under Stable Diffusion Web UI's installation directory. After extracting, the `style.css` file included in the download should be located at `repositories/sd-web-ui-bit-theme/style.css`.
+EOF
+
+}
+
+case "${1:-}" in
+  -h|--help) usage ;;
+  -v|--version) echo "$app_version" ;;
+  *) main "$@" ;;
+esac

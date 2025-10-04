@@ -1,74 +1,105 @@
-.PHONY: help build clean lint package shell test watch
+.PHONY: all build build-destroy clean generate-release-notes help install lint lint-fix nvm pack rebuild test watch
+.ONESHELL:
+.SHELLFLAGS = -ec
 
-NODE_ENV ?= development
-HOST_UID != id -u
-HOST_GID != id -g
-DOCKER_COMPOSE ?= docker-compose
-NODE = NODE_ENV=$(NODE_ENV) $(DOCKER_COMPOSE) run -u "$(HOST_UID):$(HOST_GID)" --rm node
-NPM = $(NODE) npm
+NPM = npm
 
-all: help
+all: build
+install: node_modules dist
 
-install: build
-
-node_modules:
-	$(NPM) install
-
-build: node_modules
+build:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
 	$(NPM) run build
-	$(NODE) bash -c "test -e style.css || ln -s build/style.css style.css"
+	test -e style.css || ln -s build/style.css style.css
+
+build-destroy:
+	@echo "Removing existing build"
+	@rm -rf build
+
+dist:
+ifeq (,$(wildcard build))
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
+	$(NPM) run build
+endif
 
 clean:
-	$(NODE) rm -rf build dist style.css node_modules package-lock.json
-
-package:
-	$(NPM) run package
-
-shell:
-	$(NODE) bash
-
-test:
-	$(NPM) run test
+	rm -rf build dist style.css node_modules
 
 lint:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
 	$(NPM) run lint
 
+lint-fix:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
+	$(NPM) run lint:fix
+
+node_modules:
+ifeq (,$(wildcard node_modules))
+	@. ./dev/hook/nvm.sh
+	$(NPM) install
+endif
+
+rebuild: build-destroy build
+
+package:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s install
+	$(NPM) run package
+
+test:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
+	$(NPM) run test
+
 watch:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
 	$(NPM) run watch
+
+generate-release-notes:
+	./dev/bin/release-notes "$(VERSION)" > RELEASE-NOTES.md
 
 help:
 	@echo "Manage project"
 	@echo ""
 	@echo "Usage:"
 	@echo "  $$ make [command] ["
-	@echo "    [NODE_ENV=<development|production>]"
-	@echo "    [HOST_UID=<uid>]"
-	@echo "    [HOST_GID=<gid>]"
+	@echo "    [VERSION=<version>]"
 	@echo "  ]"
 	@echo ""
 	@echo "Commands:"
 	@echo ""
 	@echo "  $$ make build"
-	@echo "  Builds the project"
+	@echo "  Build project"
 	@echo ""
 	@echo "  $$ make clean"
-	@echo "  Uninstall the project"
+	@echo "  Clean installed dependencies and artifacts"
+	@echo ""
+	@echo "  $$ make generate-release-notes VERSION=<version>"
+	@echo "  Build release notes"
 	@echo ""
 	@echo "  $$ make install"
-	@echo "  Installs the project"
+	@echo "  Install dependencies and build project"
 	@echo ""
 	@echo "  $$ make lint"
 	@echo "  Lint code style"
 	@echo ""
-	@echo "  $$ make package"
-	@echo "  Package build result to a distributable ZIP file"
+	@echo "  $$ make lint-fix"
+	@echo "  Try to fix code style issues"
 	@echo ""
-	@echo "  $$ make shell"
-	@echo "  Login to Node container"
+	@echo "  $$ make package"
+	@echo "  Package release archive"
+	@echo ""
+	@echo "  $$ make rebuild"
+	@echo "  Clean dist directory before building"
 	@echo ""
 	@echo "  $$ make test"
-	@echo "  Run tests"
+	@echo "  Run test suite"
 	@echo ""
 	@echo "  $$ make watch"
-	@echo "  Watch for file changes, trigger build"
+	@echo "  Watch files for changes and trigger build automatically"
 	@echo ""

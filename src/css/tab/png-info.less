@@ -26,73 +26,73 @@
  * [1] Default styles use important
  */
 #tab_pnginfo {
+  > div:first-child {
     > div:first-child {
-        > div:first-child {
-            align-items: stretch;
-            gap: var(--margin-m);
+      align-items: stretch;
+      gap: var(--margin-m);
 
-            /**
-             * Results column.
-             */
-            > div:last-child {
-                display: flex;
-                flex-direction: column;
-                gap: var(--margin-m);
+      /**
+       * Results column.
+       */
+      > div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: var(--margin-m);
 
-                > div:not(:first-child, :last-child) {
-                    margin: calc(-1 * var(--margin-m)) 0 0 0 !important; // [1]
-                }
-
-                /**
-                 * Button toolbar.
-                 */
-                > div:last-child {
-                    align-items: flex-start;
-                    background: var(--panel-bg-color);
-                    border-radius: var(--border-radius-m);
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    gap: var(--margin-s);
-                    justify-content: flex-end;
-                    margin: auto 0 0 0;
-                    padding: var(--padding-m);
-
-                    button {
-                        flex-grow: 0;
-                        max-width: 100%;
-                        min-width: fit-content;
-                        padding: var(--padding-m);
-                    }
-                }
-            }
+        > div:not(:first-child, :last-child) {
+          margin: calc(-1 * var(--margin-m)) 0 0 0 !important; // [1]
         }
-    }
 
-    #pnginfo_image {
-        #mixin.image-upload-editor();
-    }
+        /**
+         * Button toolbar.
+         */
+        > div:last-child {
+          align-items: flex-start;
+          background: var(--panel-bg-color);
+          border-radius: var(--border-radius-m);
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: var(--margin-s);
+          justify-content: flex-end;
+          margin: auto 0 0 0;
+          padding: var(--padding-m);
 
-    .output-html {
-        line-height: 1.7;
-
-        p {
-            margin: 0;
-
-            > b {
-                display: block;
-                margin: var(--margin-m) 0;
-            }
-
-            br {
-                content: "";
-                display: block;
-                margin-top: var(--margin-m);
-            }
+          button {
+            flex-grow: 0;
+            max-width: 100%;
+            min-width: fit-content;
+            padding: var(--padding-m);
+          }
         }
+      }
     }
+  }
 
-    .border-solid {
-        border: 0;
+  #pnginfo_image {
+    #mixin.image-upload-editor();
+  }
+
+  .output-html {
+    line-height: 1.7;
+
+    p {
+      margin: 0;
+
+      > b {
+        display: block;
+        margin: var(--margin-m) 0;
+      }
+
+      br {
+        content: "";
+        display: block;
+        margin-top: var(--margin-m);
+      }
     }
+  }
+
+  .border-solid {
+    border: 0;
+  }
 }

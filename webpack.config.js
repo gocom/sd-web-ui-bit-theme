@@ -4,12 +4,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin  = require('css-minimizer-webpack-plugin');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 
-function transformHtml(content) {
-    return ejs.render(content.toString(), {
-        ...process.env,
-    });
-}
-
 /**
  * @type {object}
  */
@@ -59,7 +53,6 @@ const config = {
         ],
     },
     plugins: [
-        new webpack.SourceMapDevToolPlugin({}),
         new MiniCssExtractPlugin(),
         new IgnoreEmitPlugin(/\.(map|js)$/),
     ],

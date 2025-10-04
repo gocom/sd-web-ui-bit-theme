@@ -24,50 +24,50 @@
  * Extensions tab.
  */
 #tab_extensions {
-    table {
-        border: 0;
-        border-collapse: collapse;
-        width: 100% !important;
+  table {
+    border: 0;
+    border-collapse: collapse;
+    width: 100% !important;
 
-        td,
-        th {
-            border: none !important;
-            border-radius: 0 !important;
-            padding: var(--padding-s) var(--padding-m) !important;
-            text-align: inherit;
-        }
-
-        th {
-            font-weight: bold;
-        }
-
-        tr:nth-child(odd) td {
-            background: var(--panel-bg-color);
-        }
+    td,
+    th {
+      border: none !important;
+      border-radius: 0 !important;
+      padding: var(--padding-s) var(--padding-m) !important;
+      text-align: inherit;
     }
 
-    .gr-form {
-        gap: var(--margin-m);
+    th {
+      font-weight: bold;
     }
 
-    .extension-tag {
-        color: var(--sidenote-text-color);
-        font: inherit;
+    tr:nth-child(odd) td {
+      background: var(--panel-bg-color);
+    }
+  }
+
+  .gr-form {
+    gap: var(--margin-m);
+  }
+
+  .extension-tag {
+    color: var(--sidenote-text-color);
+    font: inherit;
+  }
+
+  #available_extensions {
+    .info {
+      margin: 0;
     }
 
-    #available_extensions {
-        .info {
-            margin: 0;
-        }
-
-        .date_added {
-            color: var(--sidenote-text-color);
-            opacity: 1;
-            font: inherit;
-        }
+    .date_added {
+      color: var(--sidenote-text-color);
+      opacity: 1;
+      font: inherit;
     }
+  }
 
-    button {
-        max-width: max-content;
-    }
+  button {
+    max-width: max-content;
+  }
 }

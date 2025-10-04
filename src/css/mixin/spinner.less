@@ -26,58 +26,58 @@
  * [1] Default styles use important
  */
 #mixin {
-    .spinner(@emphasis: false) {
-        .wrap.svelte-5usjvi {
-            align-items: flex-start;
-            background: transparent;
-            bottom: auto;
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: center;
-            left: auto;
-            max-height: none;
-            opacity: 1;
-            pointer-events: none;
-            position: absolute;
-            right: var(--margin-m);
-            transition: none;
-            top: var(--margin-m);
-            z-index: 500;
+  .spinner(@emphasis: false) {
+    .wrap.svelte-5usjvi {
+      align-items: flex-start;
+      background: transparent;
+      bottom: auto;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      left: auto;
+      max-height: none;
+      opacity: 1;
+      pointer-events: none;
+      position: absolute;
+      right: var(--margin-m);
+      transition: none;
+      top: var(--margin-m);
+      z-index: 500;
 
-            > .meta-text,
-            > .eta-bar {
-                display: none;
-            }
+      > .meta-text,
+      > .eta-bar {
+        display: none;
+      }
 
-            > .z-20 {
-                margin: 0;
-                position: static;
-                order: 2;
+      > .z-20 {
+        margin: 0;
+        position: static;
+        order: 2;
 
-                svg {
-                    display: none !important; // [1]
-                }
-
-                &::before {
-                    background: var(--spinner);
-                    background-repeat: no-repeat;
-                    background-position: 50% 50%;
-                    background-size: cover;
-                    content: "";
-                    display: block;
-                    height: var(--icon-size);
-                    width: var(--icon-size);
-
-                    & when (@emphasis = true) {
-                        backdrop-filter: var(--mask-backdrop-filter);
-                        background-color: var(--mask-bg-color);
-                        background-size: 50%;
-                        border-radius: 50%;
-                        height: calc(var(--icon-size) * 2);
-                        width: calc(var(--icon-size) * 2);
-                    }
-                }
-            }
+        svg {
+          display: none !important; // [1]
         }
+
+        &::before {
+          background: var(--spinner);
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          background-size: cover;
+          content: "";
+          display: block;
+          height: var(--icon-size);
+          width: var(--icon-size);
+
+          & when (@emphasis = true) {
+            backdrop-filter: var(--mask-backdrop-filter);
+            background-color: var(--mask-bg-color);
+            background-size: 50%;
+            border-radius: 50%;
+            height: calc(var(--icon-size) * 2);
+            width: calc(var(--icon-size) * 2);
+          }
+        }
+      }
     }
+  }
 }

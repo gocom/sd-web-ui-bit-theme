@@ -26,54 +26,54 @@
  * [1] Uses important in the default styles.
  */
 #mixin {
-    .eta-bar() {
-        align-items: center;
-        background: transparent;
-        border-radius: var(--border-radius-s);
-        bottom: 0;
-        color: inherit;
-        display: flex;
-        flex-direction: row;
-        gap: var(--padding-m);
-        height: auto;
-        justify-content: space-between;
-        left: 0;
-        overflow: hidden;
-        padding: 0 var(--padding-xs);
-        pointer-events: none;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: auto;
-        z-index: 50;
+  .eta-bar() {
+    align-items: center;
+    background: transparent;
+    border-radius: var(--border-radius-s);
+    bottom: 0;
+    color: inherit;
+    display: flex;
+    flex-direction: row;
+    gap: var(--padding-m);
+    height: auto;
+    justify-content: space-between;
+    left: 0;
+    overflow: hidden;
+    padding: 0 var(--padding-xs);
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+    z-index: 50;
 
-        .z-20,
-        .m-12 {
-            display: none;
-        }
-
-        .meta-text {
-            background: var(--input-border-color);
-            border-radius: var(--border-radius-s);
-            color: inherit;
-            display: block !important; // [1]
-            font: inherit;
-            font-size: var(--font-size-s);
-            line-height: inherit;
-            margin: 0 0 0 auto;
-            padding: var(--padding-xxxs) var(--padding-xs);
-            position: static;
-            z-index: 20;
-        }
-
-        > .eta-bar {
-            background: var(--primary-color-active) !important;
-            inset: 0;
-            opacity: 0.5;
-            position: absolute;
-            transition: width 0.15s ease;
-            transform-origin: left;
-            z-index: 10;
-        }
+    .z-20,
+    .m-12 {
+      display: none;
     }
+
+    .meta-text {
+      background: var(--input-border-color);
+      border-radius: var(--border-radius-s);
+      color: inherit;
+      display: block !important; // [1]
+      font: inherit;
+      font-size: var(--font-size-s);
+      line-height: inherit;
+      margin: 0 0 0 auto;
+      padding: var(--padding-xxxs) var(--padding-xs);
+      position: static;
+      z-index: 20;
+    }
+
+    > .eta-bar {
+      background: var(--primary-color-active) !important;
+      inset: 0;
+      opacity: 0.5;
+      position: absolute;
+      transition: width 0.15s ease;
+      transform-origin: left;
+      z-index: 10;
+    }
+  }
 }

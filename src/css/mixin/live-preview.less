@@ -24,23 +24,23 @@
  * Image area mixing.
  */
 #mixin {
-    .live-preview() {
-        backdrop-filter: var(--mask-backdrop-filter);
-        background: var(--gallery-bg);
-        bottom: 0;
-        height: auto !important; // [2]
-        left: 0;
-        padding: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: auto !important; // [2]
+  .live-preview() {
+    backdrop-filter: var(--mask-backdrop-filter);
+    background: var(--gallery-bg);
+    bottom: 0;
+    height: auto !important; // [2]
+    left: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto !important; // [2]
 
-        img {
-            object-fit: contain;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-        }
+    img {
+      object-fit: contain;
+      position: absolute;
+      height: 100%;
+      width: 100%;
     }
+  }
 }

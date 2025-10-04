@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+set -eu
+
+app_name="${0##*/}"
+app_version="0.0.0"
+
+usage () {
+  cat <<EOF
+Print CHANGELOG.md for the given version.
+
+Usage:
+  $ $app_name [options] <version>
+
+Options:
+  -h, --help     Print this message
+  -v, --version  Print version number
+
+Example:
+  $ $app_name 0.1.0
+EOF
+}
+
+main () {
+  local version notes
+
+  version="${1:-}"
+
+  if ! [ "$version" ]; then
+    echo "Version is required." >&2
+    exit 1
+  fi
+
+  notes="$(sed -e "1,/## $version/d" CHANGELOG.md)"
+
+  if [ "$notes" ]; then
+    cat <<EOF
+# Changelog
+
+## 🚀 $version
+$notes
+
+EOF
+  fi
+}
+
+case "${1:-}" in
+  -h|--help) usage ;;
+  -v|--version) echo "$app_version" ;;
+  *) main "$@" ;;
+esac

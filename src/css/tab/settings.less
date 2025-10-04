@@ -26,146 +26,146 @@
  * [1] Inline style
  */
 #tab_settings {
+  > div:first-child {
+    /**
+     * Top button toolbar.
+     */
     > div:first-child {
-        /**
-         * Top button toolbar.
-         */
-        > div:first-child {
-            align-items: center;
-            backdrop-filter: var(--mask-backdrop-filter);
-            border-bottom: 1px solid var(--panel-border-color);
-            justify-content: right;
-            margin: calc(-1 * var(--margin-xl)) calc(-1 * var(--margin-xl)) var(--margin-m) calc(-1 * var(--margin-xl));
-            padding: var(--padding-xl);
-            position: sticky;
-            top: 0;
-            width: auto;
-            z-index: 3000;
+      align-items: center;
+      backdrop-filter: var(--mask-backdrop-filter);
+      border-bottom: 1px solid var(--panel-border-color);
+      justify-content: right;
+      margin: calc(-1 * var(--margin-xl)) calc(-1 * var(--margin-xl)) var(--margin-m) calc(-1 * var(--margin-xl));
+      padding: var(--padding-xl);
+      position: sticky;
+      top: 0;
+      width: auto;
+      z-index: 3000;
 
-            > div {
-                flex-grow: 0 !important; // [1]
-                min-width: fit-content !important; // [1]
+      > div {
+        flex-grow: 0 !important; // [1]
+        min-width: fit-content !important; // [1]
 
-                button {
-                    padding: var(--padding-m);
-                }
-            }
+        button {
+          padding: var(--padding-m);
         }
+      }
+    }
+  }
+
+  /**
+   * Messages.
+   */
+  #settings_result {
+    bottom: auto;
+    height: auto;
+    left: 0;
+    min-width: 20ch;
+    padding: 0;
+    position: absolute;
+    right: auto;
+    top: var(--margin-xs);
+    width: fit-content;
+    z-index: 3000;
+  }
+
+  /**
+   * Settings.
+   */
+  #settings {
+    display: grid;
+    gap: var(--margin-xl);
+    grid-auto-flow: row dense;
+    grid-template-columns: 20ch 1fr;
+    grid-template-rows: auto;
+
+    > div {
+      margin: 0;
     }
 
     /**
-     * Messages.
+     * Sidebar.
      */
-    #settings_result {
-        bottom: auto;
-        height: auto;
-        left: 0;
-        min-width: 20ch;
-        padding: 0;
-        position: absolute;
-        right: auto;
-        top: var(--margin-xs);
-        width: fit-content;
-        z-index: 3000;
+    > div:first-child {
+      background: var(--panel-bg-color);
+      border-radius: var(--border-radius-m);
+      grid-column-start: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      height: fit-content;
+      padding: var(--padding-m) 0;
+      width: auto;
+
+      button {
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        display: block;
+        font: inherit;
+        line-height: inherit;
+        padding: var(--padding-m);
+        text-align: left;
+        width: 100%;
+
+        &:last-child {
+          border-top: 1px solid var(--panel-border-color);
+          color: var(--sidenote-text-color);
+        }
+
+        &.bg-white,
+        &:focus,
+        &:hover {
+          background: var(--primary-color) !important;
+          color: var(--primary-text-color);
+        }
+      }
     }
 
     /**
-     * Settings.
+     * Empty component sections.
      */
-    #settings {
-        display: grid;
-        gap: var(--margin-xl);
-        grid-auto-flow: row dense;
-        grid-template-columns: 20ch 1fr;
-        grid-template-rows: auto;
+    > [id^="component-"]:not(.tabitem) {
+      display: none !important; // [1]
+    }
 
+    /**
+     * Settings pages.
+     */
+    > .tabitem,
+    > [id^="settings_"] {
+      grid-column-start: 2;
+
+      > div {
         > div {
-            margin: 0;
-        }
+          display: flex;
+          gap: var(--margin-m);
 
-        /**
-         * Sidebar.
-         */
-        > div:first-child {
-            background: var(--panel-bg-color);
-            border-radius: var(--border-radius-m);
-            grid-column-start: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            height: fit-content;
-            padding: var(--padding-m) 0;
-            width: auto;
+          label {
+            gap: var(--margin-s);
 
-            button {
-                background: transparent;
-                border: 0;
-                border-radius: 0;
-                box-shadow: none;
-                display: block;
-                font: inherit;
-                line-height: inherit;
-                padding: var(--padding-m);
-                text-align: left;
-                width: 100%;
-
-                &:last-child {
-                    border-top: 1px solid var(--panel-border-color);
-                    color: var(--sidenote-text-color);
-                }
-
-                &.bg-white,
-                &:focus,
-                &:hover {
-                    background: var(--primary-color) !important;
-                    color: var(--primary-text-color);
-                }
+            span {
+              margin: 0;
             }
+          }
         }
+      }
 
-        /**
-         * Empty component sections.
-         */
-        > [id^="component-"]:not(.tabitem) {
-            display: none !important; // [1]
-        }
-
-        /**
-         * Settings pages.
-         */
-        > .tabitem,
-        > [id^="settings_"] {
-            grid-column-start: 2;
-
-            > div {
-                > div {
-                    display: flex;
-                    gap: var(--margin-m);
-
-                    label {
-                        gap: var(--margin-s);
-
-                        span {
-                            margin: 0;
-                        }
-                    }
-                }
-            }
-
-            &[style*="block"] ~ .tabitem[style*="block"] {
-                border-top: 1px solid var(--primary-border-color);
-                margin: var(--margin-s) 0 0 0;
-                padding: var(--padding-xl) 0 0 0;
-            }
-        }
-
-        fieldset span.text-gray-500,
-        .gr-block.gr-box span.text-gray-500,
-        label.block span {
-            margin: 0;
-            position: static;
-        }
+      &[style*="block"] ~ .tabitem[style*="block"] {
+        border-top: 1px solid var(--primary-border-color);
+        margin: var(--margin-s) 0 0 0;
+        padding: var(--padding-xl) 0 0 0;
+      }
     }
+
+    fieldset span.text-gray-500,
+    .gr-block.gr-box span.text-gray-500,
+    label.block span {
+      margin: 0;
+      position: static;
+    }
+  }
 }
 
 button#refresh_tac_extra\.extraFile,
@@ -176,16 +176,16 @@ button#refresh_sd_model_checkpoint,
 button#refresh_sd_lora,
 button#refresh_sd_hypernetwork,
 button#refresh_interrogate_clip_skip_categories {
-    #mixin.icon(
-        var(--icon-arrows-rotate),
-        var(--icon-arrows-rotate-active)
-    );
+  #mixin.icon(
+    var(--icon-arrows-rotate),
+    var(--icon-arrows-rotate-active)
+  );
 
-    .container #settings & {
-        margin: auto 0 var(--padding-xxs) 0;
-    }
+  .container #settings & {
+    margin: auto 0 var(--padding-xxs) 0;
+  }
 }
 
 #setting_hidden_tabs {
-    #mixin.token-field();
+  #mixin.token-field();
 }

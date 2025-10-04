@@ -24,15 +24,15 @@
  * Gallery container.
  */
 #mixin {
-    .gallery-container() {
-        #mixin.image-area() !important;
+  .gallery-container() {
+    #mixin.image-area() !important;
 
-        .livePreview {
-            #mixin.live-preview();
-        }
-
-        [id$="_gallery"] {
-            #mixin.gallery();
-        }
+    .livePreview {
+      #mixin.live-preview();
     }
+
+    [id$="_gallery"] {
+      #mixin.gallery();
+    }
+  }
 }

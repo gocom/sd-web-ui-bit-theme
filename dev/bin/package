@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const archiver = require('archiver');
-const { name } = require('../package.json');
+const { name } = require('../../package.json');
 const basename = path.basename(name);
 
 const root = path.dirname(__dirname);
@@ -38,17 +38,17 @@ archive.directory(
 );
 
 archive.directory(
-    path.join(root, 'javascript'),
-    path.join(basename, 'javascript')
+  path.join(root, 'javascript'),
+  path.join(basename, 'javascript')
 );
 
 for (const file of ['LICENSE', 'CHANGELOG.md', 'README.md']) {
-    archive.file(
-        path.join(root, file),
-        {
-            name: path.join(basename, file)
-        }
-    );
+  archive.file(
+    path.join(root, file),
+    {
+      name: path.join(basename, file)
+    }
+  );
 }
 
 archive.finalize();
