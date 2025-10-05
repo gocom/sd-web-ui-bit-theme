@@ -50,11 +50,25 @@ Code can be built by running:
 $ make build
 ```
 
-Builds are created to a `build` directory in the project directory. A symbolic link is created for
-`style.css` to the root directory. Automatic file watcher, that invokes building, can be launched by running:
+By default, builds are created to a `build` directory under the project root. Automatic file watcher, that
+invokes building on file changes, can be launched by running:
 
 ```shell
 $ make watch
+```
+
+The location where files are built can be changed with `SD_WEB_UI_EXTENSIONS_PREFIX` environment variable. This
+can be used to write build results to the web UI's extension directory:
+
+```shell
+$ make build SD_WEB_UI_EXTENSIONS_PREFIX=/path/to/stable-diffusion-webui/extensions/
+```
+
+Files are build to `sd-web-ui-bit-theme` directory under the given path prefix.
+Same also works with the watcher:
+
+```shell
+$ make watch SD_WEB_UI_EXTENSIONS_PREFIX=/path/to/webui/extensions/
 ```
 
 When making changes to code please make sure that linter and tests pass before opening a pull request. Linter
