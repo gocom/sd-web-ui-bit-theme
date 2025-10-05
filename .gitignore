@@ -7,5 +7,6 @@
 !.stylelintrc.json
 /build/
 /dist/
+/javascript
 /node_modules/
-style.css
+/style.css

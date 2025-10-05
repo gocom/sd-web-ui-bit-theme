@@ -3,6 +3,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin  = require('css-minimizer-webpack-plugin');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
+const {name} = require('./package.json');
 
 /**
  * @type {object}
@@ -108,6 +109,12 @@ const config = {
   },
 };
 
+const basename = path.basename(name);
+
+if (process.env.SD_WEB_UI_EXTENSIONS_PREFIX && basename) {
+  config.output.path = path.join(process.env.SD_WEB_UI_EXTENSIONS_PREFIX, basename);
+}
+
 if (config.mode === 'production') {
   config.devtool = false;
 
@@ -118,15 +125,6 @@ if (config.mode === 'production') {
       },
     }),
   ]);
-
-  /*
-  config.optimization = {
-    minimizer: [
-      new CssMinimizerPlugin(),
-    ],
-    usedExports: true,
-    removeAvailableModules: true,
-  };*/
 }
 
 module.exports = config;

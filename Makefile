@@ -12,6 +12,7 @@ build:
 	@$(MAKE) -s node_modules
 	$(NPM) run build
 	test -e style.css || ln -s build/style.css style.css
+	test -e javascript || ln -s build/javascript javascript
 
 build-destroy:
 	@echo "Removing existing build"
@@ -69,6 +70,7 @@ help:
 	@echo "Usage:"
 	@echo "  $$ make [command] ["
 	@echo "    [VERSION=<version>]"
+	@echo "    [SD_WEB_UI_EXTENSIONS_PREFIX=<path>]"
 	@echo "  ]"
 	@echo ""
 	@echo "Commands:"
