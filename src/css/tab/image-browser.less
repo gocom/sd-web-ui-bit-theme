@@ -24,6 +24,7 @@
  * Image browser tab.
  *
  * [1] Inline style.
+ * [2] Default styles use important.
  */
 :root #tab_image_browser {
   /**
@@ -31,12 +32,12 @@
    */
   #image_browser_tab_txt2img_image_browser_gallery_controls {
     align-items: center;
-    background: var(--panel-bg-color);
-    border-radius: var(--border-radius-m);
+    border-bottom: 1px solid var(--input-border-color);
     display: flex;
     flex-direction: row;
-    margin: 0 0 var(--margin-m) 0;
+    margin: 0 -16px var(--margin-m) -16px;
     padding: var(--padding-m);
+    width: calc(100% + 32px);
 
     > button {
       align-self: center !important;
@@ -58,10 +59,8 @@
   #image_browser_tab_txt2img_control_image_browser_ranking {
     align-items: center;
     display: flex;
-    background: var(--panel-bg-color);
-    border-radius: var(--border-radius-m);
-    margin: var(--margin-m) 0 0 0;
-    padding: var(--padding-m);
+    flex-direction: column;
+    margin: 0;
   }
 
   #image_browser_tab_favorites_image_browser_container,
@@ -88,5 +87,16 @@
 
   p.no-gap-top.mb-0.text-subdued {
     margin-top: var(--margin-xs);
+  }
+
+  /**
+   * Right column.
+   */
+  .right-column-panel {
+    padding: var(--padding-xl) 0 var(--padding-xl) var(--padding-xl);
+
+    > .gradio-box {
+      padding: var(--padding-m) !important; // [2]
+    }
   }
 }
