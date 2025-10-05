@@ -6,7 +6,7 @@ const archiver = require('archiver');
 const { name } = require('../../package.json');
 const basename = path.basename(name);
 
-const root = path.dirname(__dirname);
+const root = path.dirname(path.dirname(__dirname));
 const dist = path.join(root, 'dist');
 const zip = path.join(dist, `${basename}.zip`);
 
@@ -35,11 +35,6 @@ archive.pipe(output);
 archive.directory(
     path.join(root, 'build'),
     basename
-);
-
-archive.directory(
-  path.join(root, 'javascript'),
-  path.join(basename, 'javascript')
 );
 
 for (const file of ['LICENSE', 'CHANGELOG.md', 'README.md']) {

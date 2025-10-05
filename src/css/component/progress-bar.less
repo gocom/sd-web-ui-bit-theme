@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Jukka Svahn
+ * Copyright (C) 2025 Jukka Svahn
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -23,40 +23,27 @@
 /**
  * Progress bar.
  */
-.container .progressDiv,
-.container .dark .progressDiv {
-    background: var(--progress-track-color) !important;
-    border-radius: var(--border-radius-m) !important;
+:root .progressDiv {
+  min-height: var(--margin-xl);
+
+  .progress {
+    align-items: center;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: var(--progress-text-color);
+    display: flex;
+    font: inherit;
+    font-size: var(--font-size-m);
     height: auto;
+    justify-content: flex-start;
+    line-height: 1;
     margin: 0;
-    overflow: hidden;
-    position: relative;
+    max-height: 100%;
     min-height: var(--margin-xl);
-    width: auto !important;
-
-    /**
-    <div class="progressDiv" style="display: block; width: 820px;"><div class="progress" style="width: 9.66667%;">10% ETA: 02:05</div></div>
-     */
-
-    .progress {
-        align-items: center;
-        background: var(--progress-bar-color);
-        border-radius: 0;
-        box-sizing: border-box;
-        color: var(--progress-text-color);
-        display: flex;
-        font: inherit;
-        font-size: var(--font-size-m);
-        height: auto;
-        justify-content: flex-start;
-        line-height: 1;
-        margin: 0;
-        max-height: 100%;
-        min-height: var(--margin-xl);
-        padding: 0 var(--padding-xs);
-        position: static;
-        overflow: visible;
-        text-align: right;
-        white-space: nowrap;
-    }
+    padding: 0 var(--padding-xs);
+    position: static;
+    overflow: visible;
+    text-align: right;
+    white-space: nowrap;
+  }
 }

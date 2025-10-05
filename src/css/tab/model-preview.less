@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Jukka Svahn
+ * Copyright (C) 2025 Jukka Svahn
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -24,36 +24,42 @@
  * Model preview tab.
  *
  * [1] Default styles use important
+ * [2] Inline style
+ * [3] Align the dropdown height with the filter textarea.
  */
-.container #tab_modelpreview_xd_interface {
-  > div {
-    > .tabs {
-      /**
-       * Tabs.
-       */
-      > div:first-child {
-        border: 0;
-      }
+:root #tab_modelpreview_xd_interface {
+  /**
+   * Filter toolbar.
+   */
+  #cp_modelpreview_xd_control_row,
+  #em_modelpreview_xd_control_row,
+  #hn_modelpreview_xd_control_row,
+  #lo_modelpreview_xd_control_row {
+    border-bottom: 1px solid var(--input-border-color);
+    padding: var(--padding-m);
+    margin: -16px -16px 0 -16px;
+    width: calc(100% + 32px);
+  }
 
-      > .tabitem {
-        > div {
-          height: 100%;
+  #cp_modelpreview_xd_filter_text,
+  #em_modelpreview_xd_filter_text,
+  #hn_modelpreview_xd_filter_text,
+  #lo_modelpreview_xd_filter_text {
+    max-width: 30%;
 
-          /**
-           * Filter toolbar.
-           */
-          > div:first-child {
-            background: var(--panel-bg-color);
-            border: 1px solid var(--panel-border-color);
-            border-radius: var(--border-radius-m);
-            padding: var(--padding-m);
-          }
+    textarea {
+      // height: 37px !important; // [2] [3]
+      resize: none;
+      scrollbar-width: none;
+    }
+  }
 
-          > div + [id^="component-"] {
-            order: 2;
-          }
-        }
-      }
+  #cp_mp2_preview_model_list,
+  #em_mp2_preview_model_list,
+  #hn_mp2_preview_model_list,
+  #lo_mp2_preview_model_list {
+    .wrap {
+      // height: 37px; // [3]
     }
   }
 
@@ -65,6 +71,7 @@
     flex-direction: row;
     gap: var(--margin-xl);
     justify-content: space-between;
+    position: static;
   }
 
   #cp_modelpreview_xd_html_row,
@@ -144,51 +151,15 @@
         }
 
         .img-meta-ico {
-          #mixin.icon(
-            var(--icon-clipboard),
-            var(--icon-clipboard-active)
-          );
-
-          margin: 0;
-          opacity: 0;
-          transition: opacity 0.25s;
-          z-index: 3;
-
-          &::before {
-            display: none;
-          }
-        }
-
-        .img-meta {
-          display: none;
-        }
-
-        &:hover {
-          &::before,
-          .img-meta-ico {
-            opacity: 1;
-          }
+          z-index: 2;
         }
       }
     }
   }
 
-  #cp_modelpreview_xd_markdown_div.gr-block,
-  #em_modelpreview_xd_markdown_div.gr-block,
-  #hn_modelpreview_xd_markdown_div.gr-block,
-  #lo_modelpreview_xd_markdown_div.gr-block {
-    #mixin.spinner();
-
-    border: 1px solid var(--panel-border-color) !important; // [1]
-    border-radius: var(--border-radius-m);
-    line-height: 1.35;
-    padding: var(--padding-xxl) !important; // [1]
-    max-width: calc(80ch + var(--padding-xxl) + var(--padding-xxl) + 2px);
-  }
-
   .footer-tags {
     border: 0;
-    color: var(--sidenote-text-color);
+    color: inherit;
     font: inherit;
     opacity: 1;
   }

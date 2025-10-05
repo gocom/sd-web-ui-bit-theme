@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Jukka Svahn
+ * Copyright (C) 2025 Jukka Svahn
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -23,189 +23,14 @@
 /**
  * Inputs.
  *
- * [1] Default styles use important
- * [2] Inline styles
- * [3] Same specificity
+ * [1] Inline styles
  */
-.dark .gr-input,
-.gr-input {
-    #mixin.input();
-}
-
-select,
-select.gr-input,
-.dark select.gr-input {
-    #mixin.select();
-}
-
-::placeholder {
-    color: var(--input-placeholder-text-color) !important;
-}
-
-.container fieldset span.text-gray-500,
-.container .gr-block.gr-box span.text-gray-500,
-.container label.block span,
-.container .dark fieldset span.text-gray-500,
-.container .dark .gr-block.gr-box span.text-gray-500,
-.container .dark label.block span {
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    color: inherit;
-    font: inherit;
-    line-height: inherit;
-    margin: 0;
-    padding: 0 !important;
-    position: static;
-}
-
-.container .gr-box > div > div > input.gr-text-input {
-    align-self: flex-end;
-    flex-shrink: 1;
-    min-width: 10ch;
-    position: static;
-    text-align: inherit;
-    width: auto;
-    z-index: 400;
-}
-
-.container .gr-check-radio,
-.container .dark .gr-check-radio {
-    background: var(--input-bg-color);
-    border: 1px solid var(--input-border-color);
-    border-radius: var(--border-radius-xs);
-    box-shadow: none;
-    color: var(--input-text-color);
-    cursor: pointer;
-    height: 1rem;
-    width: 1rem;
-
-    &:checked {
-        background: var(--primary-color);
-        box-shadow: inset 0 0 0 3px var(--input-bg-color-hover);
-    }
-
-    &:hover {
-        border-color: var(--primary-border-color-hover);
-    }
-
-    &:focus {
-        border: 1px solid var(--primary-border-color-focus);
-    }
-}
-
-/**
- * Disable number input arrows.
- */
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
-}
-
-.content .gr-compact .gr-box {
-    border-radius: var(--border-radius-m) !important; // [1]
-    border-width: 1px !important; // [1]
-}
-
-/**
- * Textareas take their height from rows rather than the hard-coded inline styles.
- */
-textarea[rows="1"] {
-    height: auto !important; // [2]
+:root {
+  /**
+   * Single-row textareas take their height from rows rather than the hard-coded inline styles.
+   */
+  textarea[rows="1"] {
+    height: auto !important; // [1]
     resize: none;
-}
-
-label {
-    cursor: pointer;
-}
-
-/**
- * Range inputs.
- */
-.container input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
-    cursor: pointer;
-    margin: var(--margin-xxs) 0 0 0;
-    width: 100%;
-
-    &::-webkit-slider-runnable-track {
-        border: 1px solid var(--input-border-color);
-        background-color: var(--input-bg-color);
-        border-radius: var(--border-radius-s);
-        height: 0.5rem;
-    }
-
-    &::-moz-range-track {
-        border: 1px solid var(--input-border-color);
-        background-color: var(--input-bg-color);
-        border-radius: var(--border-radius-s);
-        height: 0.5rem;
-    }
-
-    &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        background-color: var(--primary-color);
-        box-shadow: var(--secondary-box-shadow);
-        border-radius: 50%;
-        height: 1rem;
-        margin-top: -0.25rem;
-        width: 1rem;
-    }
-
-    &::-moz-range-thumb {
-        border: 0;
-        background-color: var(--primary-color);
-        border-radius: 50%;
-        box-shadow: var(--secondary-box-shadow);
-        height: 1rem;
-        width: 1rem;
-    }
-
-    &:hover {
-        &::-webkit-slider-runnable-track {
-            background-color: var(--input-bg-color-hover);
-        }
-
-        &::-moz-range-track {
-            background-color: var(--input-bg-color-hover);
-        }
-
-        &::-webkit-slider-thumb {
-            background-color: var(--primary-color-hover);
-        }
-
-        &::-moz-range-thumb {
-            background-color: var(--primary-color-hover);
-        }
-    }
-
-    &:focus {
-        background-color: var(--input-bg-color-focus);
-        outline: none;
-
-        &::-webkit-slider-runnable-track {
-            background-color: var(--input-bg-color-focus);
-        }
-
-        &::-moz-range-track {
-            background-color: var(--input-bg-color-focus);
-        }
-
-        &::-webkit-slider-thumb {
-            outline: 1px solid var(--primary-border-color-focus);
-            outline-offset: 2px;
-        }
-
-        &::-moz-range-thumb {
-            outline: 1px solid var(--primary-border-color-focus);
-            outline-offset: 2px;
-        }
-    }
+  }
 }

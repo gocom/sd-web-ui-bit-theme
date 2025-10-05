@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Jukka Svahn
+ * Copyright (C) 2025 Jukka Svahn
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -21,122 +21,13 @@
  */
 
 /**
- * Modals.
- *
- * [1] Same specificity as with default styles
+ * Lightbox modal.
  */
-#lightboxModal {
-    background-color: var(--lightbox-mask-bg-color) !important; // [1]
-    backdrop-filter: var(--lightbox-mask-backdrop-filter);
-    box-sizing: border-box;
-    bottom: 0;
-    cursor: zoom-out;
-    display: none;
-    flex-direction: column;
-    gap: var(--margin-m);
-    height: 100%;
-    left: 0;
-    overflow: auto;
-    padding: 0 !important; // [1]
-    position: fixed;
-    right: 0;
-    top: 0;
-    user-select: none;
-    width: 100%;
-    z-index: 1001;
-
-    --scrollbar-thumb-bg-color: var(--scrollbar-thumb-bg-color-dark);
-    --scrollbar-track-bg-color: var(--scrollbar-track-bg-color-dark);
-    --scrollbar-track-shadow: var(--scrollbar-track-shadow-dark);
-
-    .modalControls {
-        align-items: center;
-        background: transparent !important;
-        bottom: auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: var(--margin-m);
-        justify-content: flex-end;
-        left: auto;
-        max-width: calc(100% - var(--margin-m) - var(--margin-m));
-        overflow: visible;
-        padding: 0;
-        position: absolute;
-        right: var(--margin-m);
-        top: var(--margin-m);
-    }
-
-    #modalImage {
-        display: block;
-        margin: auto;
-        width: auto;
-
-        &.modalImageFullscreen {
-            height: auto;
-            max-height: calc(100% - var(--icon-size) - var(--icon-size) - var(--margin-m) - var(--margin-m) - var(--margin-m) - var(--margin-m));
-            max-width: calc(100% - var(--icon-size) - var(--icon-size) - var(--margin-m) - var(--margin-m) - var(--margin-m) - var(--margin-m));
-            object-fit: contain;
-        }
-    }
-
-    .modalPrev {
-        #mixin.icon(
-            var(--icon-arrow-left-dark),
-            var(--icon-arrow-left-active-dark)
-        );
-        left: var(--margin-m);
-    }
-
-    .modalNext {
-        #mixin.icon(
-            var(--icon-arrow-right-dark),
-            var(--icon-arrow-right-active-dark)
-        );
-        right: var(--margin-m);
-    }
-
-    .modalPrev,
-    .modalNext {
-        cursor: pointer;
-        margin: calc(-1 * var(--icon-size)) 0 0 0;
-        position: absolute;
-        top: 50%;
-    }
-
-    .modalZoom {
-        #mixin.icon(
-            var(--icon-expand-dark),
-            var(--icon-expand-active-dark)
-        );
-    }
-
-    .modalTileImage {
-        #mixin.icon(
-            var(--icon-border-all-dark),
-            var(--icon-border-all-active-dark)
-        );
-    }
-
-    .modalSave {
-        #mixin.icon(
-            var(--icon-floppy-disk-dark),
-            var(--icon-floppy-disk-active-dark)
-        );
-    }
-
-    .modalClose {
-        #mixin.icon(
-            var(--icon-circle-xmark-dark),
-            var(--icon-circle-xmark-active-dark)
-        );
-    }
-
-    .modalZoom,
-    .modalTileImage,
-    .modalSave,
-    .modalClose {
-        cursor: pointer;
-        margin: 0;
-    }
+:root #lightboxModal {
+  /**
+   * Hide the original live preview button.
+   */
+  .modalControls .cursor.modalToggleLivePreview {
+    display: none !important;
+  }
 }

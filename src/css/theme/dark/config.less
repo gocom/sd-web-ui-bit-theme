@@ -21,16 +21,28 @@
  */
 
 /**
- * Scrollbars.
+ * Dark theme colors.
  */
-:root {
-  &,
-  * {
-    scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
-    scrollbar-width: var(--scrollbar-width);
-  }
+:root body.dark,
+:root body.dark * {
+  /**
+   * Scrollbars.
+   */
+  --scrollbar-color-thumb: rgba(255, 255, 255, 0.16);
+  --scrollbar-color-track: rgba(0, 0, 0, 0.25);
 
-  #root {
-    --scrollbar-color-track: transparent;
-  }
+  /**
+   * Code.
+   */
+  --code-bg-color: #1a1a1a;
+  --code-text-color: #a4a4a4;
+
+  /**
+   * Images.
+   */
+  --image-mask-bg-color: rgba(0, 0, 0, 0.8);
+  --image-mask-backdrop-filter: blur(8px);
+  --image-bg-color: transparent;
+  --image-text-color: inherit;
+  --image-border-color: #2f2f2f;
 }

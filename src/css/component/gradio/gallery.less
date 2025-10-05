@@ -21,16 +21,25 @@
  */
 
 /**
- * Scrollbars.
+ * Gallery.
  */
-:root {
-  &,
-  * {
-    scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
-    scrollbar-width: var(--scrollbar-width);
+:root .gradio-gallery {
+  background: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  > .wrap {
+    position: static !important;
   }
 
-  #root {
-    --scrollbar-color-track: transparent;
+  > .fixed-height {
+    height: auto;
+    max-height: 100%;
+  }
+
+  > .grid-wrap {
+    margin: 0;
+    padding: 16px;
   }
 }

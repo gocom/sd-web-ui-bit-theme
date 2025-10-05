@@ -1,30 +1,22 @@
-Bit Theme for Stable Diffusion Web UI
+Personal styles for Stable Diffusion Web UI
 =====
 
-A theme for [AUTOMATIC1111's Stable Diffusion web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui). Aims
-to be a clean and a minimalistic theme, supporting both light and dark color-themes.
+A collection of addon styles for [AUTOMATIC1111's Stable Diffusion web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
+and the [Lobe Theme](https://github.com/lobehub/sd-webui-lobe-theme). Aims to be a clean and a minimalistic,
+and improving readability. Introduces typography styles and tweaks image display among other things.
 
 **Work in progress.**
-
-[![Dark theme screenshot](https://raw.githubusercontent.com/gocom/sd-web-ui-bit-theme/screenshots/images/txt2img-generated-dark.png)](https://raw.githubusercontent.com/gocom/sd-web-ui-bit-theme/screenshots/images/txt2img-generated-dark.png)
-
-[![Light theme screenshot](https://raw.githubusercontent.com/gocom/sd-web-ui-bit-theme/screenshots/images/txt2img-generated-light.png)](https://raw.githubusercontent.com/gocom/sd-web-ui-bit-theme/screenshots/images/txt2img-generated-light.png)
-
-[More screenshots](https://github.com/gocom/sd-web-ui-bit-theme/tree/screenshots)
 
 Requirements
 -----
 
-The theme supports and requires:
+* [Stable Diffusion web UI v1.10.1](https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases/tag/v1.10.1)
+* [Lobe Theme v3.5.4](https://github.com/lobehub/sd-webui-lobe-theme)
 
-* [Stable Diffusion web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) a9fed7c3
+Styles are also provided for extensions:
 
-Styles are also provided for extensions and their versions:
-
-* [a1111-sd-webui-tagcomplete](https://github.com/DominikDoom/a1111-sd-webui-tagcomplete) 223abf54
-* [sd-model-preview-xd](https://github.com/CurtisDS/sd-model-preview-xd) 175f5e2b
-* [stable-diffusion-webui-images-browser](https://github.com/AlUlkesh/stable-diffusion-webui-images-browser) 62cf141
-* [stable-diffusion-webui-text2prompt](https://github.com/toshiaki1729/stable-diffusion-webui-text2prompt) c4d8cec
+* [sd-model-preview-xd](https://github.com/CurtisDS/sd-model-preview-xd)
+* [stable-diffusion-webui-images-browser](https://github.com/AlUlkesh/stable-diffusion-webui-images-browser)
 
 Install
 -----

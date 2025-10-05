@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Jukka Svahn
+ * Copyright (C) 2025 Jukka Svahn
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -21,28 +21,21 @@
  */
 
 /**
- * Container.
+ * Containers.
  */
-.container {
-    align-items: stretch;
-    display: flex;
-    flex-direction: row;
-    margin: 0 0 0 200px !important;
-    padding: var(--padding-xl) !important;
-    width: auto !important;
+:root {
+  overflow: hidden;
 
-    > div:first-child {
-        gap: var(--padding-xl) !important;
-    }
-}
+  body {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+    width: 100vw;
+    scrollbar-gutter: stable;
+  }
 
-#tabs {
-    margin: 0 !important;
-
-    > .tabitem {
-        background: transparent;
-        border: 0;
-        margin: 0;
-        padding: 0;
-    }
+  #root {
+    width: 100vw;
+  }
 }

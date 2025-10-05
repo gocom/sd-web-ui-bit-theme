@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Jukka Svahn
+ * Copyright (C) 2025 Jukka Svahn
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -22,28 +22,9 @@
 
 /**
  * Scrollbars.
- *
- * Some scrollbars are not rendered within `.dark` modifier in DOM and can not be styled due to it.
- * Both light and dark styles have the same context menu look.
  */
 :root,
-* {
-  /**
-   * Size.
-   */
-  --scrollbar-width: 1em;
-
-  /**
-   * Scrollbars for light backgrounds.
-   */
-  --scrollbar-track-bg-color-light: var(--body-bg-color);
-  --scrollbar-track-shadow-light: inset 0 0 3px rgba(0, 0, 0, 0.35);
-  --scrollbar-thumb-bg-color-light: #392c49;
-
-  /**
-   * Scrollbars for dark backgrounds.
-   */
-  --scrollbar-track-bg-color-dark: #1a1a1a;
-  --scrollbar-track-shadow-dark: inset 0 0 3px rgba(0, 0, 0, 0.5);
-  --scrollbar-thumb-bg-color-dark: #444444;
+:root * {
+  --scrollbar-width: thin;
+  --scrollbar-width-unit: 10px;
 }

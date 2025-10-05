@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Jukka Svahn
+ * Copyright (C) 2025 Jukka Svahn
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -25,13 +25,43 @@
  *
  * [1] Inline style.
  */
-#tab_image_browser {
-  button[title="Open images output directory"] {
-    #mixin.icon(
-      var(--icon-folder-open),
-      var(--icon-folder-open-active)
-    );
-    margin: auto 0;
+:root #tab_image_browser {
+  /**
+   * Pagination toolbar.
+   */
+  #image_browser_tab_txt2img_image_browser_gallery_controls {
+    align-items: center;
+    background: var(--panel-bg-color);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 var(--margin-m) 0;
+    padding: var(--padding-m);
+
+    > button {
+      align-self: center !important;
+      flex-grow: 0;
+      width: fit-content;
+    }
+  }
+
+  /**
+   * Ranking and other columns.
+   */
+  #image_browser_tab_txt2img_image_browser_gallery_controls + .gradio-row {
+    flex-direction: column;
+  }
+
+  /**
+   * Ranking.
+   */
+  #image_browser_tab_txt2img_control_image_browser_ranking {
+    align-items: center;
+    display: flex;
+    background: var(--panel-bg-color);
+    border-radius: var(--border-radius-m);
+    margin: var(--margin-m) 0 0 0;
+    padding: var(--padding-m);
   }
 
   #image_browser_tab_favorites_image_browser_container,
@@ -48,284 +78,15 @@
         order: 2;
 
         * {
+          color: inherit !important; // [1]
+          font-size: inherit !important; // [1]
           text-align: inherit !important; // [1]
         }
       }
     }
   }
 
-  .image_browser_container {
-    .gr-padded,
-    .gap-px {
-      gap: var(--margin-m);
-    }
-
-    > div {
-      > div {
-        /**
-         * Left column.
-         */
-        > div:first-child {
-          gap: var(--margin-m);
-
-          div.border {
-            border: 0;
-          }
-
-          /**
-           * Pagination toolbar.
-           */
-          > div:first-child {
-            #mixin.spinner();
-            align-items: center;
-            background: var(--panel-bg-color);
-            border-radius: var(--border-radius-m);
-            display: flex;
-            flex-direction: row;
-            margin: 0 0 calc(-1 * var(--margin-m)) 0;
-            padding: var(--padding-m);
-
-            > button {
-              align-self: center !important;
-              flex-grow: 0;
-              width: fit-content;
-            }
-
-            /**
-             * Refresh button.
-             */
-            > .gr-button-tool {
-              #mixin.icon(
-                var(--icon-arrows-rotate),
-                var(--icon-arrows-rotate-active)
-              );
-              margin: auto 0;
-            }
-
-            > div {
-              .block {
-                display: flex;
-                flex-direction: column;
-                gap: var(--margin-xs);
-
-                span {
-                  text-align: center;
-                }
-
-                input {
-                  margin: 0 auto;
-                  max-width: 10ch;
-                }
-              }
-            }
-          }
-
-          /**
-           * Delete panel.
-           */
-          > div:nth-child(4) {
-            align-items: center;
-            background: var(--panel-bg-color);
-            border: 1px solid var(--error-border-color);
-            border-radius: var(--border-radius-m);
-            display: flex;
-            flex-direction: row;
-            padding: var(--padding-m);
-
-            .gr-form {
-              align-items: center;
-              flex-direction: row !important; // [1]
-            }
-
-            .w-full {
-              width: auto;
-            }
-
-            > div:last-child {
-              align-items: center;
-              display: flex;
-              flex-grow: 1 !important; // [1]
-            }
-          }
-
-          /**
-           * Additional information.
-           */
-          > div:nth-child(5) {
-            > div {
-              background: var(--panel-bg-color);
-              border-radius: var(--border-radius-m);
-              padding: var(--padding-m);
-
-              .output-html p {
-                margin: 0;
-              }
-            }
-          }
-        }
-
-        /**
-         * Right column.
-         */
-        > div:last-child {
-          padding: var(--margin-m) 0 0 0;
-
-          /**
-           * Search and sorting panel.
-           */
-          > div:nth-child(1),
-          > div:nth-child(2),
-          > div:nth-child(3),
-          > div:nth-child(4),
-          > div:nth-child(5) {
-            background: var(--panel-bg-color);
-            border: 0;
-            margin: calc(-1 * var(--margin-m)) 0 0 0;
-            padding: var(--padding-m) var(--padding-m) 0 var(--padding-m);
-
-            .gr-input-label {
-              padding: 0;
-            }
-          }
-
-          > div:nth-child(1) {
-            border-top-left-radius: var(--border-radius-m);
-            border-top-right-radius: var(--border-radius-m);
-            padding: var(--padding-m);
-
-            button {
-              #mixin.icon(
-                var(--icon-arrow-up-wide-short),
-                var(--icon-arrow-up-wide-short-active)
-              );
-
-              margin: auto 0;
-            }
-          }
-
-          /**
-           * Filename search.
-           */
-          > div:nth-child(2) {
-            border-top: 1px solid var(--panel-border-color);
-          }
-
-          /**
-           * Prompt keyword search.
-           */
-          > div:nth-child(3) {
-            display: flex;
-            gap: var(--margin-m);
-            flex-direction: column;
-          }
-
-          /**
-           * Aesthetic score.
-           */
-          > div:nth-child(5) {
-            border-bottom-left-radius: var(--border-radius-m);
-            border-bottom-right-radius: var(--border-radius-m);
-            margin-bottom: var(--margin-xl);
-            padding-bottom: var(--padding-m);
-          }
-        }
-      }
-    }
-  }
-
-  #image_browser_tab_txt2img_image_browser_ranking {
-    align-items: center;
-    display: flex;
-    background: var(--panel-bg-color);
-    border-radius: var(--border-radius-m);
-    margin: var(--margin-m) 0 0 0;
-    padding: var(--padding-m);
-  }
-
-  #image_browser_tab_txt2img_image_browser_del_num {
-    > label {
-      align-items: center;
-      display: flex;
-      flex-direction: row;
-      gap: var(--margin-m);
-
-      > span {
-        min-width: fit-content;
-      }
-    }
-
-    + div {
-      align-items: center;
-      display: flex;
-    }
-  }
-
-  #image_browser_tab_txt2img_image_browser_del_img_btn {
-    background-color: var(--error-bg-color);
-    border-color: var(--error-border-color);
-    color: var(--error-text-color);
-    margin: 0 0 0 auto;
-    width: fit-content;
-
-    &:hover {
-      background-color: var(--error-bg-color-hover);
-      border-color: var(--error-border-color-hover);
-      color: var(--error-text-color-hover);
-    }
-
-    &:focus {
-      background-color: var(--error-bg-color-focus);
-      border-color: var(--error-border-color-focus);
-      color: var(--error-text-color-focus);
-    }
-  }
-
-  .image_browser_gallery {
-    #mixin.gallery();
-    position: relative;
-
-    > .overflow-y-auto {
-      background: var(--panel-bg-color);
-      padding: var(--padding-m);
-    }
-  }
-
-  #image_browser_tab_txt2img_image_browser_button_panel {
-    background: var(--panel-bg-color);
-    border-radius: var(--border-radius-m);
-    padding: var(--padding-m);
-
-    button {
-      min-width: min-content;
-    }
-  }
-
-  #image_browser_tab_txt2img_image_browser_to_dir_panel {
-    background: var(--panel-bg-color);
-    border: 1px solid var(--panel-border-color);
-    border-radius: var(--border-radius-m);
-    padding: var(--padding-m);
-
-    > div {
-      border: 0;
-      display: flex;
-      flex-direction: column;
-      gap: var(--margin-m);
-
-      > div:last-child {
-        align-items: center;
-        border-top: 1px solid var(--panel-border-color);
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        margin: 0 calc(-1 * var(--padding-m));
-        padding: var(--padding-m) var(--padding-m) 0 var(--padding-m);
-        width: calc(100% + var(--padding-m) + var(--padding-m));
-      }
-
-      #image_browser_tab_txt2img_image_browser_to_dir_btn {
-        max-width: max-content;
-      }
-    }
+  p.no-gap-top.mb-0.text-subdued {
+    margin-top: var(--margin-xs);
   }
 }
