@@ -200,7 +200,28 @@ const injectIcon = (button, clone) => {
     }
 });
 
+;// ./javascript/component/favicon.ts
+/**
+ * Replaces favicon with the configured logo.
+ */
+const replaceFavicon = () => {
+    var _a;
+    const logo = (_a = document.querySelector('a .ant-space-item > img[alt="logo"]')) === null || _a === void 0 ? void 0 : _a.src;
+    if (logo) {
+        const links = document.querySelectorAll('link[rel="shortcut icon"], link[rel="apple-touch-icon"], link[rel="icon"]');
+        for (const link of links) {
+            if (!link.classList.contains('has-logo')) {
+                link.href = logo;
+                link.removeAttribute('type');
+                link.classList.add('has-logo');
+            }
+        }
+    }
+};
+/* harmony default export */ const favicon = (replaceFavicon);
+
 ;// ./javascript/index.ts
+
 
 
 /**
@@ -209,8 +230,10 @@ const injectIcon = (button, clone) => {
 document.addEventListener('DOMContentLoaded', () => {
     icons();
     livePreviewIcon();
+    favicon();
     const observer = new MutationObserver(() => {
         icons();
+        favicon();
     });
     observer.observe(gradioApp(), {
         subtree: true,
