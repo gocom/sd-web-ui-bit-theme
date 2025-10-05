@@ -1,0 +1,40 @@
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - '*.*.*'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get metadata
+        id: meta
+        run: |
+          echo "version=$(basename "$GITHUB_REF")" >> $GITHUB_OUTPUT
+
+      - name: Build
+        run: make build
+
+      - name: Push
+        uses: s0/git-publish-subdir-action@v2.6.0
+        env:
+          REPO: self
+          BRANCH: build/${{ steps.meta.outputs.version }}
+          FOLDER: build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SKIP_EMPTY_COMMITS: true
+          MESSAGE: "Build for ${{ steps.meta.outputs.version }} commit {sha}"

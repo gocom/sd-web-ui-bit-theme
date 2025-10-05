@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin  = require('css-minimizer-webpack-plugin');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const {name} = require('./package.json');
+const CopyPlugin = require('copy-webpack-plugin');
 
 /**
  * @type {object}
@@ -84,6 +85,22 @@ const config = {
     new MiniCssExtractPlugin(),
     new IgnoreEmitPlugin(/\.(map)$/),
     new IgnoreEmitPlugin(/^style\.js$/),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: '../README.md',
+          to: './',
+        },
+        {
+          from: '../LICENSE',
+          to: './',
+        },
+        {
+          from: '../CHANGELOG.md',
+          to: './',
+        },
+      ]
+    }),
   ],
   performance: {
     hints: false,

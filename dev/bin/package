@@ -37,13 +37,4 @@ archive.directory(
     basename
 );
 
-for (const file of ['LICENSE', 'CHANGELOG.md', 'README.md']) {
-  archive.file(
-    path.join(root, file),
-    {
-      name: path.join(basename, file)
-    }
-  );
-}
-
 archive.finalize();

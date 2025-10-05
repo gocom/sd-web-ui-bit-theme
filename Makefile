@@ -1,4 +1,4 @@
-.PHONY: all build build-destroy clean generate-release-notes help install lint lint-fix nvm pack rebuild test watch
+.PHONY: all build build-destroy clean generate-release-notes help install lint lint-fix rebuild test watch
 .ONESHELL:
 .SHELLFLAGS = -ec
 
@@ -11,8 +11,6 @@ build:
 	@. ./dev/hook/nvm.sh
 	@$(MAKE) -s node_modules
 	$(NPM) run build
-	test -e style.css || ln -s build/style.css style.css
-	test -e javascript || ln -s build/javascript javascript
 
 build-destroy:
 	@echo "Removing existing build"
