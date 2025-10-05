@@ -58,12 +58,12 @@ EOF
   cat <<EOF
 ## ⚡ Install
 
-Clone using git, or via WEB GUI, branch `build/$version`:
+Clone using git, or via WEB GUI, branch \`build/$version\`:
 
-```shell
+\`\`\`shell
 $ cd /path/to/stable-diffusion-webui/extensions/
 $ git clone https://github.com/gocom/sd-web-ui-bit-theme.git -b build/$version
-```
+\`\`\`
 
 Alternatively, download the [sd-web-ui-bit-theme.zip](https://github.com/gocom/sd-web-ui-bit-theme/releases/download/$version/sd-web-ui-bit-theme.zip), extract it into the **extensions** directory under Stable Diffusion Web UI's installation directory.
 EOF

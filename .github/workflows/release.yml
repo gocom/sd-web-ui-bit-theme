@@ -23,6 +23,9 @@ jobs:
         run: |
           echo "version=$(basename "$GITHUB_REF")" >> $GITHUB_OUTPUT
 
+      - name: Package
+        run: make package
+
       - name: Generate release notes
         id: changelog
         run: make generate-release-notes VERSION=${{ steps.meta.outputs.version }}
