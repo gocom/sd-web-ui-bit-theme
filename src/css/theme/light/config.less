@@ -23,8 +23,7 @@
 /**
  * Base and light theme colors.
  */
-:root,
-* {
+:root body:not(.dark) {
   /**
    * Scrollbars.
    */
@@ -41,6 +40,7 @@
    * Images.
    */
   --image-mask-bg-color: rgba(255, 255, 255, 0.8);
+  --image-mask-backdrop-filter: blur(8px);
   --image-bg-color: #eee;
   --image-text-color: inherit;
   --image-border-color: #b7b7b7;

@@ -22,6 +22,8 @@
 
 /**
  * Prose.
+ *
+ * [1] Default styles color text within `.prose` with wildcard selector.
  */
 :root .prose {
   color: inherit;
@@ -189,6 +191,10 @@
     }
   }
 
+  abbr {
+    text-decoration: dashed;
+  }
+
   pre {
     background-color: var(--code-bg-color);
     border-radius: var(--border-radius-s);
@@ -224,13 +230,16 @@
   }
 
   blockquote {
-    border-left: 0.25rem solid var(--sidenote-text-color);
-    color: var(--sidenote-text-color);
+    border-left: 0.25rem solid var(--neutral-400);
     font: inherit;
     margin-bottom: 1.6em;
     margin-top: 1.6em;
     padding: 0.5em 0 0.5em 1em;
     quotes: none;
+
+    &, p, li, strong, b, em, a, h1, h2, h3, h4, h5, h6 {
+      color: var(--neutral-200); // [1]
+    }
 
     p:first-of-type::before {
       display: none;

@@ -22,6 +22,9 @@
 
 /**
  * Model preview tab.
+ *
+ * [1] Negates the current surrounding spacing.
+ * [2] Default styles use important.
  */
 :root #tab_modelpreview_xd_interface {
   /**
@@ -33,7 +36,7 @@
   #lo_modelpreview_xd_control_row {
     border-bottom: 1px solid var(--input-border-color);
     padding: var(--padding-m);
-    margin: -16px -16px 0 -16px;
+    margin: -16px -16px 0 -16px; // [1]
     width: calc(100% + 32px);
   }
 
@@ -55,7 +58,7 @@
   #lo_modelpreview_xd_flexcolumn_row {
     display: flex;
     flex-direction: row;
-    gap: var(--margin-xl);
+    gap: var(--margin-xl) !important; // [2]
     justify-content: space-between;
     position: static;
   }
@@ -68,10 +71,19 @@
     overflow: visible;
   }
 
+  #cp_modelpreview_xd_markdown_div,
+  #em_modelpreview_xd_markdown_div,
+  #hn_modelpreview_xd_markdown_div,
+  #lo_modelpreview_xd_markdown_div {
+    flex-grow: 2;
+    max-width: 120ch;
+  }
+
   #cp_modelpreview_xd_html_div,
   #em_modelpreview_xd_html_div,
   #hn_modelpreview_xd_html_div,
   #lo_modelpreview_xd_html_div {
+    flex-grow: 1;
     order: 2;
 
     .img-container-set {
@@ -81,7 +93,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       gap: var(--margin-s);
-      justify-content: flex-start;
+      justify-content: end;
       margin: 0;
       max-height: none;
       max-width: 100%;
@@ -109,7 +121,7 @@
         width: var(--card-size);
 
         &::before {
-          background: linear-gradient(360deg, var(--image-mask-bg-color), transparent);
+          background: linear-gradient(360deg, var(--image-mask-bg-color), transparent 50%);
           bottom: 0;
           content: "";
           display: block;
@@ -121,6 +133,12 @@
           top: 0;
           transition: opacity 0.25s;
           z-index: 2;
+        }
+
+        &:hover {
+          &::before {
+            opacity: 0.5;
+          }
         }
 
         img {
@@ -138,6 +156,21 @@
 
         .img-meta-ico {
           z-index: 2;
+          background: var(--image-mask-bg-color);
+          color: var(--image-text-color);
+          position: absolute;
+          bottom: var(--padding-s);
+          right: var(--padding-s);
+          left: auto;
+          top: auto;
+          padding: var(--padding-xs);
+          backdrop-filter: var(--image-mask-backdrop-filter);
+          border-radius: var(--border-radius-xm);
+          transition: box-shadow 0.25s;
+
+          &:hover {
+            box-shadow: 0 0 var(--padding-xxs) var(--image-mask-bg-color);
+          }
         }
       }
     }
