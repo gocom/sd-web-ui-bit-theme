@@ -25,50 +25,141 @@
  *
  * [1] Inline style.
  * [2] Default styles use important.
+ * [3] Overriding specificity.
+ * [4] Negates the current surrounding spacing.
  */
 :root #tab_image_browser {
   /**
    * Pagination toolbar.
    */
-  #image_browser_tab_txt2img_image_browser_gallery_controls {
-    align-items: center;
+  #image_browser_tab_txt2img_image_browser_gallery_controls,
+  #image_browser_tab_img2img_image_browser_gallery_controls,
+  #image_browser_tab_txt2img-grids_image_browser_gallery_controls,
+  #image_browser_tab_img2img-grids_image_browser_gallery_controls,
+  #image_browser_tab_extras_image_browser_gallery_controls,
+  #image_browser_tab_favorites_image_browser_gallery_controls,
+  #image_browser_tab_all_image_browser_gallery_controls {
+    align-items: end;
     border-bottom: 1px solid var(--input-border-color);
     display: flex;
     flex-direction: row;
-    margin: 0 -16px var(--margin-m) -16px;
+    flex-wrap: nowrap;
+    gap: var(--padding-xs) !important;
+    margin: -16px -16px var(--margin-m) -16px; // [4]
     padding: var(--padding-m);
     width: calc(100% + 32px);
 
     > button {
-      align-self: center !important;
+      align-self: center !important; // [3]
       flex-grow: 0;
       width: fit-content;
     }
+
+    .form {
+      gap: 0 !important; // [3]
+    }
+
+    button, input[type=number] {
+      min-height: 44px;
+    }
+
+    .refresh-index-panel {
+      min-width: auto !important; // [1]
+    }
+  }
+
+  #image_browser_tab_txt2img_control_image_browser_page_index,
+  #image_browser_tab_img2img_control_image_browser_page_index,
+  #image_browser_tab_txt2img-grids_control_image_browser_page_index,
+  #image_browser_tab_img2img-grids_control_image_browser_page_index,
+  #image_browser_tab_extras_control_image_browser_page_index,
+  #image_browser_tab_favorites_control_image_browser_page_index,
+  #image_browser_tab_all_control_image_browser_page_index {
+    label {
+      position: relative;
+
+      span {
+        pointer-events: none;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: var(--padding-s);
+        display: flex;
+        align-items: center;
+      }
+
+      input {
+        color: transparent;
+      }
+
+      &:focus,
+      &:focus-within {
+        input {
+          color: initial;
+        }
+
+        span {
+          display: none;
+        }
+      }
+    }
+    margin: 0 !important; // [2]
+  }
+
+  #image_browser_tab_txt2img_control_image_browser_refresh_index,
+  #image_browser_tab_img2img_control_image_browser_refresh_index,
+  #image_browser_tab_txt2img-grids_control_image_browser_refresh_index,
+  #image_browser_tab_img2img-grids_control_image_browser_refresh_index,
+  #image_browser_tab_extras_control_image_browser_refresh_index,
+  #image_browser_tab_favorites_control_image_browser_refresh_index,
+  #image_browser_tab_all_control_image_browser_refresh_index {
+    min-width: 44px !important; // [2]
+    min-height: 44px !important; // [2]
   }
 
   /**
    * Ranking and other columns.
    */
-  #image_browser_tab_txt2img_image_browser_gallery_controls + .gradio-row {
-    flex-direction: column;
+  #image_browser_tab_txt2img_image_browser_gallery_controls,
+  #image_browser_tab_img2img_image_browser_gallery_controls,
+  #image_browser_tab_txt2img-grids_image_browser_gallery_controls,
+  #image_browser_tab_img2img-grids_image_browser_gallery_controls,
+  #image_browser_tab_extras_image_browser_gallery_controls,
+  #image_browser_tab_favorites_image_browser_gallery_controls,
+  #image_browser_tab_all_image_browser_gallery_controls {
+    & + .gradio-row {
+      flex-direction: column;
+    }
   }
 
   /**
    * Ranking.
    */
-  #image_browser_tab_txt2img_control_image_browser_ranking {
+  #image_browser_tab_txt2img_control_image_browser_ranking,
+  #image_browser_tab_img2img_control_image_browser_ranking,
+  #image_browser_tab_txt2img-grids_control_image_browser_ranking,
+  #image_browser_tab_img2img-grids_control_image_browser_ranking,
+  #image_browser_tab_extras_control_image_browser_ranking,
+  #image_browser_tab_favorites_control_image_browser_ranking,
+  #image_browser_tab_all_control_image_browser_ranking {
     align-items: center;
     display: flex;
     flex-direction: column;
     margin: 0;
   }
 
-  #image_browser_tab_favorites_image_browser_container,
-  #image_browser_tab_extras_image_browser_container,
-  #image_browser_tab_img2img-grids_image_browser_container,
+  #image_browser_tab_txt2img_image_browser_container,
   #image_browser_tab_img2img_image_browser_container,
   #image_browser_tab_txt2img-grids_image_browser_container,
-  #image_browser_tab_txt2img_image_browser_container {
+  #image_browser_tab_img2img-grids_image_browser_container,
+  #image_browser_tab_extras_image_browser_container,
+  #image_browser_tab_favorites_image_browser_container,
+  #image_browser_tab_all_image_browser_container {
     > div:first-child {
       /**
        * Information block.

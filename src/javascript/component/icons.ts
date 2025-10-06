@@ -1,4 +1,6 @@
 import {
+  ArrowDownWideNarrow,
+  ArrowUpNarrowWide,
   Copy,
   Image,
 } from 'lucide-static';
@@ -77,5 +79,19 @@ export default () => {
     [],
     Image,
     36
+  );
+
+  replaceIcon(
+    document.querySelectorAll('button'),
+    ['▼'],
+    ArrowDownWideNarrow,
+    16
+  );
+
+  replaceIcon(
+    document.querySelectorAll('button'),
+    ['▲'],
+    ArrowUpNarrowWide,
+    16
   );
 };
