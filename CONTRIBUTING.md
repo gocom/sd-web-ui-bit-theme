@@ -72,14 +72,11 @@ variable also works with the watch command:
 $ make watch SD_WEB_UI_EXTENSIONS_PREFIX=/path/to/webui/extensions/
 ```
 
+To avoid having the declare the environment variable each time, it can be configured in `.env` file placed at
+the extension project's root directory.
+
 When making changes to code please make sure that linter and tests pass before opening a pull request. Linter
-can be run with:
-
-```shell
-$ make lint
-```
-
-Unit tests can be run with:
+and tests can be run with:
 
 ```shell
 $ make test

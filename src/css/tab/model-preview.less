@@ -25,6 +25,8 @@
  *
  * [1] Negates the current surrounding spacing.
  * [2] Default styles use important.
+ * [3] Defaults are set with inline-styles.
+ * [4] Page contains duplicate IDs.
  */
 :root #tab_modelpreview_xd_interface {
   /**
@@ -44,7 +46,7 @@
   #em_modelpreview_xd_filter_text,
   #hn_modelpreview_xd_filter_text,
   #lo_modelpreview_xd_filter_text {
-    max-width: 30%;
+    max-width: min(100%, calc(var(--card-size) * 2 + var(--margin-s)));
 
     textarea {
       resize: none;
@@ -58,6 +60,7 @@
   #lo_modelpreview_xd_flexcolumn_row {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: var(--margin-xl) !important; // [2]
     justify-content: space-between;
     position: static;
@@ -71,19 +74,24 @@
     overflow: visible;
   }
 
-  #cp_modelpreview_xd_markdown_div,
-  #em_modelpreview_xd_markdown_div,
-  #hn_modelpreview_xd_markdown_div,
-  #lo_modelpreview_xd_markdown_div {
+  #cp_modelpreview_xd_flexcolumn_row > #cp_modelpreview_xd_markdown_div,
+  #em_modelpreview_xd_flexcolumn_row > #em_modelpreview_xd_markdown_div,
+  #hn_modelpreview_xd_flexcolumn_row > #hn_modelpreview_xd_markdown_div,
+  #lo_modelpreview_xd_flexcolumn_row > #lo_modelpreview_xd_markdown_div { // [4]
+    border: 0 !important; // [3]
     flex-grow: 2;
     max-width: 120ch;
+    min-width: min(100%, 400px) !important; // [3]
   }
 
-  #cp_modelpreview_xd_html_div,
-  #em_modelpreview_xd_html_div,
-  #hn_modelpreview_xd_html_div,
-  #lo_modelpreview_xd_html_div {
+  #cp_modelpreview_xd_flexcolumn_row > #cp_modelpreview_xd_html_div,
+  #cp_modelpreview_xd_flexcolumn_row > #em_modelpreview_xd_html_div,
+  #cp_modelpreview_xd_flexcolumn_row > #hn_modelpreview_xd_html_div,
+  #cp_modelpreview_xd_flexcolumn_row > #lo_modelpreview_xd_html_div { // [4]
+    border: 0 !important; // [3]
     flex-grow: 1;
+    max-width: calc(var(--card-size) * 4 + var(--margin-s) * 3); // [3]
+    min-width: min(100%, calc(var(--card-size) * 2 + var(--margin-s))) !important; // [3]
     order: 2;
 
     .img-container-set {
@@ -93,7 +101,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       gap: var(--margin-s);
-      justify-content: end;
+      justify-content: start;
       margin: 0;
       max-height: none;
       max-width: 100%;

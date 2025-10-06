@@ -6,6 +6,10 @@ const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const {name} = require('./package.json');
 const CopyPlugin = require('copy-webpack-plugin');
 
+require('dotenv').config({
+  quiet: true,
+});
+
 /**
  * @type {object}
  */
