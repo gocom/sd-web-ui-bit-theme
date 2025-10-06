@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0
+
+* Improve **Image Browser** styles, align the buttons in the pagination controls toolbar.
+
 ## 0.3.0
 
 * Avoid setting CSS variables to every element. Instead, set them only to the `:root` and the `body` for theme
