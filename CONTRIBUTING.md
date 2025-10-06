@@ -57,15 +57,16 @@ invokes building on file changes, can be launched by running:
 $ make watch
 ```
 
-The location where files are built can be changed with `SD_WEB_UI_EXTENSIONS_PREFIX` environment variable. This
-can be used to write build results to the web UI's extension directory:
+The location where the files are built can be changed with the `SD_WEB_UI_EXTENSIONS_PREFIX` environment variable. This
+can, for instance, be used to write build results to the web UI's extension directory while the extensions'
+repository is located outside of it:
 
 ```shell
 $ make build SD_WEB_UI_EXTENSIONS_PREFIX=/path/to/stable-diffusion-webui/extensions/
 ```
 
-Files are build to `sd-web-ui-bit-theme` directory under the given path prefix.
-Same also works with the watcher:
+Files are created to inside of `sd-web-ui-bit-theme` directory under the given path prefix. The same environment
+variable also works with the watch command:
 
 ```shell
 $ make watch SD_WEB_UI_EXTENSIONS_PREFIX=/path/to/webui/extensions/
