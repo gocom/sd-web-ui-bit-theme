@@ -24,6 +24,7 @@
  * Prose.
  *
  * [1] Default styles color text within `.prose` with wildcard selector.
+ * [2] Override specificity.
  */
 :root .prose {
   color: inherit;
@@ -151,6 +152,39 @@
     margin-bottom: 0.5em;
   }
 
+  details {
+    margin-bottom: 1em;
+
+    details > :not(:first-child) {
+      margin-left: 0 !important; // [2]
+    }
+
+    summary {
+      display: block !important; // [2]
+      padding: 0.5em 0;
+      position: relative;
+
+      &::before {
+        content: "+";
+        margin-right: 1em;
+      }
+
+      &::marker {
+        content: "";
+      }
+    }
+
+    &[open] {
+      padding-bottom: 0 !important; // [2]
+
+      summary{
+        &::before {
+          content: "-";
+        }
+      }
+    }
+  }
+
   h1,
   h2,
   h3,
@@ -159,7 +193,8 @@
   h6,
   p,
   ol,
-  ul {
+  ul,
+  details {
     &:first-child {
       margin-top: 0;
     }

@@ -90,7 +90,7 @@
   #cp_modelpreview_xd_flexcolumn_row > #lo_modelpreview_xd_html_div { // [4]
     border: 0 !important; // [3]
     flex-grow: 1;
-    max-width: calc(var(--card-size) * 4 + var(--margin-s) * 3); // [3]
+    max-width: 100%;
     min-width: min(100%, calc(var(--card-size) * 2 + var(--margin-s))) !important; // [3]
     order: 2;
 
@@ -104,7 +104,7 @@
       justify-content: start;
       margin: 0;
       max-height: none;
-      max-width: 100%;
+      max-width: calc(var(--card-size) * 4 + var(--margin-s) * 3);
       overflow: visible;
       width: auto;
 
@@ -189,5 +189,19 @@
     color: inherit;
     font: inherit;
     opacity: 1;
+  }
+
+  .civitai-info {
+    display: grid;
+    grid-template-columns: [left] 1fr [right] 1fr;
+
+    #ci-images {
+      grid-column: right;
+      grid-row: 1 / span 1000;
+    }
+
+    > *:not(#ci-images) {
+      grid-column: left;
+    }
   }
 }
