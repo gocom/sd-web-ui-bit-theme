@@ -2,7 +2,11 @@ import {
   ArrowDownWideNarrow,
   ArrowUpNarrowWide,
   Copy,
+  Edit,
+  Eye,
   Image,
+  Info,
+  XCircle,
 } from 'lucide-static';
 
 /**
@@ -14,8 +18,8 @@ export const insertIcon = (
   size: number
 ) => {
   element.innerHTML = svg
-    .replace('width="24"', `width="${size}"`)
-    .replace('height="24"', `height="${size}"`);
+    .replace(/width="24"/gi, `width="${size}"`)
+    .replace(/height="24"/gi, `height="${size}"`);
 
   element.classList.add('has-icon', 'anticon');
 };
@@ -79,6 +83,41 @@ export default () => {
     [],
     Image,
     36
+  );
+
+  replaceIcon(
+    document.querySelectorAll('.extra-network-cards .card .previewXD-button'),
+    [],
+    Eye,
+    16
+  );
+
+  replaceIcon(
+    document.querySelectorAll('.extra-network-pane .copy-path-button'),
+    [],
+    Copy,
+    16
+  );
+
+  replaceIcon(
+    document.querySelectorAll('.extra-network-pane .edit-button'),
+    [],
+    Edit,
+    16
+  );
+
+  replaceIcon(
+    document.querySelectorAll('.extra-networks .metadata-button'),
+    [],
+    Info,
+    16
+  );
+
+  replaceIcon(
+    document.querySelectorAll('.img-properties-list summary'),
+    [],
+    `${Info}${XCircle}`,
+    16
   );
 
   replaceIcon(

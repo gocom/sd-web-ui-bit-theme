@@ -85,9 +85,9 @@
   }
 
   #cp_modelpreview_xd_flexcolumn_row > #cp_modelpreview_xd_html_div,
-  #cp_modelpreview_xd_flexcolumn_row > #em_modelpreview_xd_html_div,
-  #cp_modelpreview_xd_flexcolumn_row > #hn_modelpreview_xd_html_div,
-  #cp_modelpreview_xd_flexcolumn_row > #lo_modelpreview_xd_html_div { // [4]
+  #em_modelpreview_xd_flexcolumn_row > #em_modelpreview_xd_html_div,
+  #hn_modelpreview_xd_flexcolumn_row > #hn_modelpreview_xd_html_div,
+  #lo_modelpreview_xd_flexcolumn_row > #lo_modelpreview_xd_html_div { // [4]
     border: 0 !important; // [3]
     flex-grow: 1;
     max-width: 100%;
@@ -181,6 +181,13 @@
           }
         }
       }
+
+      &#ci-images {
+        border-top: 1px solid var(--input-border-color);
+        padding-top: var(--padding-xl);
+        margin-top: var(--margin-xl);
+        max-width: 100%;
+      }
     }
   }
 
@@ -192,16 +199,67 @@
   }
 
   .civitai-info {
-    display: grid;
-    grid-template-columns: [left] 1fr [right] 1fr;
-
-    #ci-images {
-      grid-column: right;
-      grid-row: 1 / span 1000;
+    > details + br {
+      display: none;
     }
+  }
 
-    > *:not(#ci-images) {
-      grid-column: left;
+  .img-prop-container {
+    position: relative;
+
+    .img-properties-list {
+      summary {
+        z-index: 2;
+        background: var(--image-mask-bg-color);
+        color: var(--image-text-color);
+        position: absolute;
+        bottom: var(--padding-s);
+        left: var(--padding-s);
+        right: auto;
+        top: auto;
+        padding: var(--padding-xs);
+        backdrop-filter: var(--image-mask-backdrop-filter);
+        border-radius: var(--border-radius-xm);
+        transition: box-shadow 0.25s;
+
+        &:hover {
+          box-shadow: 0 0 var(--padding-xxs) var(--image-mask-bg-color);
+        }
+
+        svg:last-of-type {
+          display: none;
+        }
+      }
+
+      &[open] {
+        position: fixed;
+        z-index: 1000;
+        background: var(--panel-background-fill);
+        padding: max(5%, calc(var(--padding-xl) * 2));
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+
+        summary {
+          position: fixed;
+          bottom: auto;
+          right: var(--padding-xl);
+          left: auto;
+          top: var(--padding-xl);
+
+          svg:first-of-type {
+            display: none;
+          }
+
+          svg:last-of-type {
+            display: initial;
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
     }
   }
 }

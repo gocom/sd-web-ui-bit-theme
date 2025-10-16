@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0
+
+* Added styles for **Model Preview** extension's Civitai info display.
+
 ## 0.4.0
 
 * Improve **Image Browser** styles, align the buttons in the pagination controls toolbar.
