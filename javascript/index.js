@@ -60,6 +60,124 @@ const Image = `
 
 //# sourceMappingURL=image.js.map
 
+;// ../node_modules/lucide-static/dist/esm/icons/eye.js
+/**
+ * @license lucide-static v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+const Eye = `
+<svg
+  class="lucide lucide-eye"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+  <circle cx="12" cy="12" r="3" />
+</svg>
+`;
+
+
+//# sourceMappingURL=eye.js.map
+
+;// ../node_modules/lucide-static/dist/esm/icons/square-pen.js
+/**
+ * @license lucide-static v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+const SquarePen = `
+<svg
+  class="lucide lucide-square-pen"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+  <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" />
+</svg>
+`;
+
+
+//# sourceMappingURL=square-pen.js.map
+
+;// ../node_modules/lucide-static/dist/esm/icons/info.js
+/**
+ * @license lucide-static v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+const Info = `
+<svg
+  class="lucide lucide-info"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M12 16v-4" />
+  <path d="M12 8h.01" />
+</svg>
+`;
+
+
+//# sourceMappingURL=info.js.map
+
+;// ../node_modules/lucide-static/dist/esm/icons/circle-x.js
+/**
+ * @license lucide-static v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+const CircleX = `
+<svg
+  class="lucide lucide-circle-x"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="m15 9-6 6" />
+  <path d="m9 9 6 6" />
+</svg>
+`;
+
+
+//# sourceMappingURL=circle-x.js.map
+
 ;// ../node_modules/lucide-static/dist/esm/icons/arrow-down-wide-narrow.js
 /**
  * @license lucide-static v0.544.0 - ISC
@@ -131,8 +249,8 @@ const ArrowUpNarrowWide = `
  */
 const insertIcon = (element, svg, size) => {
     element.innerHTML = svg
-        .replace('width="24"', `width="${size}"`)
-        .replace('height="24"', `height="${size}"`);
+        .replace(/width="24"/gi, `width="${size}"`)
+        .replace(/height="24"/gi, `height="${size}"`);
     element.classList.add('has-icon', 'anticon');
 };
 /**
@@ -171,6 +289,11 @@ const replaceIcon = (elements, emojis, svg, size) => {
 /* harmony default export */ const icons = (() => {
     replaceIcon(document.querySelectorAll('.img-meta-ico, .copy_code_button'), [], Copy, 16);
     replaceIcon(document.querySelectorAll('.empty .icon'), [], Image, 36);
+    replaceIcon(document.querySelectorAll('.extra-network-cards .card .previewXD-button'), [], Eye, 16);
+    replaceIcon(document.querySelectorAll('.extra-network-pane .copy-path-button'), [], Copy, 16);
+    replaceIcon(document.querySelectorAll('.extra-network-pane .edit-button'), [], SquarePen, 16);
+    replaceIcon(document.querySelectorAll('.extra-networks .metadata-button'), [], Info, 16);
+    replaceIcon(document.querySelectorAll('.img-properties-list summary'), [], `${Info}${CircleX}`, 16);
     replaceIcon(document.querySelectorAll('button'), ['▼'], ArrowDownWideNarrow, 16);
     replaceIcon(document.querySelectorAll('button'), ['▲'], ArrowUpNarrowWide, 16);
 });
@@ -205,35 +328,6 @@ const EyeOff = `
 
 
 //# sourceMappingURL=eye-off.js.map
-
-;// ../node_modules/lucide-static/dist/esm/icons/eye.js
-/**
- * @license lucide-static v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-
-const Eye = `
-<svg
-  class="lucide lucide-eye"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
-  <circle cx="12" cy="12" r="3" />
-</svg>
-`;
-
-
-//# sourceMappingURL=eye.js.map
 
 ;// ./javascript/component/livePreviewIcon.ts
 
